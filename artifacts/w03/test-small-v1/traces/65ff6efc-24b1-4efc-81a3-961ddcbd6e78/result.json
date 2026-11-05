@@ -1,0 +1,17 @@
+{
+  "status": "unsupported",
+  "reason": "所查询的 2026 年 9 月超出了当前数据集的覆盖范围（数据覆盖期为 2024-09-01 至 2026-09-01，当前参考日期为 2026-09-01）。",
+  "intent": {
+    "status": "unsupported",
+    "reason": "所查询的 2026 年 9 月超出了当前数据集的覆盖范围（数据覆盖期为 2024-09-01 至 2026-09-01，当前参考日期为 2026-09-01）。"
+  },
+  "question": "青禾 2026 年 9 月的净销售额是多少？",
+  "trace_id": "65ff6efc-24b1-4efc-81a3-961ddcbd6e78",
+  "elapsed_seconds": 8.11,
+  "model_usage": {
+    "prompt_tokens": 12631,
+    "completion_tokens": 88,
+    "total_tokens": 13354
+  },
+  "model_calls_with_usage": 1
+}

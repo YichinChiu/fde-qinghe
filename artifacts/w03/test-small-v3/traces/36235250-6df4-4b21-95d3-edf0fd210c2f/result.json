@@ -1,0 +1,38 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "selling_store_count"
+    ],
+    "start": "2026-08-01",
+    "end": "2026-09-01",
+    "group_by": [],
+    "filters": []
+  },
+  "sql": "SELECT\n  COUNT(DISTINCT CASE WHEN status = 'paid' AND paid_cents > refund_cents THEN store_id ELSE NULL END) AS selling_store_count\nFROM \"data\".\"main\".\"orders\" orders_source_src_10000\nWHERE DATE_TRUNC('day', ordered_at) BETWEEN '2026-08-01' AND '2026-08-31'",
+  "columns": [
+    "selling_store_count"
+  ],
+  "rows": [
+    [
+      2
+    ]
+  ],
+  "seconds": 0.031,
+  "units": {
+    "selling_store_count": "count"
+  },
+  "data_version": "qinghe-w03-20260923-small",
+  "data_sha256": "8a295969ec24556ebd7f818506633919e71f840fc86488d53efc185f9768cfe6",
+  "catalog_sha256": "bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c",
+  "answer": "青禾在 2026 年 8 月（2026-08-01 至 2026-09-01）的成交门店数为 2 家。\n\n统计口径与说明：\n1. 成交门店数统计的是时间窗口内至少产生过一笔有效订单的不同订单成交门店（订单归属门店）数量。\n2. 需要特别说明：小程序订单门店编号含义待IT核实，核实前不能当作门店归属，不改变现有门店考核，不代表门店执行已经改善。",
+  "question": "青禾 2026 年 8 月成交门店数是多少？",
+  "trace_id": "36235250-6df4-4b21-95d3-edf0fd210c2f",
+  "elapsed_seconds": 15.672,
+  "model_usage": {
+    "prompt_tokens": 15759,
+    "completion_tokens": 242,
+    "total_tokens": 16776
+  },
+  "model_calls_with_usage": 2
+}

@@ -1,0 +1,38 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "selling_store_count"
+    ],
+    "start": "2026-08-01",
+    "end": "2026-09-01",
+    "group_by": [],
+    "filters": []
+  },
+  "sql": "SELECT\n  COUNT(DISTINCT case when status = 'paid' and (paid_cents - refund_cents) > 0 then store_id else null end) AS selling_store_count\nFROM \"data\".\"main\".\"orders\" orders_src_10000\nWHERE DATE_TRUNC('day', ordered_at) BETWEEN '2026-08-01' AND '2026-08-31'",
+  "columns": [
+    "selling_store_count"
+  ],
+  "rows": [
+    [
+      2
+    ]
+  ],
+  "seconds": 0.031,
+  "units": {
+    "selling_store_count": "count"
+  },
+  "data_version": "qinghe-w03-20260923-small",
+  "data_sha256": "8a295969ec24556ebd7f818506633919e71f840fc86488d53efc185f9768cfe6",
+  "catalog_sha256": "266ad38a8f11190084fc51913ec5216f7716612cd6a870f00b2e002d264916be",
+  "answer": "在 2026 年 8 月（2026-08-01 至 2026-09-01）统计期间，青禾有成交记录的订单成交门店数为 2 家（统计口径为期间内至少产生一笔有效订单的不同订单成交门店数）。",
+  "question": "青禾 2026 年 8 月成交门店数是多少？",
+  "trace_id": "815ce318-d2e9-420c-83ed-65977c632529",
+  "elapsed_seconds": 15.625,
+  "model_usage": {
+    "prompt_tokens": 13882,
+    "completion_tokens": 205,
+    "total_tokens": 14579
+  },
+  "model_calls_with_usage": 2
+}

@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "EtYBCtMBAWkUfROnALA8B1t3odH8nqIZI1wR/qIIM+szN8/FET/f4gYjhB+VRUc2sE85hK2A301nmnIJ4tWS5vjNFpgNPyfnR0qD5Vp7gPOSqtR/Jt7APiMnIPb6CaWpSNifRTZzPsgaTeW2xCtQf9lhVgQ2LK3cZgX8S31Ysqmnatt3eDY8SAhEE205RwcOUPXJ7BaTbgY8Md39A+M8Lw9Rl3fk0a1OaFUxBvTQ5hZiTI3RsFF3InzGG/1/qxEgkcKwwT7jFL2TALyENnka9OLCfWwH3Wt9Gg=="
+          }
+        },
+        "function": {
+          "arguments": "{\"claim_ids\":[\"CLM-001-0012\",\"CLM-002-0017\",\"CLM-002-0023\",\"CLM-002-0024\"],\"question\":\"请 FDE 核查最后一组候选（CLM-001-0012、CLM-002-0017、CLM-002-0023、CLM-002-0024）：\\\\n1. 小林表示不掌握实际资格记录来源及具体提供人，系统记录可找老周核实，但不代为确认记录内容；王经理只管预算和合同，不裁定资格（CLM-001-0012）。\\\\n2. 老周表示 valid_until 或 ended_at 落在月底当天有效与否不掌握判定细节，不能凭日期写法下结论；需先明核查对象和用途，与运营确认会员范围，再核对系统统计范围、时间与说明并结合实际资格记录判断，由谁、何时给结论现在定不了（CLM-002-0017）。\\\\n3. 陈姐重申接待分清两类会员；四种卡在门店现场具体如何区分对待属于操作细节，陈姐不掌握，不替门店编说法（CLM-002-0023）。\\\\n4. 陈姐重申门店活动职责（核对适用范围、说明权益、接待咨询、配合注册与执行、反馈现场问题）；若门店做法与运营月报口径有差异，由运营牵头定，陈姐不替运营定口径（CLM-002-0024）。\\\\n请核查陈述、限定与转介记录。\"}",
+          "name": "request_review"
+        },
+        "id": "call_429152",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 49754,
+    "completion_tokens": 403,
+    "total_tokens": 50216
+  }
+}

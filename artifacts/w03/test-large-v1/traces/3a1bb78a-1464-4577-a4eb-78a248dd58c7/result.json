@@ -1,0 +1,38 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "first_buyer_count"
+    ],
+    "start": "2026-06-01",
+    "end": "2026-07-01",
+    "group_by": [],
+    "filters": []
+  },
+  "sql": "SELECT\n  COUNT(DISTINCT CASE WHEN order_seq = 1 THEN member_id ELSE NULL END) AS first_buyer_count\nFROM \"data\".\"main\".\"ranked_orders\" ranked_orders_model_src_10000\nWHERE DATE_TRUNC('day', ordered_at) BETWEEN '2026-06-01' AND '2026-06-30'",
+  "columns": [
+    "first_buyer_count"
+  ],
+  "rows": [
+    [
+      1531
+    ]
+  ],
+  "seconds": 0.063,
+  "units": {
+    "first_buyer_count": "count"
+  },
+  "data_version": "qinghe-w03-20260923-large",
+  "data_sha256": "0074e7f764c63e836617aecb0e217aa3b5cc0cf9ede557179ad46b077dcf8ba8",
+  "catalog_sha256": "bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c",
+  "answer": "在2026年6月（2026-06-01至2026-07-01），青禾在观测期内首次有效购买的会员为 1,531 个 CRM 会员账户。该口径是在测试覆盖期（2024-09-01 至 2026-09-01）内先按日期及订单号确定首次有效订单后再筛选，统计单位为 CRM 会员账户，不代表终身首购。",
+  "question": "2026 年 6 月青禾有多少会员是在观测期内第一次有效购买的？",
+  "trace_id": "3a1bb78a-1464-4577-a4eb-78a248dd58c7",
+  "elapsed_seconds": 23.859,
+  "model_usage": {
+    "prompt_tokens": 496464,
+    "completion_tokens": 316,
+    "total_tokens": 497429
+  },
+  "model_calls_with_usage": 2
+}

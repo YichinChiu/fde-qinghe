@@ -1,0 +1,58 @@
+[
+  {
+    "metric_id": "monthly_paid_buyer_count",
+    "missing_facts": [
+      "cards 表计划结束日 valid_until 落在月底当天是否具有有效资格的业务判定规则",
+      "cards 表提前终止日 ended_at 落在月底当天是否具有有效资格的业务判定规则",
+      "cards 表历史数据覆盖情况（测试库是否保留已过期、已终止历史卡）核查结果",
+      "本期付费会员卡种范围、一账户多卡去重规则及 valid_from 月末生效纳入口径的运营书面确认文件"
+    ],
+    "reason": "业务模型中记载 valid_until 与 ended_at 落在月底当天维持未决，老周与小林均表示不掌握或无法仅凭日期判断，需老周与运营小林共同执行四步法核查系统实际资格记录与统计说明；卡种范围等口头答复尚待小林出具书面确认。资格端点规则未决直接导致无法确定自然月月末有资格账户集合，因而无法统计该指标。"
+  },
+  {
+    "metric_id": "monthly_paid_order_count",
+    "missing_facts": [
+      "cards 表计划结束日 valid_until 落在月底当天是否具有有效资格的业务判定规则",
+      "cards 表提前终止日 ended_at 落在月底当天是否具有有效资格的业务判定规则",
+      "cards 表历史数据覆盖情况（测试库是否保留已过期、已终止历史卡）核查结果",
+      "本期付费会员卡种范围、一账户多卡去重规则及 valid_from 月末生效纳入口径的运营书面确认文件"
+    ],
+    "reason": "依赖月末付费会员资格判定规则。由于 valid_until 和 ended_at 月底端点规则维持未决，老周与小林尚未完成实际资格记录核对，无法筛选出月末有资格的账户，进而无法计算其当月有效订单数。"
+  },
+  {
+    "metric_id": "monthly_paid_sales_cents",
+    "missing_facts": [
+      "cards 表计划结束日 valid_until 落在月底当天是否具有有效资格的业务判定规则",
+      "cards 表提前终止日 ended_at 落在月底当天是否具有有效资格的业务判定规则",
+      "cards 表历史数据覆盖情况（测试库是否保留已过期、已终止历史卡）核查结果",
+      "本期付费会员卡种范围、一账户多卡去重规则及 valid_from 月末生效纳入口径的运营书面确认文件"
+    ],
+    "reason": "依赖月末付费会员资格判定规则。由于月末资格判定端点规则（valid_until、ended_at）未决且历史卡数据覆盖情况待核实，无法锁定有资格账户范围，无法汇总其净销售额。"
+  },
+  {
+    "metric_id": "monthly_paid_repeat_buyer_count",
+    "missing_facts": [
+      "cards 表计划结束日 valid_until 落在月底当天是否具有有效资格的业务判定规则",
+      "cards 表提前终止日 ended_at 落在月底当天是否具有有效资格的业务判定规则",
+      "cards 表历史数据覆盖情况（测试库是否保留已过期、已终止历史卡）核查结果",
+      "本期付费会员卡种范围、一账户多卡去重规则及 valid_from 月末生效纳入口径的运营书面确认文件"
+    ],
+    "reason": "依赖月末付费会员资格判定规则。由于资格有效期端点规则未决，无法判定账户在月末是否具备资格，导致当月至少两笔有效订单的资格账户数无法计算。"
+  },
+  {
+    "metric_id": "monthly_paid_repeat_rate",
+    "missing_facts": [
+      "依赖指标 monthly_paid_repeat_buyer_count 与 monthly_paid_buyer_count 存在未决端点规则",
+      "cards 表 valid_until 与 ended_at 月底端点规则维持未决"
+    ],
+    "reason": "分子 monthly_paid_repeat_buyer_count 与分母 monthly_paid_buyer_count 均因付费会员资格端点规则未决而无法定义，本指标作为比率指标无法闭合计算。"
+  },
+  {
+    "metric_id": "monthly_paid_avg_order_value",
+    "missing_facts": [
+      "依赖指标 monthly_paid_sales_cents 与 monthly_paid_order_count 存在未决端点规则",
+      "cards 表 valid_until 与 ended_at 月底端点规则维持未决"
+    ],
+    "reason": "分子 monthly_paid_sales_cents 与分母 monthly_paid_order_count 均因付费会员资格端点规则未决而无法定义，本指标作为比率指标无法闭合计算。"
+  }
+]

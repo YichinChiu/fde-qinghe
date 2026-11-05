@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "EqABCp0BAWkUfRN0nXPSoea5+2ejyg+S7CFsycYONpKQ+BF8ot2qlo/tk2gbOFW5e+9P20jvcjPY5i72aqpz7wjxyaQ1c6GUcieCodjVEsYBQ3p6ihIheLTcspDmvpwPSS2tpYY32NaoPd7xPkzbL9in09iSAgQqJk84oFzWeOaGsAREgqkdpikSAVktW82+/MZvQ66AmWwA17rVTwelNGIC/A=="
+          }
+        },
+        "function": {
+          "arguments": "{\"question\":\"请核查第 5 组候选（老周关于月底端点判定、核查步骤、测试库性质与卡表历史覆盖）：\\n1. CLM-002-0022：老周不掌握 valid_until 落在月底当天算有效或失效的判定细节，不能凭日期写法下结论；\\n2. CLM-002-0023：判定月底端点需按步骤进行（说明对象用途、老周与运营确认会员范围、核对统计说明并结合实际记录、列出需补记录），由谁何时给结论定不了；\\n3. CLM-002-0024：测试卡表是否保留已过期已终止卡老周不掌握，测试库为干净合成库，不能替代真实历史；\\n4. CLM-002-0025：2024-09 至 2025-12 写“数据不覆盖”还是其他口径，要按实际记录和统计说明核实后再定，不能凭测试库下结论。\\n\\n请确认是否采用或修订状态？\",\"claim_ids\":[\"CLM-002-0022\",\"CLM-002-0023\",\"CLM-002-0024\",\"CLM-002-0025\"]}",
+          "name": "request_review"
+        },
+        "id": "call_313025",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 46121,
+    "completion_tokens": 314,
+    "total_tokens": 46452
+  }
+}

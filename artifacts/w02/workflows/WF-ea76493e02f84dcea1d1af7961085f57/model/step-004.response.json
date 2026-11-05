@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "Eq0DCqoDAWkUfRMfRBGvNjwO1QrLtUz5sBtFcCfMsL4Vx6njtEzJb/MIZ4yKycLikfFHnG25wrKpm7Tj4kIa569knx/xot1HRhNUlaF6E2GG5S5bbd2M9ZwAPTnOqDmJBTTDUmwu+/N08YRtTVJi1AZV0WJr0fGmHYfYSSBrnL218+rhJ10eQjjYmMc5FpUdnciGd1xw81PhM/n2O8ModHL54W/UHd0P+l28aWmk/tP4q9wS6AeLf5GkVypIjhNEj9QYuKl+XNeI2rHoasxk7XkjPpAklOPp8dLNLhEFyshTfT6mEdYYOAjJ21U+JXqMiQbWPmVGGgyhQsDI8ulW0jUDitfO+ecxAjDLhSBKiFEeeTk2VjDqm9MRS87Fg7xTliUOX9gtd9iwRplrVxlGxlZpnxyrBAHw7x48fLYVE9zWsHII5FwD4+K3UZCT0O9PGmYYelwyql6ft4J5A1ZiesScxXPkymACJYCMR5WN7xSFi8BNKbYmWkfgGomUKwwFc1ZnFUQs4f1MH9XGv/bAAneG+qlSdMRRKUvsb8CGKNI0Sr7iv0PGM/vqWicmxCXC"
+          }
+        },
+        "function": {
+          "arguments": "{\"claim_ids\":[\"CLM-001-0003\",\"CLM-001-0008\",\"CLM-001-0009\",\"CLM-001-0010\"],\"question\":\"请 FDE 核查第一组候选（CLM-001-0003、CLM-001-0008、CLM-001-0009、CLM-001-0010）：\\\\n1. 王经理指出付费资格属于业务规则，须运营形成书面确认，运营口头答复不能单独作为约定依据；运营与门店不一致时由运营牵头定（CLM-001-0003）。\\\\n2. 小林口头答复本期运营月报付费会员仅算悦享年卡和家庭季卡，联名卡、体验卡不算，且仅约束本期月报（CLM-001-0008，当前为待运营书面确认状态）。\\\\n3. 会员等级与付费资格为不同维度，金卡账户不一定持有效卡，普通等级也可能持有效卡，不可用支付金额或等级替代付费资格判断（CLM-001-0009）。\\\\n4. 同一账户持有多张有效卡只算一个有资格账户（CLM-001-0010）。\\\\n请核对提取陈述与限定条件是否准确、有无遗漏。\"}",
+          "name": "request_review"
+        },
+        "id": "call_335116",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 28738,
+    "completion_tokens": 344,
+    "total_tokens": 29186
+  }
+}

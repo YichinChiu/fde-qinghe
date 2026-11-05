@@ -1,0 +1,412 @@
+{
+ "report": "artifacts/w03/test-small-v2/metric_test_report.json",
+ "total": 24,
+ "all_ok": true,
+ "cases": [
+  {
+   "name": "01-wrong-metric",
+   "source_case": "aug-net-sales",
+   "change": "intent.metrics: net_sales_cents → payment_cents",
+   "actual_modified": true,
+   "expected_passed": false,
+   "judge_passed": false,
+   "ok": true,
+   "differences": [
+    {
+     "path": "intent.metrics",
+     "expected": [
+      "net_sales_cents"
+     ],
+     "actual": [
+      "payment_cents"
+     ],
+     "rule": "set mismatch"
+    }
+   ]
+  },
+  {
+   "name": "02-wrong-date",
+   "source_case": "aug-net-sales",
+   "change": "intent.end: 2026-09-01 → 2026-08-31，数字不变",
+   "actual_modified": true,
+   "expected_passed": false,
+   "judge_passed": false,
+   "ok": true,
+   "differences": [
+    {
+     "path": "intent.end",
+     "expected": "2026-09-01",
+     "actual": "2026-08-31"
+    }
+   ]
+  },
+  {
+   "name": "03-extra-filter",
+   "source_case": "aug-net-sales",
+   "change": "intent.filters 多加 order__channel=门店",
+   "actual_modified": true,
+   "expected_passed": false,
+   "judge_passed": false,
+   "ok": true,
+   "differences": [
+    {
+     "path": "intent.filters",
+     "expected": [],
+     "actual": [
+      {
+       "field": "order__channel",
+       "op": "eq",
+       "value": "门店"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "04a-wrong-group",
+   "source_case": "aug-valid-orders-by-channel",
+   "change": "intent.group_by: order__channel → store",
+   "actual_modified": true,
+   "expected_passed": false,
+   "judge_passed": false,
+   "ok": true,
+   "differences": [
+    {
+     "path": "intent.group_by",
+     "expected": [
+      "order__channel"
+     ],
+     "actual": [
+      "store"
+     ],
+     "rule": "set mismatch"
+    }
+   ]
+  },
+  {
+   "name": "04b-missing-group",
+   "source_case": "aug-valid-orders-by-channel",
+   "change": "rows 删除一组",
+   "actual_modified": true,
+   "expected_passed": false,
+   "judge_passed": false,
+   "ok": true,
+   "differences": [
+    {
+     "path": "expected.status",
+     "rule": "unsupported expected status",
+     "expected": null,
+     "actual": null
+    }
+   ]
+  },
+  {
+   "name": "05-cents-vs-yuan",
+   "source_case": "aug-net-sales",
+   "change": "units.net_sales_cents: cents → yuan，数字不变",
+   "actual_modified": true,
+   "expected_passed": false,
+   "judge_passed": false,
+   "ok": true,
+   "differences": [
+    {
+     "path": "units.net_sales_cents",
+     "expected": "cents",
+     "actual": "yuan",
+     "rule": "unit mismatch"
+    }
+   ]
+  },
+  {
+   "name": "06-ratio-as-percent",
+   "source_case": "aug-orders-cancel",
+   "change": "cancel_rate 乘 100",
+   "actual_modified": true,
+   "expected_passed": false,
+   "judge_passed": false,
+   "ok": true,
+   "differences": [
+    {
+     "path": "rows",
+     "expected": 0.0625,
+     "actual": 6.25,
+     "rule": "isclose(rel=1e-09,abs=1e-09)",
+     "group": {},
+     "metric": "cancel_rate"
+    }
+   ]
+  },
+  {
+   "name": "07-null-to-zero",
+   "source_case": "mar-2025-zero-denominator",
+   "change": "avg_order_value: null → 0",
+   "actual_modified": true,
+   "expected_passed": false,
+   "judge_passed": false,
+   "ok": true,
+   "differences": [
+    {
+     "path": "rows",
+     "expected": null,
+     "actual": 0,
+     "rule": "null",
+     "group": {},
+     "metric": "avg_order_value"
+    }
+   ]
+  },
+  {
+   "name": "08-tampered-value",
+   "source_case": "aug-net-sales",
+   "change": "net_sales_cents +1 分",
+   "actual_modified": true,
+   "expected_passed": false,
+   "judge_passed": false,
+   "ok": true,
+   "differences": [
+    {
+     "path": "rows",
+     "expected": 100300,
+     "actual": 100301,
+     "rule": "exact",
+     "group": {},
+     "metric": "net_sales_cents"
+    }
+   ]
+  },
+  {
+   "name": "09a-error-with-rows",
+   "source_case": "aug-net-sales",
+   "change": "status: ok → error，保留正确行",
+   "actual_modified": true,
+   "expected_passed": false,
+   "judge_passed": false,
+   "ok": true,
+   "differences": [
+    {
+     "path": "status",
+     "expected": "ok",
+     "actual": "error"
+    }
+   ]
+  },
+  {
+   "name": "09b-failed-result-disguised-ok",
+   "source_case": "aug-net-sales-by-home-region",
+   "change": "取第 1 轮真实失败结果（NATIVE_QUERY_FAILED，意图 group_by=home_store），状态改为 ok 并留着期望行",
+   "actual_modified": true,
+   "expected_passed": false,
+   "judge_passed": false,
+   "ok": true,
+   "differences": [
+    {
+     "path": "data_version",
+     "expected": "qinghe-w03-20260923-small",
+     "actual": null,
+     "rule": "version mismatch or missing"
+    }
+   ]
+  },
+  {
+   "name": "10-duplicate-group",
+   "source_case": "aug-valid-orders-by-channel",
+   "change": "rows 重复追加同一组",
+   "actual_modified": true,
+   "expected_passed": false,
+   "judge_passed": false,
+   "ok": true,
+   "differences": [
+    {
+     "path": "rows",
+     "expected": null,
+     "actual": null,
+     "rule": "duplicate group in actual",
+     "group": {
+      "order__channel": "门店"
+     }
+    }
+   ]
+  },
+  {
+   "name": "11-wrong-data-version",
+   "source_case": "aug-net-sales",
+   "change": "data_version 替换为另一版本（期望已锁 data_version）",
+   "actual_modified": true,
+   "expected_passed": false,
+   "judge_passed": false,
+   "ok": true,
+   "differences": [
+    {
+     "path": "data_version",
+     "expected": "qinghe-w03-20260923-small",
+     "actual": "qinghe-w03-20260923-large",
+     "rule": "version mismatch or missing"
+    }
+   ]
+  },
+  {
+   "name": "12-role-swap",
+   "source_case": "aug-net-sales-by-home-region",
+   "change": "group_by: home_store__region → store__region（角色混淆）",
+   "actual_modified": true,
+   "expected_passed": false,
+   "judge_passed": false,
+   "ok": true,
+   "differences": [
+    {
+     "path": "intent.group_by",
+     "expected": [
+      "home_store__region"
+     ],
+     "actual": [
+      "store__region"
+     ],
+     "rule": "set mismatch"
+    }
+   ]
+  },
+  {
+   "name": "13-bool-as-number",
+   "source_case": "aug-selling-stores",
+   "change": "selling_store_count 改为 true",
+   "actual_modified": true,
+   "expected_passed": false,
+   "judge_passed": false,
+   "ok": true,
+   "differences": [
+    {
+     "path": "rows",
+     "expected": 2,
+     "actual": true,
+     "rule": "type",
+     "group": {},
+     "metric": "selling_store_count"
+    }
+   ]
+  },
+  {
+   "name": "14-numeric-string",
+   "source_case": "aug-net-sales",
+   "change": "net_sales_cents 改为数字字符串",
+   "actual_modified": true,
+   "expected_passed": false,
+   "judge_passed": false,
+   "ok": true,
+   "differences": [
+    {
+     "path": "rows",
+     "expected": 100300,
+     "actual": "100300",
+     "rule": "type",
+     "group": {},
+     "metric": "net_sales_cents"
+    }
+   ]
+  },
+  {
+   "name": "15-ratio-outside-tolerance",
+   "source_case": "aug-orders-cancel",
+   "change": "cancel_rate +1e-6（超出容差）",
+   "actual_modified": true,
+   "expected_passed": false,
+   "judge_passed": false,
+   "ok": true,
+   "differences": [
+    {
+     "path": "rows",
+     "expected": 0.0625,
+     "actual": 0.062501,
+     "rule": "isclose(rel=1e-09,abs=1e-09)",
+     "group": {},
+     "metric": "cancel_rate"
+    }
+   ]
+  },
+  {
+   "name": "16-extra-unit",
+   "source_case": "aug-net-sales",
+   "change": "units 多出一项",
+   "actual_modified": true,
+   "expected_passed": false,
+   "judge_passed": false,
+   "ok": true,
+   "differences": [
+    {
+     "path": "units.payment_cents",
+     "expected": null,
+     "actual": "cents",
+     "rule": "unexpected unit"
+    }
+   ]
+  },
+  {
+   "name": "P1-original",
+   "source_case": "aug-valid-orders-by-channel",
+   "change": "原始正确结果，不改",
+   "actual_modified": false,
+   "expected_passed": true,
+   "judge_passed": true,
+   "ok": true,
+   "differences": []
+  },
+  {
+   "name": "P2-row-order",
+   "source_case": "aug-valid-orders-by-channel",
+   "change": "只颠倒行顺序",
+   "actual_modified": true,
+   "expected_passed": true,
+   "judge_passed": true,
+   "ok": true,
+   "differences": []
+  },
+  {
+   "name": "P3-column-order",
+   "source_case": "aug-valid-orders-by-channel",
+   "change": "列顺序整体颠倒（按列名映射）",
+   "actual_modified": true,
+   "expected_passed": true,
+   "judge_passed": true,
+   "ok": true,
+   "differences": []
+  },
+  {
+   "name": "P4-int-as-float",
+   "source_case": "aug-net-sales",
+   "change": "100300 → 100300.0",
+   "actual_modified": true,
+   "expected_passed": true,
+   "judge_passed": true,
+   "ok": true,
+   "differences": []
+  },
+  {
+   "name": "P5-ratio-within-tolerance",
+   "source_case": "aug-orders-cancel",
+   "change": "cancel_rate +1e-12（容差内）",
+   "actual_modified": true,
+   "expected_passed": true,
+   "judge_passed": true,
+   "ok": true,
+   "differences": []
+  },
+  {
+   "name": "S1-large-integer-off-by-one",
+   "source_case": "合成比较输入",
+   "change": "1000000000 对 1000000001",
+   "actual_modified": true,
+   "expected_passed": false,
+   "judge_passed": false,
+   "ok": true,
+   "differences": [
+    {
+     "path": "rows",
+     "expected": 1000000000,
+     "actual": 1000000001,
+     "rule": "exact",
+     "group": {},
+     "metric": "payment_cents"
+    }
+   ]
+  }
+ ]
+}

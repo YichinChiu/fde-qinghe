@@ -1,0 +1,46 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "gross_cents",
+      "discount_cents",
+      "discount_rate"
+    ],
+    "start": "2026-08-01",
+    "end": "2026-09-01",
+    "group_by": [],
+    "filters": []
+  },
+  "sql": "WITH sma_10003_cte AS (\n  SELECT\n    DATE_TRUNC('day', ordered_at) AS metric_time__day\n    , CASE WHEN status = 'paid' THEN gross_cents ELSE 0 END AS __gross_cents\n    , CASE WHEN status = 'paid' THEN gross_cents - paid_cents ELSE 0 END AS __discount_cents\n  FROM \"data\".\"main\".\"orders\" orders_source_src_10000\n)\n\nSELECT\n  MAX(subq_8.gross_cents) AS gross_cents\n  , MAX(subq_8.discount_cents) AS discount_cents\n  , MAX(subq_15.discount_rate) AS discount_rate\nFROM (\n  SELECT\n    SUM(__gross_cents) AS gross_cents\n    , SUM(__discount_cents) AS discount_cents\n  FROM sma_10003_cte\n  WHERE metric_time__day BETWEEN '2026-08-01' AND '2026-08-31'\n) subq_8\nCROSS JOIN (\n  SELECT\n    CAST(SUM(__discount_cents) AS DOUBLE) / CAST(NULLIF(SUM(__gross_cents), 0) AS DOUBLE) AS discount_rate\n  FROM sma_10003_cte\n  WHERE metric_time__day BETWEEN '2026-08-01' AND '2026-08-31'\n) subq_15",
+  "columns": [
+    "gross_cents",
+    "discount_cents",
+    "discount_rate"
+  ],
+  "rows": [
+    [
+      124250,
+      5200,
+      0.041851106639839035
+    ]
+  ],
+  "seconds": 0.063,
+  "units": {
+    "gross_cents": "cents",
+    "discount_cents": "cents",
+    "discount_rate": "ratio"
+  },
+  "data_version": "qinghe-w03-20260923-small",
+  "data_sha256": "8a295969ec24556ebd7f818506633919e71f840fc86488d53efc185f9768cfe6",
+  "catalog_sha256": "bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c",
+  "answer": "青禾在 2026 年 8 月（2026-08-01 至 2026-09-01）期间的订单统计结果如下：\n- 支付订单原价金额：1,242.50 元\n- 优惠金额：52.00 元\n- 优惠率：4.19%\n\n统计口径说明：仅统计已支付（paid）订单的原价金额与原价减实付优惠金额合计，退款不冲减原优惠金额；优惠率为优惠金额除以支付订单原价金额。",
+  "question": "青禾 2026 年 8 月支付订单原价金额、优惠金额和优惠率分别是多少？",
+  "trace_id": "5ee2ad84-b7ed-4ee0-bd0d-111e7dd9b237",
+  "elapsed_seconds": 12.219,
+  "model_usage": {
+    "prompt_tokens": 16171,
+    "completion_tokens": 309,
+    "total_tokens": 16863
+  },
+  "model_calls_with_usage": 2
+}

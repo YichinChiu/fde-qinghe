@@ -1,0 +1,42 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "net_sales_cents",
+      "avg_order_value"
+    ],
+    "start": "2025-03-01",
+    "end": "2025-04-01",
+    "group_by": [],
+    "filters": []
+  },
+  "sql": "WITH sma_10004_cte AS (\n  SELECT\n    DATE_TRUNC('day', ordered_at) AS metric_time__day\n    , case when status = 'paid' and (paid_cents - refund_cents) > 0 then 1 else 0 end AS __valid_order_count\n    , case when status = 'paid' then paid_cents - refund_cents else 0 end AS __net_sales_cents\n  FROM \"data\".\"main\".\"orders\" orders_src_10000\n)\n\nSELECT\n  MAX(subq_8.net_sales_cents) AS net_sales_cents\n  , MAX(subq_15.avg_order_value) AS avg_order_value\nFROM (\n  SELECT\n    SUM(__net_sales_cents) AS net_sales_cents\n  FROM sma_10004_cte\n  WHERE metric_time__day BETWEEN '2025-03-01' AND '2025-03-31'\n) subq_8\nCROSS JOIN (\n  SELECT\n    CAST(SUM(__net_sales_cents) AS DOUBLE) / CAST(NULLIF(SUM(__valid_order_count), 0) AS DOUBLE) AS avg_order_value\n  FROM sma_10004_cte\n  WHERE metric_time__day BETWEEN '2025-03-01' AND '2025-03-31'\n) subq_15",
+  "columns": [
+    "net_sales_cents",
+    "avg_order_value"
+  ],
+  "rows": [
+    [
+      0,
+      null
+    ]
+  ],
+  "seconds": 0.047,
+  "units": {
+    "net_sales_cents": "cents",
+    "avg_order_value": "cents_per_order"
+  },
+  "data_version": "qinghe-w03-20260923-small",
+  "data_sha256": "8a295969ec24556ebd7f818506633919e71f840fc86488d53efc185f9768cfe6",
+  "catalog_sha256": "266ad38a8f11190084fc51913ec5216f7716612cd6a870f00b2e002d264916be",
+  "answer": "在青禾 2025 年 3 月（2025-03-01 至 2025-03-31）期间：\n- 净销售额为 0.00 元；\n- 有效订单均额未定义（由于该统计周期内无有效订单，分母为零）。",
+  "question": "青禾 2025 年 3 月的净销售额和有效订单均额是多少？",
+  "trace_id": "0bec6793-02d8-4ece-b230-b2c9ed773790",
+  "elapsed_seconds": 19.797,
+  "model_usage": {
+    "prompt_tokens": 14045,
+    "completion_tokens": 261,
+    "total_tokens": 14947
+  },
+  "model_calls_with_usage": 2
+}

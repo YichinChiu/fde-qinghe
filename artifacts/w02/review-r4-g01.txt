@@ -1,0 +1,4 @@
+CLM-001-0001 修订为 evidence_status=reported：单一受访者王经理的说法，没有其他角色提出相反说法，不是 conflicting；内容与 MSG-03537 一致，采用。
+CLM-001-0002 修订为 evidence_status=reported，理由同 CLM-001-0001；内容与 MSG-03537 一致，采用。
+CLM-001-0003 采用：与 MSG-03537 一致，保留“不等于复购率提升或投资回报”与“收益目标、预算、合同、上线未定”。
+CLM-001-0004 修订：evidence_status=reported（非冲突）；删去 qualifiers 中“状态：已口头答复，待运营书面确认”——这是王经理提出的书面确认要求，不是王经理本人的待确认答复；内容与 MSG-03539 一致。

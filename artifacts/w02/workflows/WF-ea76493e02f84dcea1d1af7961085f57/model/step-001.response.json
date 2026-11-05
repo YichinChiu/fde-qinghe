@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "EtkBCtYBAWkUfROTK59XOBCXBYP6gvJCjdros2S2JoQJDx94DFnoCw9F2hAMIgMKLmhY4o10nGQNcHsgvCfHY5zsg+uWo+qOAsZJs1Meu8siSD+uq9zW/hZ8PtaDL26zK7rIDMocM28Wvi2OgfV04hYvIM8HseRPf1xT876b+GCY9pzHLFylwr2lDk2PLaij9lGCYAXMXngmeZZSkvwb/l7mMFf4Mq88xAnkTEfK/4X/oklpxhEH4YAAoHL/TC5H4p81k6HB9JE1eiIdqb17arW1CSfdmcNe3Pu9uQ=="
+          }
+        },
+        "function": {
+          "arguments": "{}",
+          "name": "inspect_materials"
+        },
+        "id": "call_121891",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 1383,
+    "completion_tokens": 10,
+    "total_tokens": 1418
+  }
+}

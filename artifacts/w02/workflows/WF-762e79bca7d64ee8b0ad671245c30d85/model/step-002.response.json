@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "EpEBCo4BAWkUfRN1rBLWAI0YZNSijUXC7n5HukbMhHxJUnkZi8G50wg0cYUXEuKvBX8ieb7drhyAKP19dyyWw+uDXObg4GrpKJNcJVWysfzE6nGJLhh/eHlnF22wFotteAX8Envjs2rz1nk4F8lATS/JXmA8XvnYAAsD9HoUpm6X/ITBpjhWYo9uAAVmqmjwTuue6A=="
+          }
+        },
+        "function": {
+          "arguments": "{}",
+          "name": "extract_candidates"
+        },
+        "id": "call_457213",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 17059,
+    "completion_tokens": 10,
+    "total_tokens": 17077
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "new_member_count"
+    ],
+    "start": "2024-09-01",
+    "end": "2026-09-01",
+    "group_by": [
+      "home_store"
+    ],
+    "filters": []
+  },
+  "sql": "SELECT\n  home_store\n  , SUM(__new_member_count) AS new_member_count\nFROM (\n  SELECT\n    home_store_id AS home_store\n    , 1 AS __new_member_count\n  FROM \"data\".\"main\".\"members\" members_src_10000\n  WHERE DATE_TRUNC('day', registered_at) BETWEEN '2024-09-01' AND '2026-08-31'\n) subq_5\nGROUP BY\n  home_store",
+  "columns": [
+    "home_store",
+    "new_member_count"
+  ],
+  "rows": [
+    [
+      "S03",
+      2
+    ],
+    [
+      "S01",
+      9
+    ],
+    [
+      "S02",
+      9
+    ]
+  ],
+  "seconds": 0.031,
+  "units": {
+    "new_member_count": "count"
+  },
+  "data_version": "qinghe-w03-20260923-small",
+  "data_sha256": "8a295969ec24556ebd7f818506633919e71f840fc86488d53efc185f9768cfe6",
+  "catalog_sha256": "266ad38a8f11190084fc51913ec5216f7716612cd6a870f00b2e002d264916be",
+  "answer": "在 2024 年 9 月 1 日至 2026 年 9 月 1 日（不含）期间，青禾新注册的会员按会员归属门店统计如下：\n- 门店 S01：9 个 CRM 会员账户\n- 门店 S02：9 个 CRM 会员账户\n- 门店 S03：2 个 CRM 会员账户\n\n统计说明：统计口径为按会员注册日期统计的新注册 CRM 会员账户数，未跨系统按自然人去重；维度按会员归属门店划分。",
+  "question": "青禾在 2024 年 9 月 1 日到 2026 年 9 月 1 日（不含）期间注册的会员数，按会员归属门店分别是多少？",
+  "trace_id": "c486f8e1-db67-49cd-96d0-11620aa3c2f5",
+  "elapsed_seconds": 18.765,
+  "model_usage": {
+    "prompt_tokens": 13959,
+    "completion_tokens": 308,
+    "total_tokens": 15170
+  },
+  "model_calls_with_usage": 2
+}

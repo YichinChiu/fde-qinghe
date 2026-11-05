@@ -1,0 +1,65 @@
+{
+  "passed": false,
+  "errors": [
+    {
+      "model_usage": {
+        "quote": "本期总部运营月报付费会员仅包含：悦享年卡、家庭季卡。",
+        "used_for": [
+          {
+            "kind": "derived_model",
+            "name": "member_monthly_orders"
+          },
+          {
+            "kind": "metric",
+            "name": "monthly_paid_buyer_count"
+          }
+        ]
+      }
+    },
+    {
+      "model_usage": {
+        "quote": "在计算有资格账户时只算一个有资格账户，不重复算人、不重复累计订单。",
+        "used_for": [
+          {
+            "kind": "derived_model",
+            "name": "member_monthly_orders"
+          },
+          {
+            "kind": "metric",
+            "name": "monthly_paid_buyer_count"
+          }
+        ]
+      }
+    },
+    {
+      "model_usage": {
+        "quote": "该卡种范围仅约束本期总部运营月报，不改其他报表；当前为运营口头答复，待运营出具书面确认",
+        "used_for": [
+          {
+            "kind": "metric",
+            "name": "monthly_paid_buyer_count"
+          },
+          {
+            "kind": "metric",
+            "name": "monthly_paid_order_count"
+          }
+        ]
+      }
+    },
+    {
+      "model_usage": {
+        "quote": "核实前不能当作门店归属；本期统计不改变现有考核，也不代表门店执行已经改善；若涉及展示，必须注明上述限制。",
+        "used_for": [
+          {
+            "kind": "dimension",
+            "name": "store"
+          },
+          {
+            "kind": "metric",
+            "name": "selling_store_count"
+          }
+        ]
+      }
+    }
+  ]
+}

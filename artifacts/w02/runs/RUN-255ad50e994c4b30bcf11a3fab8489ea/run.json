@@ -1,0 +1,93 @@
+{
+  "contract_version": "w02-0.1.0-draft",
+  "run_id": "RUN-255ad50e994c4b30bcf11a3fab8489ea",
+  "stage": "extraction",
+  "mode": "live",
+  "status": "succeeded",
+  "model": {
+    "provider": "generativelanguage.googleapis.com",
+    "name": "gemini-3.8-flash",
+    "adapter_version": "w02-extractor-0.1.0"
+  },
+  "implementation": [
+    {
+      "path": "artifacts/w02/runs/RUN-255ad50e994c4b30bcf11a3fab8489ea/implementation/platform/fde_product/interview_extraction.py",
+      "sha256": "4158dd8cf48092fbd515c562e326d403e60d15feb76511dd04b9991c77de6e53"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-255ad50e994c4b30bcf11a3fab8489ea/implementation/platform/fde_product/models.py",
+      "sha256": "17cac712394ede304b9d57f2c3adcf4cb5739bbd6264880efb9603bc5dacb223"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-255ad50e994c4b30bcf11a3fab8489ea/implementation/tools/w02_interviews.py",
+      "sha256": "7dc6d6e55add4179c10f6cd41944606ee0a7a722ca2e5bc30b25ca4db31a3e00"
+    }
+  ],
+  "configuration": [
+    {
+      "path": "artifacts/w02/runs/RUN-255ad50e994c4b30bcf11a3fab8489ea/snapshot/artifacts/w02/workflows/WF-298a4a042cad45ad971c04768c04cdd0/extraction.json",
+      "sha256": "7992cfbf29a753e795fea595ab9ca60a82b5ce34f028b80ef488c907ff936910"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-255ad50e994c4b30bcf11a3fab8489ea/snapshot/artifacts/w02/workflows/WF-298a4a042cad45ad971c04768c04cdd0/inputs/prompt.md",
+      "sha256": "105abe860e6311ccfae5713aa240acf5f7e4e6509690d7ed1d5362a8ed790a5a"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-255ad50e994c4b30bcf11a3fab8489ea/contracts/transcript.schema.json",
+      "sha256": "855f84b576d3f0b7bea82eac6b817fc0c8c723040f131f43075380110a823f9f"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-255ad50e994c4b30bcf11a3fab8489ea/contracts/interview_facts.schema.json",
+      "sha256": "34358b1f9cca39f17f3d7b74abda732460be0beaba2f93b8e8f8bcaa3d2e0a80"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-255ad50e994c4b30bcf11a3fab8489ea/contracts/run_evidence.schema.json",
+      "sha256": "4fed42abba5d6f9a727c52d6e3097e965ffa3b02ef855aadb2387ab1f890ebce"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-255ad50e994c4b30bcf11a3fab8489ea/settings.json",
+      "sha256": "90454d8687f29844eead7f5ed507f9b4b8bffd4c10b310c9f915c5597e11f9d7"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "artifacts/w02/runs/RUN-255ad50e994c4b30bcf11a3fab8489ea/snapshot/artifacts/w02/workflows/WF-298a4a042cad45ad971c04768c04cdd0/sources/0.json",
+      "sha256": "59049e2e7a1438eaba39fd8b93a1953f36e9d8f5973aa4b8128cee9adfee868e"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "artifacts/w02/runs/RUN-255ad50e994c4b30bcf11a3fab8489ea/step-001.request.json",
+      "sha256": "ed76f7da01d6d2a8644e186603f1f7e5377175fed5c6edcbbe82cb52619b483e"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-255ad50e994c4b30bcf11a3fab8489ea/step-001.attempts.json",
+      "sha256": "0c9ce974dd0b74f7931a07c22dba7499a3eaad060ccdecc30f26886dc2f8ff62"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-255ad50e994c4b30bcf11a3fab8489ea/step-001.response.json",
+      "sha256": "8e6fc43d317f8ab840274f7575aa8eb1639f1520e513cfcbdcb231348ab65e29"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-255ad50e994c4b30bcf11a3fab8489ea/step-002.request.json",
+      "sha256": "b277aa9902ee257041b6166db3fe7f128e88a2877ef518bddd5b126458173245"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-255ad50e994c4b30bcf11a3fab8489ea/step-002.attempts.json",
+      "sha256": "61f2200b36401c7e24e13cc73b6b0ec9377316bf524a3f53b7d4df04fddcb7e4"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-255ad50e994c4b30bcf11a3fab8489ea/step-002.response.json",
+      "sha256": "8079fdceba70c2a55ba99a4cff4afa00e92afa65c3437331cf93c0f16a89f091"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-255ad50e994c4b30bcf11a3fab8489ea/candidates.json",
+      "sha256": "49886bcf0566cf0ccb444965bc5609cda313de577cc8eb38234baecb878d3c5c"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-255ad50e994c4b30bcf11a3fab8489ea/steps.json",
+      "sha256": "56deba851261630295fe53a43b6e4a24d122997a6d98d1f3c280f739cdea311b"
+    }
+  ],
+  "error": null
+}

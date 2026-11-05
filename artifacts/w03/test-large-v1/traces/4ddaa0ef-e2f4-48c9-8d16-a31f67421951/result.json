@@ -1,0 +1,50 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "new_member_count"
+    ],
+    "start": "2026-07-01",
+    "end": "2026-08-01",
+    "group_by": [
+      "member__tier"
+    ],
+    "filters": []
+  },
+  "sql": "SELECT\n  tier AS member__tier\n  , COUNT(DISTINCT member_id) AS new_member_count\nFROM \"data\".\"main\".\"members\" members_source_src_10000\nWHERE DATE_TRUNC('day', registered_at) BETWEEN '2026-07-01' AND '2026-07-31'\nGROUP BY\n  tier",
+  "columns": [
+    "member__tier",
+    "new_member_count"
+  ],
+  "rows": [
+    [
+      "银卡",
+      32
+    ],
+    [
+      "金卡",
+      25
+    ],
+    [
+      "普通",
+      27
+    ]
+  ],
+  "seconds": 0.031,
+  "units": {
+    "new_member_count": "count"
+  },
+  "data_version": "qinghe-w03-20260923-large",
+  "data_sha256": "0074e7f764c63e836617aecb0e217aa3b5cc0cf9ede557179ad46b077dcf8ba8",
+  "catalog_sha256": "bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c",
+  "answer": "青禾在 2026 年 7 月各会员等级的新注册 CRM 会员账户数如下：\n- 银卡：32 个账户\n- 普通：27 个账户\n- 金卡：25 个账户\n\n统计说明：\n1. 统计范围为 2026 年 7 月新注册的 CRM 会员账户，按注册本地日期归属，不代表跨系统去重自然人数；\n2. 分组等级采用账户当前登记的会员等级统计，而非注册当时的初始等级。",
+  "question": "青禾 2026 年 7 月新注册会员数按会员等级分别是多少？",
+  "trace_id": "4ddaa0ef-e2f4-48c9-8d16-a31f67421951",
+  "elapsed_seconds": 26.062,
+  "model_usage": {
+    "prompt_tokens": 496459,
+    "completion_tokens": 325,
+    "total_tokens": 497598
+  },
+  "model_calls_with_usage": 2
+}

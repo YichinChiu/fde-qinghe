@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "Et0BCtoBAWkUfRPe66MhKQbXhUZ+tBiJUPXHaN6ocJv8Ahq2L8173i48jdcdc8G2vaIbA0H0W9tizvYtTihFbJDZpuxhfyjQCn3JYqC5dh6GNYYlXUGwJdoxCzXzdPaOrfC2ehQkkF6elR9kAPF/EVzmdq8jLpyt5goKS+PQZ5O+9ltijI4LCgk/EH56GTlhivGsD2+sN59FGMLqR1Yz4tJl0hpGhK2TsdLSHYNVvCKQ2ScWrubtFcVHfPGvw9LSZdudU/ilrxR39K7Mes4Qt8k1/c7J/DSAbhyqEdD0XFc="
+          }
+        },
+        "function": {
+          "arguments": "{\"question\":\"请 FDE 核查第三组候选（CLM-002-0018、CLM-002-0019、CLM-002-0020、CLM-002-0022）：\\\\n1. 测试卡表是否保留已过期、已终止历史卡，老周不掌握，强调测试库是合成库，不能替代真实历史，2024-09至2025-12不能凭测试库断定为“数据不覆盖”或为0，需按实际记录核实（CLM-002-0018）。\\\\n2. 订单分线上与门店；测试库中订单和卡关联 CRM 账户（一对多），但仅在测试账户范围内成立，不代表全公司自然人去重，不处理旧 POS 身份合并（CLM-002-0019）。\\\\n3. 小程序订单 store_id 含义（下单/自提发货/挂靠）老周不掌握，需结合实际填写核实，不能直接定成交门店口径（CLM-002-0020）。\\\\n4. 陈姐要求订单指标必须分清渠道；小程序 store_id 核实前不能当作门店归属；本期统计不改变考核、不代表执行改善；门店配合与工作记录不可默认已接受（CLM-002-0022）。\\\\n请核查提取与限定条件。\",\"claim_ids\":[\"CLM-002-0018\",\"CLM-002-0019\",\"CLM-002-0020\",\"CLM-002-0022\"]}",
+          "name": "request_review"
+        },
+        "id": "call_311594",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 37658,
+    "completion_tokens": 392,
+    "total_tokens": 38110
+  }
+}

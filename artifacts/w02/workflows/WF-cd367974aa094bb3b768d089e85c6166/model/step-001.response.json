@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "EuACCt0CAWkUfRMok2Rp6YRRs12kgGLSovJDDlQTc0GDNnw6r8CrwJ4JBvUZNL/U3Og4PHefB2N4uN4ET2fqVZmcSuxYP/TDnE0QGabfP+HFsBN8TtzyuhWt4vszyfTzQQPmj9YqiODvUyuGnjfszc6c0dFezlW8zCkIKGJHCVHLlp8L17AOahg8u+vUjA80gqtNUSKetQ8KCW/UVxXymsUVlEmWc/qBBSrDZZWSs5xe2mBk7yMJ96ulZa3lMDzpmjA58GcPs6jViU0rlDqUhJs7dTtauMuJtRr32APTqGSy9rooAyTsG22OvVi5qQKiEV/GpPtcheYIgVNwDtCnA7N36OxH7mB49toA/86CIAJc4UOyGPUoytA/i1GEMeNGuNGhCK1bS2O7nUTZuegZ+zzsje1uI4QehpGORgV/d6sFn/azt+CsFT6qmgzuEmDh3tj1tyf3CYRk/NEX5/wJ2awwTQ=="
+          }
+        },
+        "function": {
+          "arguments": "{}",
+          "name": "inspect_materials"
+        },
+        "id": "call_336572",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 1383,
+    "completion_tokens": 10,
+    "total_tokens": 1444
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "status": "clarify",
+  "reason": "未指定查询的时间范围，请提供具体的统计日期、月份或时间区间（数据覆盖范围为 2024-09-01 至 2026-09-01）。",
+  "intent": {
+    "status": "clarify",
+    "reason": "未指定查询的时间范围，请提供具体的统计日期、月份或时间区间（数据覆盖范围为 2024-09-01 至 2026-09-01）。",
+    "metrics": [
+      "net_sales_cents"
+    ],
+    "start": null,
+    "end": null,
+    "group_by": [],
+    "filters": []
+  },
+  "question": "青禾的净销售额是多少？",
+  "trace_id": "438f49bb-2bc4-4a56-bebf-6ea7d365cf53",
+  "elapsed_seconds": 5.891,
+  "model_usage": {
+    "prompt_tokens": 12622,
+    "completion_tokens": 109,
+    "total_tokens": 13122
+  },
+  "model_calls_with_usage": 1
+}

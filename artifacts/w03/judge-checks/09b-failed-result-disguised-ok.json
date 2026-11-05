@@ -1,0 +1,84 @@
+{
+ "expected": {
+  "status": "ok",
+  "intent": {
+   "metrics": [
+    "net_sales_cents"
+   ],
+   "start": "2026-08-01",
+   "end": "2026-09-01",
+   "group_by": [
+    "home_store__region"
+   ],
+   "filters": []
+  },
+  "columns": [
+   "home_store__region",
+   "net_sales_cents"
+  ],
+  "rows": [
+   [
+    "华东",
+    54650
+   ],
+   [
+    "华北",
+    0
+   ],
+   [
+    "华南",
+    45650
+   ]
+  ],
+  "units": {
+   "net_sales_cents": "cents"
+  },
+  "data_version": "qinghe-w03-20260923-small"
+ },
+ "actual": {
+  "status": "ok",
+  "code": "NATIVE_QUERY_FAILED",
+  "reason": "Got error(s) during query resolution.\n\nError #1:\n  Message:\n\n    The given input does not match any of the available group-by-items for\n    SimpleMetric('net_sales_cents'). Common issues are:\n\n      * Incorrect names.\n      * No valid join paths exist from the measure to the group-by-item.\n        (fan-out join support is pending).\n      * There are multiple matching join paths.\n        (disambiguation support is pending).\n\n    Suggestions:\n      [\n        'order__store',\n        'member__home_store',\n        'store',\n        'store__store_name',\n        'member__home_store__region',\n        'member__home_store__store_name',\n      ]\n\n  Query Input:\n\n    home_store\n\n  Issue Location:\n\n    [Resolve Query(['net_sales_cents'])]\n      -> [Resolve SimpleMetric('net_sales_cents')]",
+  "intent": {
+   "metrics": [
+    "net_sales_cents"
+   ],
+   "start": "2026-08-01",
+   "end": "2026-09-01",
+   "group_by": [
+    "home_store"
+   ],
+   "filters": []
+  },
+  "question": "青禾 2026 年 8 月净销售额按会员归属门店编号分别是多少？",
+  "trace_id": "77c8f6e8-0d48-472c-aecb-473691ca803e",
+  "elapsed_seconds": 10.344,
+  "model_usage": {
+   "prompt_tokens": 12637,
+   "completion_tokens": 108,
+   "total_tokens": 13195
+  },
+  "model_calls_with_usage": 1,
+  "columns": [
+   "home_store__region",
+   "net_sales_cents"
+  ],
+  "rows": [
+   [
+    "华东",
+    54650
+   ],
+   [
+    "华北",
+    0
+   ],
+   [
+    "华南",
+    45650
+   ]
+  ],
+  "units": {
+   "net_sales_cents": "cents"
+  }
+ }
+}

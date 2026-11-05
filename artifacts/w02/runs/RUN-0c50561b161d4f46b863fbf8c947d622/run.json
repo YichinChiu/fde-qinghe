@@ -1,0 +1,92 @@
+{
+  "contract_version": "w02-0.1.0-draft",
+  "run_id": "RUN-0c50561b161d4f46b863fbf8c947d622",
+  "stage": "extraction",
+  "mode": "live",
+  "status": "failed",
+  "model": {
+    "provider": "generativelanguage.googleapis.com",
+    "name": "gemini-3.8-flash",
+    "adapter_version": "w02-extractor-0.1.0"
+  },
+  "implementation": [
+    {
+      "path": "artifacts/w02/runs/RUN-0c50561b161d4f46b863fbf8c947d622/implementation/platform/fde_product/interview_extraction.py",
+      "sha256": "4158dd8cf48092fbd515c562e326d403e60d15feb76511dd04b9991c77de6e53"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-0c50561b161d4f46b863fbf8c947d622/implementation/platform/fde_product/models.py",
+      "sha256": "17cac712394ede304b9d57f2c3adcf4cb5739bbd6264880efb9603bc5dacb223"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-0c50561b161d4f46b863fbf8c947d622/implementation/tools/w02_interviews.py",
+      "sha256": "7dc6d6e55add4179c10f6cd41944606ee0a7a722ca2e5bc30b25ca4db31a3e00"
+    }
+  ],
+  "configuration": [
+    {
+      "path": "artifacts/w02/runs/RUN-0c50561b161d4f46b863fbf8c947d622/snapshot/artifacts/w02/workflows/WF-75daed650da74bbb9bab04b761438dd5/extraction.json",
+      "sha256": "999a0331c5b6eb7e83610c85a47433107eda9a4c879b7aafda9cfbe8da243fee"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-0c50561b161d4f46b863fbf8c947d622/snapshot/artifacts/w02/workflows/WF-75daed650da74bbb9bab04b761438dd5/inputs/prompt.md",
+      "sha256": "f0de56b5fbdd2f1bb8e3a806c0b7ac71144d10840945849a667f19d578224668"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-0c50561b161d4f46b863fbf8c947d622/contracts/transcript.schema.json",
+      "sha256": "855f84b576d3f0b7bea82eac6b817fc0c8c723040f131f43075380110a823f9f"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-0c50561b161d4f46b863fbf8c947d622/contracts/interview_facts.schema.json",
+      "sha256": "34358b1f9cca39f17f3d7b74abda732460be0beaba2f93b8e8f8bcaa3d2e0a80"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-0c50561b161d4f46b863fbf8c947d622/contracts/run_evidence.schema.json",
+      "sha256": "4fed42abba5d6f9a727c52d6e3097e965ffa3b02ef855aadb2387ab1f890ebce"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-0c50561b161d4f46b863fbf8c947d622/settings.json",
+      "sha256": "b2170cecdd8fa6f5a03f9e6fc8c409e5e559db30b4f3d93cb8e665e20fdd8c1f"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "artifacts/w02/runs/RUN-0c50561b161d4f46b863fbf8c947d622/snapshot/artifacts/w02/workflows/WF-75daed650da74bbb9bab04b761438dd5/sources/0.json",
+      "sha256": "2c8b45ede29488195fb3058b0a1da63f5477589b675736dd76f5dc8be02ae5dc"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-0c50561b161d4f46b863fbf8c947d622/snapshot/artifacts/w02/workflows/WF-75daed650da74bbb9bab04b761438dd5/sources/1.json",
+      "sha256": "aab870d7199bdb366e6804e153353cf37a40b307c48e86dcb6dce3a9b9d03182"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-0c50561b161d4f46b863fbf8c947d622/snapshot/artifacts/w02/workflows/WF-75daed650da74bbb9bab04b761438dd5/sources/2.json",
+      "sha256": "724ef62eb6a9bad9df4ebba7bfeb4eb49b49bcf9ce59d68fa482d6a21d7d3fe4"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-0c50561b161d4f46b863fbf8c947d622/snapshot/artifacts/w02/workflows/WF-75daed650da74bbb9bab04b761438dd5/sources/3.json",
+      "sha256": "c93b2bf39c88a2c82ec977670f5d99caf0d8e80f1851ca9f2da0b1b48b17bb5a"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "artifacts/w02/runs/RUN-0c50561b161d4f46b863fbf8c947d622/step-001.request.json",
+      "sha256": "403f0136546a8e15206e958f03404b8a6f23712a3eb6b2be19a33412b6a60746"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-0c50561b161d4f46b863fbf8c947d622/step-001.attempts.json",
+      "sha256": "b0c8a7d7ab0e65aef011ed3500591e60bde311c1212980e0d2ee5426431eb992"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-0c50561b161d4f46b863fbf8c947d622/step-001.response.json",
+      "sha256": "b6192ceb48c89ec559e158f6f63774964bc030e859867f245362ad6da4dd51d7"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-0c50561b161d4f46b863fbf8c947d622/steps.json",
+      "sha256": "311208c13c6d101bb477dd75e246e278308d9e0076d6fb59fbd609b26b57b06f"
+    }
+  ],
+  "error": {
+    "code": "SCHEMA_INVALID",
+    "message": "检查位置：/claims/14。本次失败；保留已有请求与公开响应，核对后创建新运行。"
+  }
+}

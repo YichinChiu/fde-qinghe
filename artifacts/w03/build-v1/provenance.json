@@ -1,0 +1,203 @@
+{
+  "skill_sha256": "60f07b2c78876aead557b51cd9f79e57c2580f08f8a708e28a209ac0cf7aab23",
+  "input_hashes": {
+    "business_model.md": "9b43beea5053c49696d758811ffddc8858e015bf82056e1e01ce177768919afa",
+    "00_材料说明.md": "c60776a6a1c030b02b1ce89f773327871c80bb34dca9c486df43c9acb0a6dc28",
+    "01_订单日报说明.md": "976fa129493e6bd2861a58d74df2ba3ad4448ea01a2d25651124222a61cebb67",
+    "02_财务邮件.md": "f81e0ddb5c03dd4eb2d01094816716d8375d03fe883b947ec8297edf8d525557",
+    "03_会员运营周报.md": "25ab933556bf34bef21b528d4c7838c9baad33ae289d59f09501e765080bb492",
+    "04_本期统计确认邮件.md": "c4f847fd90fd0765d37ad22f20d4a4eb0bab90f8543ae0f05d7a3cbee104c4be",
+    "05_数据字典.md": "b4c905ae6d2f4c08e139c695a2868b66ee5047b2b8ea94d6eccba55aebb79c16",
+    "06_任务清单.md": "ed414526217320c5e9ef049cfc1cfb56b670a5af57a57a9450a1e264cd71904d",
+    "07_客户内部沟通.md": "916d0f6d78033aff30dc6053cb58d774bfdefe5e3aa9a4e36ca54f143af3b425",
+    "08_业务目标与工作清单.md": "de9d737c423cc31b2f9d60c9ba8693b9d4257a3aa69b9efedb52674aeb2efe97"
+  },
+  "defined": [
+    "order_count",
+    "paid_order_count",
+    "valid_order_count",
+    "cancelled_order_count",
+    "refund_order_count",
+    "partial_refund_order_count",
+    "full_refund_order_count",
+    "payment_cents",
+    "refund_cents",
+    "net_sales_cents",
+    "gross_cents",
+    "discount_cents",
+    "buyer_count",
+    "refund_buyer_count",
+    "selling_store_count",
+    "valid_order_items",
+    "avg_order_value",
+    "avg_buyer_value",
+    "purchase_frequency",
+    "refund_amount_rate",
+    "cancel_rate",
+    "refund_order_rate",
+    "discount_rate",
+    "items_per_order",
+    "new_member_count",
+    "first_buyer_count",
+    "first_order_sales_cents",
+    "first_order_count",
+    "repeat_order_count",
+    "monthly_buyer_count",
+    "monthly_repeat_buyer_count",
+    "monthly_repeat_rate"
+  ],
+  "unresolved": [
+    {
+      "metric_id": "monthly_paid_buyer_count",
+      "missing_facts": [
+        "cards 表计划结束日 valid_until 落在月底当天是否具有有效资格的业务判定规则",
+        "cards 表提前终止日 ended_at 落在月底当天是否具有有效资格的业务判定规则",
+        "cards 表历史数据覆盖情况（测试库是否保留已过期、已终止历史卡）核查结果",
+        "本期付费会员卡种范围、一账户多卡去重规则及 valid_from 月末生效纳入口径的运营书面确认文件"
+      ],
+      "reason": "业务模型中记载 valid_until 与 ended_at 落在月底当天维持未决，老周与小林均表示不掌握或无法仅凭日期判断，需老周与运营小林共同执行四步法核查系统实际资格记录与统计说明；卡种范围等口头答复尚待小林出具书面确认。资格端点规则未决直接导致无法确定自然月月末有资格账户集合，因而无法统计该指标。"
+    },
+    {
+      "metric_id": "monthly_paid_order_count",
+      "missing_facts": [
+        "cards 表计划结束日 valid_until 落在月底当天是否具有有效资格的业务判定规则",
+        "cards 表提前终止日 ended_at 落在月底当天是否具有有效资格的业务判定规则",
+        "cards 表历史数据覆盖情况（测试库是否保留已过期、已终止历史卡）核查结果",
+        "本期付费会员卡种范围、一账户多卡去重规则及 valid_from 月末生效纳入口径的运营书面确认文件"
+      ],
+      "reason": "依赖月末付费会员资格判定规则。由于 valid_until 和 ended_at 月底端点规则维持未决，老周与小林尚未完成实际资格记录核对，无法筛选出月末有资格的账户，进而无法计算其当月有效订单数。"
+    },
+    {
+      "metric_id": "monthly_paid_sales_cents",
+      "missing_facts": [
+        "cards 表计划结束日 valid_until 落在月底当天是否具有有效资格的业务判定规则",
+        "cards 表提前终止日 ended_at 落在月底当天是否具有有效资格的业务判定规则",
+        "cards 表历史数据覆盖情况（测试库是否保留已过期、已终止历史卡）核查结果",
+        "本期付费会员卡种范围、一账户多卡去重规则及 valid_from 月末生效纳入口径的运营书面确认文件"
+      ],
+      "reason": "依赖月末付费会员资格判定规则。由于月末资格判定端点规则（valid_until、ended_at）未决且历史卡数据覆盖情况待核实，无法锁定有资格账户范围，无法汇总其净销售额。"
+    },
+    {
+      "metric_id": "monthly_paid_repeat_buyer_count",
+      "missing_facts": [
+        "cards 表计划结束日 valid_until 落在月底当天是否具有有效资格的业务判定规则",
+        "cards 表提前终止日 ended_at 落在月底当天是否具有有效资格的业务判定规则",
+        "cards 表历史数据覆盖情况（测试库是否保留已过期、已终止历史卡）核查结果",
+        "本期付费会员卡种范围、一账户多卡去重规则及 valid_from 月末生效纳入口径的运营书面确认文件"
+      ],
+      "reason": "依赖月末付费会员资格判定规则。由于资格有效期端点规则未决，无法判定账户在月末是否具备资格，导致当月至少两笔有效订单的资格账户数无法计算。"
+    },
+    {
+      "metric_id": "monthly_paid_repeat_rate",
+      "missing_facts": [
+        "依赖指标 monthly_paid_repeat_buyer_count 与 monthly_paid_buyer_count 存在未决端点规则",
+        "cards 表 valid_until 与 ended_at 月底端点规则维持未决"
+      ],
+      "reason": "分子 monthly_paid_repeat_buyer_count 与分母 monthly_paid_buyer_count 均因付费会员资格端点规则未决而无法定义，本指标作为比率指标无法闭合计算。"
+    },
+    {
+      "metric_id": "monthly_paid_avg_order_value",
+      "missing_facts": [
+        "依赖指标 monthly_paid_sales_cents 与 monthly_paid_order_count 存在未决端点规则",
+        "cards 表 valid_until 与 ended_at 月底端点规则维持未决"
+      ],
+      "reason": "分子 monthly_paid_sales_cents 与分母 monthly_paid_order_count 均因付费会员资格端点规则未决而无法定义，本指标作为比率指标无法闭合计算。"
+    }
+  ],
+  "business_model_usage": [
+    {
+      "quote": "核对活动适用范围、向会员说明权益、接待咨询、配合注册和活动执行，并将现场问题反馈给运营。",
+      "used_for": [
+        {
+          "kind": "semantic_model",
+          "name": "store_model"
+        }
+      ]
+    },
+    {
+      "quote": "本期统计不改变现有门店考核，也不代表门店执行已经改善；",
+      "used_for": [
+        {
+          "kind": "semantic_model",
+          "name": "order_model"
+        },
+        {
+          "kind": "metric",
+          "name": "selling_store_count"
+        }
+      ]
+    },
+    {
+      "quote": "不能默认门店已经接受。",
+      "used_for": [
+        {
+          "kind": "semantic_model",
+          "name": "home_store_model"
+        }
+      ]
+    },
+    {
+      "quote": "暂不把门店写成名单接收方，门店只作为活动执行与会员咨询方",
+      "used_for": [
+        {
+          "kind": "semantic_model",
+          "name": "store_model"
+        }
+      ]
+    },
+    {
+      "quote": "王经理不替业务裁定资格规则，仅核查口径是否一致",
+      "used_for": [
+        {
+          "kind": "metric",
+          "name": "monthly_paid_buyer_count"
+        }
+      ]
+    },
+    {
+      "quote": "变更以业务与 IT 的确认为基础；",
+      "used_for": [
+        {
+          "kind": "derived_model",
+          "name": "ranked_orders"
+        }
+      ]
+    },
+    {
+      "quote": "步骤 1：需求方说明核查对象与具体业务用途；",
+      "used_for": [
+        {
+          "kind": "derived_model",
+          "name": "monthly_member_orders"
+        }
+      ]
+    },
+    {
+      "quote": "步骤 2：老周与运营确认运营所述的会员范围；",
+      "used_for": [
+        {
+          "kind": "semantic_model",
+          "name": "member_model"
+        }
+      ]
+    },
+    {
+      "quote": "步骤 4：列出需要补的记录清单，并按配合方安排逐项核对提供。",
+      "used_for": [
+        {
+          "kind": "semantic_model",
+          "name": "ranked_order_model"
+        }
+      ]
+    },
+    {
+      "quote": "不纳入报表特有的具体时间窗口选择与分子分母指标计算公式",
+      "used_for": [
+        {
+          "kind": "semantic_model",
+          "name": "monthly_member_orders_model"
+        }
+      ]
+    }
+  ]
+}

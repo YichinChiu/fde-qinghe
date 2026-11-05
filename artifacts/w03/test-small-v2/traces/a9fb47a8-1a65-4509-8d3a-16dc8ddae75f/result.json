@@ -1,0 +1,46 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "net_sales_cents"
+    ],
+    "start": "2026-08-01",
+    "end": "2026-09-01",
+    "group_by": [
+      "store"
+    ],
+    "filters": []
+  },
+  "sql": "SELECT\n  store\n  , SUM(__net_sales_cents) AS net_sales_cents\nFROM (\n  SELECT\n    store_id AS store\n    , case when status = 'paid' then paid_cents - refund_cents else 0 end AS __net_sales_cents\n  FROM \"data\".\"main\".\"orders\" orders_src_10000\n  WHERE DATE_TRUNC('day', ordered_at) BETWEEN '2026-08-01' AND '2026-08-31'\n) subq_5\nGROUP BY\n  store",
+  "columns": [
+    "store",
+    "net_sales_cents"
+  ],
+  "rows": [
+    [
+      "S02",
+      45650
+    ],
+    [
+      "S01",
+      54650
+    ]
+  ],
+  "seconds": 0.031,
+  "units": {
+    "net_sales_cents": "cents"
+  },
+  "data_version": "qinghe-w03-20260923-small",
+  "data_sha256": "8a295969ec24556ebd7f818506633919e71f840fc86488d53efc185f9768cfe6",
+  "catalog_sha256": "266ad38a8f11190084fc51913ec5216f7716612cd6a870f00b2e002d264916be",
+  "answer": "在 2026 年 8 月（2026-08-01 至 2026-09-01）期间，青禾按成交门店编号统计的净销售额（已支付订单实付扣除退款，取消单不计）如下：\n\n- 成交门店 S01：546.50 元\n- 成交门店 S02：456.50 元",
+  "question": "青禾 2026 年 8 月净销售额按成交门店编号分别是多少？",
+  "trace_id": "a9fb47a8-1a65-4509-8d3a-16dc8ddae75f",
+  "elapsed_seconds": 14.375,
+  "model_usage": {
+    "prompt_tokens": 13936,
+    "completion_tokens": 218,
+    "total_tokens": 14804
+  },
+  "model_calls_with_usage": 2
+}

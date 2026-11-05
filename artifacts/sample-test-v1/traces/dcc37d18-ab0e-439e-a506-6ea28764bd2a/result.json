@@ -1,0 +1,38 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "monthly_large_buyer_count"
+    ],
+    "start": "2026-07-01",
+    "end": "2026-08-01",
+    "group_by": [],
+    "filters": []
+  },
+  "sql": "SELECT\n  SUM(CASE WHEN net_receipts_cents >= 10000 THEN 1 ELSE 0 END) AS monthly_large_buyer_count\nFROM \"data\".\"main\".\"monthly_member_receipts\" monthly_member_receipts_src_10000\nWHERE DATE_TRUNC('month', month_start) BETWEEN '2026-07-01' AND '2026-07-31'",
+  "columns": [
+    "monthly_large_buyer_count"
+  ],
+  "rows": [
+    [
+      1
+    ]
+  ],
+  "seconds": 0.031,
+  "units": {
+    "monthly_large_buyer_count": "count"
+  },
+  "data_version": "wutong-sample-v2",
+  "data_sha256": "6e4f21b3e478cc6fa6b54fe2469267b23f70a7dae3e718db065d6169447ec440",
+  "catalog_sha256": "9b85deabe0f4c035e61f0c48db6ad19033b84c0533652e0e83ef2783e574c788",
+  "answer": "2026 年 7 月，梧桐书店的月内大额会员数为 1 个账户。\n\n统计口径说明：月内大额会员数指在同一自然月内，已支付订单的扣退后收入（实付金额减退回金额）累计达到 100.00 元及以上的会员账户数（按原订单日期归月，取消订单不计入）。",
+  "question": "2026 年 7 月梧桐书店月内大额会员数是多少？",
+  "trace_id": "dcc37d18-ab0e-439e-a506-6ea28764bd2a",
+  "elapsed_seconds": 14.797,
+  "model_usage": {
+    "prompt_tokens": 4592,
+    "completion_tokens": 259,
+    "total_tokens": 5314
+  },
+  "model_calls_with_usage": 2
+}

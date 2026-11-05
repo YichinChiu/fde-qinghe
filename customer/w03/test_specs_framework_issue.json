@@ -1,0 +1,18 @@
+[
+  {
+    "id": "aug-net-sales-by-home-store",
+    "catches": "按会员归属门店分组，与成交门店角色区分",
+    "question": "青禾 2026 年 8 月净销售额按会员归属门店编号分别是多少？",
+    "intent": {
+      "metrics": [
+        "net_sales_cents"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [
+        "home_store"
+      ],
+      "filters": []
+    }
+  }
+]

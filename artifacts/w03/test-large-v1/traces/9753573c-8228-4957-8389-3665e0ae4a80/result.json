@@ -1,0 +1,50 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "monthly_paid_buyer_count"
+    ],
+    "start": "2025-10-01",
+    "end": "2026-01-01",
+    "group_by": [
+      "metric_time__month"
+    ],
+    "filters": []
+  },
+  "sql": "SELECT\n  metric_time__month\n  , COUNT(DISTINCT __monthly_paid_buyer_count) AS monthly_paid_buyer_count\nFROM (\n  SELECT\n    DATE_TRUNC('month', month_start) AS metric_time__month\n    , CASE WHEN is_paid_member = 1 AND valid_order_count >= 1 THEN member_id ELSE NULL END AS __monthly_paid_buyer_count\n  FROM \"data\".\"main\".\"member_monthly_summary\" member_monthly_summary_model_src_10000\n  WHERE DATE_TRUNC('day', month_start) BETWEEN '2025-10-01' AND '2025-12-31'\n) subq_5\nGROUP BY\n  metric_time__month",
+  "columns": [
+    "metric_time__month",
+    "monthly_paid_buyer_count"
+  ],
+  "rows": [
+    [
+      "2025-10-01 00:00:00",
+      1725
+    ],
+    [
+      "2025-12-01 00:00:00",
+      2169
+    ],
+    [
+      "2025-11-01 00:00:00",
+      1942
+    ]
+  ],
+  "seconds": 0.063,
+  "units": {
+    "monthly_paid_buyer_count": "count"
+  },
+  "data_version": "qinghe-w03-20260923-large",
+  "data_sha256": "0074e7f764c63e836617aecb0e217aa3b5cc0cf9ede557179ad46b077dcf8ba8",
+  "catalog_sha256": "bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c",
+  "answer": "青禾在 2025 年 10 月至 12 月期间，月末付费会员购买人数（以 CRM 会员账户统计）按月分别如下：\n- 2025 年 10 月：1,725 个账户\n- 2025 年 11 月：1,942 个账户\n- 2025 年 12 月：2,169 个账户\n\n【统计口径与说明】\n1. 统计定义：统计在自然月内发生至少一笔有效订单，且在月末符合总部运营月报付费资格的不同 CRM 会员账户数。\n2. 口径说明与限制：\n   - 卡种范围与多卡规则为运营口头答复待书面确认（本期仅包含悦享年卡与家庭季卡，排除联名卡与体验卡；一账户多卡按一个账户统计）；\n   - 月末失效端点为本期暂定口径（依据 2026-11-05 采纳门店现场做法，月末当天到期或提前终止暂定为无效，待书面确认）；\n   - 2026-01 之前测试卡表历史覆盖未核实，若遇结果为 0 不能解读为业务上为零；\n   - 本期统计结果不作为考核依据。",
+  "question": "青禾 2025 年 10 月到 12 月的月末付费会员购买人数，按月分别是多少？",
+  "trace_id": "9753573c-8228-4957-8389-3665e0ae4a80",
+  "elapsed_seconds": 27.453,
+  "model_usage": {
+    "prompt_tokens": 496736,
+    "completion_tokens": 497,
+    "total_tokens": 498243
+  },
+  "model_calls_with_usage": 2
+}

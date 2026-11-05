@@ -1,0 +1,17 @@
+.venv/
+.runtime/
+__pycache__/
+*.pyc
+.env*
+materials/data/large/
+
+# ---- 学员追加 ----
+.pytest_cache/
+# 构建检查时生成的可重建查询库
+**/validation-project/
+# 提交包（由仓库内容打包生成）
+w03-submit.zip
+# 密钥
+*.key
+# 工作流运行锁
+artifacts/w02/.workflow.lock

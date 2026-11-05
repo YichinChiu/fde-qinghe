@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "Et4GCtsGAWkUfROphP4coXOnLd4L+kGDbHpO4V12mv3+MS0WYcnCEt/uIO4/Fj4n206cQN3SrXrr7/Ls/XwYgU3KIV3wBSw3vF5pXBKIhEJvN2n/PIlF4AJyqV3y3DGWLD8d3u1wIZIkpELzaFzmMPau+QEyaHmJAPf7pK+IF3qCDfsVuuivOWq0ER3ictuis9X9qToWdV4t2N+CYwMfXMNhPCI0znDRqLkuVbgujQnobA3aTdBUgNFoRs/Q0igriFCXma1XNZlyVZSPGlMKbVn2fuSFPn7m3AF+vdCByh94gKRk55mqLPWNzZn8+Sh4D5m/U9v+OnaFtn0riynS7uZEszBl3snBdf6rFk3boarqqu+0eGhvF5JxYuM64MbJht+tE8snZU46p3G+2J8SOEntZZAi4NOJB16edo8e3UK5Ky8SajwBS74s7XCirySyVWfESFM6P2JibeyYXt9Aa8+yzQikikcUblqPEv5M+hxmRHbh4VY+X3gA5QZccOFeQYp9tc4C2XaCWY4QtNO0qzrgEJYJkV2yPqKWt7g3/2Lek8W/nGBRnXk+O916BFzR/Tf2TANscRIh6+0cjYAlhVD2sMspfnS3hJPGRmtJbVK8xZolpg9jeLvNltpCmwQ1PxtwMGInbq1N9gBcdB+6C+t2gK/BgcWUs3mPhupaomQamnJCRU9yYdKAhvHCFPNm/GVke5beyoLUbs9rDzo+9h2rhBiKt8l4dRwG8TLOKYqBcApN8zVaaaX2JT53QWB9smMS7ZMKqErR9KXfdxA45VTCVFSCRRxqGZQDXo8LfB9cnYWAFLKTbweGJvALJyZK4bpdHpjEWcNAaSM6TshD1Hz4xBZE/ZouLOpCeBzXCtfj5/tTkbosvNF7bek8gsyLb3FCRXATzSuLWF+Z/I9hfQ5kfBbVQItADJQADY3A+fBMo3e7eATj5gQB80M3OqGF9N8aQ3gwzlDkXadNPB2xZA0WQm7pyAwix6hCE3gk4qvcPwgJ/dBQ6zzYD+FlxEF51VOIBizJxnsKmoVWrUCaPFEAt3X7q1OFGL2BG1SvzPzt5ruXsVN4t3qHhRqxyHVwyoCnAh9lVrTWlZYHRmrzQi7wNrfO7vTjCmZz0JNp45ra71IkIKhbG84zQeeoFQYpyA=="
+          }
+        },
+        "function": {
+          "arguments": "{\"claim_ids\":[\"CLM-001-0008\",\"CLM-001-0010\",\"CLM-001-0011\",\"CLM-002-0014\"],\"question\":\"请核查第 3 组候选（王经理与小林关于付费会员资格规则、卡种范围、等级与资格解耦、一账户多卡）：\\n1. CLM-001-0008：王经理说明月末资格判断已有依据（月底最后一天判资格、按账户筛选、当月全渠道全门店有效订单），但卡种范围无依据待运营书面确认；\\n2. CLM-001-0010：小林说明本期总部运营月报付费会员只算悦享年卡、家庭季卡，联名卡和体验卡不算，只约束本期运营月报；\\n3. CLM-001-0011：小林说明等级和付费资格是两回事，金卡不一定有卡，普通也可能有卡，不能拿支付金额代替，同一账户多张有效卡只算一个账户；\\n4. CLM-002-0014：小林重申月报付费会员只算悦享年卡和家庭季卡，口头答复待书面确认。\\n\\n请确认是否采用或修订状态？\"}",
+          "name": "request_review"
+        },
+        "id": "call_409724",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 37163,
+    "completion_tokens": 322,
+    "total_tokens": 37708
+  }
+}

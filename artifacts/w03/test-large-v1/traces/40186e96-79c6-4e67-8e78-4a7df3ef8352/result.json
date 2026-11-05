@@ -1,0 +1,46 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "first_buyer_count",
+      "first_order_sales_cents",
+      "repeat_order_count"
+    ],
+    "start": "2026-06-01",
+    "end": "2026-07-01",
+    "group_by": [],
+    "filters": []
+  },
+  "sql": "SELECT\n  COUNT(DISTINCT CASE WHEN order_seq = 1 THEN member_id ELSE NULL END) AS first_buyer_count\n  , SUM(CASE WHEN order_seq = 1 THEN net_sales_cents ELSE 0 END) AS first_order_sales_cents\n  , SUM(CASE WHEN order_seq >= 2 THEN 1 ELSE 0 END) AS repeat_order_count\nFROM \"data\".\"main\".\"ranked_orders\" ranked_orders_model_src_10000\nWHERE DATE_TRUNC('day', ordered_at) BETWEEN '2026-06-01' AND '2026-06-30'",
+  "columns": [
+    "first_buyer_count",
+    "first_order_sales_cents",
+    "repeat_order_count"
+  ],
+  "rows": [
+    [
+      1531,
+      26191665,
+      25059
+    ]
+  ],
+  "seconds": 0.078,
+  "units": {
+    "first_buyer_count": "count",
+    "first_order_sales_cents": "cents",
+    "repeat_order_count": "count"
+  },
+  "data_version": "qinghe-w03-20260923-large",
+  "data_sha256": "0074e7f764c63e836617aecb0e217aa3b5cc0cf9ede557179ad46b077dcf8ba8",
+  "catalog_sha256": "bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c",
+  "answer": "青禾在 2026 年 6 月（2026-06-01 至 2026-07-01）的指标统计如下：\n- **观测期首购会员数**：1,531 个 CRM 会员账户\n- **观测期首单净销售额**：261,916.65 元\n- **观测期后续购买订单数**：25,059 笔\n\n**统计口径说明**：\n1. 统计单位为 CRM 会员账户。\n2. 首单是基于测试全覆盖期（2024-09-01 至 2026-09-01）历史订单确定的第一笔有效订单，首单日期落入 2026 年 6 月计入首购统计，不代表终身首购。\n3. 观测期后续购买订单数为会员账户在测试全覆盖期内第二笔及以后的有效订单落入该月的订单总数，非月内复购人数。",
+  "question": "青禾 2026 年 6 月观测期首购会员数、观测期首单净销售额和观测期后续购买订单数是多少？",
+  "trace_id": "40186e96-79c6-4e67-8e78-4a7df3ef8352",
+  "elapsed_seconds": 29.516,
+  "model_usage": {
+    "prompt_tokens": 496952,
+    "completion_tokens": 414,
+    "total_tokens": 498207
+  },
+  "model_calls_with_usage": 2
+}

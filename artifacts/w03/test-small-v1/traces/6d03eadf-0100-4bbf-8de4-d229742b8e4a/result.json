@@ -1,0 +1,17 @@
+{
+  "status": "unsupported",
+  "reason": "指标“月末付费会员购买人数”仅支持全门店和全渠道汇总统计，不支持按成交门店（store）进行分组或拆分查询。",
+  "intent": {
+    "status": "unsupported",
+    "reason": "指标“月末付费会员购买人数”仅支持全门店和全渠道汇总统计，不支持按成交门店（store）进行分组或拆分查询。"
+  },
+  "question": "青禾 2026 年 8 月月末付费会员购买人数按成交门店分别是多少？",
+  "trace_id": "6d03eadf-0100-4bbf-8de4-d229742b8e4a",
+  "elapsed_seconds": 5.516,
+  "model_usage": {
+    "prompt_tokens": 12636,
+    "completion_tokens": 54,
+    "total_tokens": 13005
+  },
+  "model_calls_with_usage": 1
+}

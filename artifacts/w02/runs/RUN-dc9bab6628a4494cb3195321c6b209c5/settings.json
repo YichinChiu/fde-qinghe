@@ -1,0 +1,38 @@
+{
+  "config": {
+    "version": "w02-extractor-0.1.0",
+    "scope_id": "qinghe",
+    "sources": [
+      "artifacts/w02/workflows/WF-ea76493e02f84dcea1d1af7961085f57/sources/0.json",
+      "artifacts/w02/workflows/WF-ea76493e02f84dcea1d1af7961085f57/sources/1.json",
+      "artifacts/w02/workflows/WF-ea76493e02f84dcea1d1af7961085f57/sources/2.json",
+      "artifacts/w02/workflows/WF-ea76493e02f84dcea1d1af7961085f57/sources/3.json"
+    ],
+    "prompt": "artifacts/w02/workflows/WF-ea76493e02f84dcea1d1af7961085f57/inputs/prompt.md",
+    "focus_questions": [
+      "本期总部运营月报的付费会员资格包括哪些卡产品、排除哪些？等级、付款金额与付费资格是什么关系？一账户多张卡怎样计？各角色分别怎么说，谁负责确认？",
+      "卡的权益开始日（valid_from）、计划结束日（valid_until）、提前终止日（ended_at）落在月底当天时是否有效？哪些已有答复、哪些未决、转介给谁？",
+      "账户与订单、账户与卡的关系及其适用范围；去重和身份合并的限制；测试卡表是否保留历史卡、会员等级字段是否快照等数据覆盖问题。",
+      "订单渠道与门店归属：小程序订单上的门店编号含义、门店拆分和成交门店数能否使用、门店对考核与执行的顾虑和需要注明的内容。",
+      "阶段验收依据、运营／IT／门店／王经理各自的确认责任、书面确认要求、会员筛选放后续阶段的写法与变更确认方式，以及预算、合同、上线、收益等未定事项。",
+      "哪些问题被转介给其他角色？转介是否形成循环？哪些口头答复须形成书面确认才能作为约定依据？"
+    ],
+    "batch_chars": 6000,
+    "max_batches": 24,
+    "reconcile_chars": 96000,
+    "profile": "json-object"
+  },
+  "adapter": "w02-extractor-0.1.0",
+  "timeout_seconds": 180.0,
+  "model_policy": {
+    "gateway_cache_bypass": true,
+    "wire_format": "gateway-extra-body-v1",
+    "request_profile": "json-object",
+    "max_tokens": 8192,
+    "retry_max_tokens": 16384,
+    "timeout": 180.0,
+    "retry_timeout": 180.0,
+    "token_limit_field": "max_tokens",
+    "extraction_thinking": "enabled"
+  }
+}

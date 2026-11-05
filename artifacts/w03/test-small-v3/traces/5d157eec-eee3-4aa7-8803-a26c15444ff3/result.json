@@ -1,0 +1,52 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "buyer_count"
+    ],
+    "start": "2026-08-01",
+    "end": "2026-09-01",
+    "group_by": [
+      "store__region"
+    ],
+    "filters": [
+      {
+        "field": "order__channel",
+        "op": "eq",
+        "value": "门店"
+      }
+    ]
+  },
+  "sql": "SELECT\n  store__region\n  , COUNT(DISTINCT buyer_count) AS buyer_count\nFROM (\n  SELECT\n    subq_3.order__channel AS order__channel\n    , stores_source_src_10000.region AS store__region\n    , subq_3.__buyer_count AS buyer_count\n  FROM (\n    SELECT\n      store_id AS store\n      , channel AS order__channel\n      , CASE WHEN status = 'paid' AND paid_cents > refund_cents THEN member_id ELSE NULL END AS __buyer_count\n    FROM \"data\".\"main\".\"orders\" orders_source_src_10000\n    WHERE DATE_TRUNC('day', ordered_at) BETWEEN '2026-08-01' AND '2026-08-31'\n  ) subq_3\n  LEFT OUTER JOIN\n    \"data\".\"main\".\"stores\" stores_source_src_10000\n  ON\n    subq_3.store = stores_source_src_10000.store_id\n) subq_7\nWHERE order__channel in ('门店')\nGROUP BY\n  store__region",
+  "columns": [
+    "store__region",
+    "buyer_count"
+  ],
+  "rows": [
+    [
+      "华南",
+      7
+    ],
+    [
+      "华东",
+      7
+    ]
+  ],
+  "seconds": 0.047,
+  "units": {
+    "buyer_count": "count"
+  },
+  "data_version": "qinghe-w03-20260923-small",
+  "data_sha256": "8a295969ec24556ebd7f818506633919e71f840fc86488d53efc185f9768cfe6",
+  "catalog_sha256": "bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c",
+  "answer": "青禾在 2026 年 8 月（2026-08-01 至 2026-09-01）期间，门店渠道的购买会员数按订单成交地区统计如下：\n- 华南：7 个 CRM 会员账户\n- 华东：7 个 CRM 会员账户\n\n统计说明与口径：\n1. 统计口径为有有效订单的 CRM 会员账户数，按账户去重，未做跨系统自然人去重。\n2. 统计按订单成交门店所属地区划分。需注意：小程序订单门店编号含义待 IT 核实，核实前不能当作门店归属，不改变现有门店考核，不代表门店执行已经改善。",
+  "question": "青禾 2026 年 8 月门店渠道的购买会员数，按成交地区分别是多少？",
+  "trace_id": "5d157eec-eee3-4aa7-8803-a26c15444ff3",
+  "elapsed_seconds": 17.875,
+  "model_usage": {
+    "prompt_tokens": 15844,
+    "completion_tokens": 344,
+    "total_tokens": 17112
+  },
+  "model_calls_with_usage": 2
+}

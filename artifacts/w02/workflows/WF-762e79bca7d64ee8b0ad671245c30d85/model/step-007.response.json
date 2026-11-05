@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "Eo4DCosDAWkUfROyIfVLZCsCynVLO9zgA4uStJ7rrnOAzeUBNMgINFBmT3QsRbHDT4pH3bQVC1rfdA22jYXyFbua4SL0gnnM3yaa+2BU4/YD5Dx70lkRM0xDUhbhRIl/hmthObc6md3dnq6xr1kKw8xDhQ7fkzv3k5E4a3etpuH6fLh3crwQdYB2AUnHVvcqkVufK4HsAEJqb2/VhIYkgkVpd91xp2w/bBfyJJll3YHDxMueoYyFOPdqauicxIT98Jgnzig6hbr2rl8IyI3l9SsbAK2J63gv7y8kLcgmz2xSxx51AaZOAPZfWmU+KGdb7cu3LL5OLdL7mMkSZSljAfdjn2gdMmk+xlJI57/c9ZzyYYicq/BH2d6se4q6R7GNj3TAdWLiR/gsIMTbWQC/sIYWyKfDObg3uCmVyKnkMu4mBL8loKVzV1qimfTlCVZKmMPyO8E5W7pcwm+G5wnO/NU+76vd0N/r9UjTq1LIQZ29iitueozUPEddfFTFsA5+o4ajlebuTwNsSXOvUrpJGGA="
+          }
+        },
+        "function": {
+          "arguments": "{\"claim_ids\":[\"CLM-001-0008\",\"CLM-001-0010\",\"CLM-001-0011\",\"CLM-002-0014\"]}",
+          "name": "show_evidence"
+        },
+        "id": "call_133854",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 34510,
+    "completion_tokens": 66,
+    "total_tokens": 34686
+  }
+}

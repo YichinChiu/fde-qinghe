@@ -1,0 +1,43 @@
+[
+  {
+    "id": "aug-net-sales-by-home-store",
+    "question": "青禾 2026 年 8 月净销售额按会员归属门店编号分别是多少？",
+    "expected": {
+      "status": "ok",
+      "intent": {
+        "metrics": [
+          "net_sales_cents"
+        ],
+        "start": "2026-08-01",
+        "end": "2026-09-01",
+        "group_by": [
+          "home_store"
+        ],
+        "filters": []
+      },
+      "columns": [
+        "home_store",
+        "net_sales_cents"
+      ],
+      "rows": [
+        [
+          "S01",
+          54650
+        ],
+        [
+          "S02",
+          45650
+        ],
+        [
+          "S03",
+          0
+        ]
+      ],
+      "units": {
+        "net_sales_cents": "cents"
+      },
+      "data_version": "qinghe-w03-20260923-small"
+    },
+    "expected_source": "独立审核程序 customer/w03/audit.py 对数据版本 qinghe-w03-20260923-small（materials/data/small）逐记录计算；窗口 [2026-08-01, 2026-09-01)，分组 ['home_store']，筛选 无。定义：01“paid 订单实付减退款后合计；取消单不计”。 本用例检查：按会员归属门店分组，与成交门店角色区分。"
+  }
+]

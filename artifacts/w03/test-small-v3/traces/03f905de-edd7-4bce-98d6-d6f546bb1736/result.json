@@ -1,0 +1,46 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "valid_order_count"
+    ],
+    "start": "2026-08-01",
+    "end": "2026-09-01",
+    "group_by": [
+      "order__channel"
+    ],
+    "filters": []
+  },
+  "sql": "SELECT\n  order__channel\n  , SUM(__valid_order_count) AS valid_order_count\nFROM (\n  SELECT\n    channel AS order__channel\n    , CASE WHEN status = 'paid' AND paid_cents > refund_cents THEN 1 ELSE 0 END AS __valid_order_count\n  FROM \"data\".\"main\".\"orders\" orders_source_src_10000\n  WHERE DATE_TRUNC('day', ordered_at) BETWEEN '2026-08-01' AND '2026-08-31'\n) subq_5\nGROUP BY\n  order__channel",
+  "columns": [
+    "order__channel",
+    "valid_order_count"
+  ],
+  "rows": [
+    [
+      "小程序",
+      13
+    ],
+    [
+      "门店",
+      14
+    ]
+  ],
+  "seconds": 0.047,
+  "units": {
+    "valid_order_count": "count"
+  },
+  "data_version": "qinghe-w03-20260923-small",
+  "data_sha256": "8a295969ec24556ebd7f818506633919e71f840fc86488d53efc185f9768cfe6",
+  "catalog_sha256": "bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c",
+  "answer": "青禾在 2026 年 8 月期间，有效订单数按订单渠道统计如下：\n- 门店：14 笔\n- 小程序：13 笔\n\n统计口径说明：统计时间按下单本地日期归属于 2026 年 8 月，有效订单仅包含已支付且实付金额大于退款金额的订单，已取消或全额退款的订单不计入。",
+  "question": "青禾 2026 年 8 月有效订单数按订单渠道分别是多少？",
+  "trace_id": "03f905de-edd7-4bce-98d6-d6f546bb1736",
+  "elapsed_seconds": 14.516,
+  "model_usage": {
+    "prompt_tokens": 15836,
+    "completion_tokens": 248,
+    "total_tokens": 16776
+  },
+  "model_calls_with_usage": 2
+}

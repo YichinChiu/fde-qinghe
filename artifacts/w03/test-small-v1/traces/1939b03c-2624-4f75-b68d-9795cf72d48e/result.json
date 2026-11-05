@@ -1,0 +1,42 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "paid_order_count",
+      "valid_order_count"
+    ],
+    "start": "2026-08-01",
+    "end": "2026-09-01",
+    "group_by": [],
+    "filters": []
+  },
+  "sql": "SELECT\n  SUM(case when status = 'paid' then 1 else 0 end) AS paid_order_count\n  , SUM(case when status = 'paid' and (paid_cents - refund_cents) > 0 then 1 else 0 end) AS valid_order_count\nFROM \"data\".\"main\".\"orders\" orders_src_10000\nWHERE DATE_TRUNC('day', ordered_at) BETWEEN '2026-08-01' AND '2026-08-31'",
+  "columns": [
+    "paid_order_count",
+    "valid_order_count"
+  ],
+  "rows": [
+    [
+      30,
+      27
+    ]
+  ],
+  "seconds": 0.032,
+  "units": {
+    "paid_order_count": "count",
+    "valid_order_count": "count"
+  },
+  "data_version": "qinghe-w03-20260923-small",
+  "data_sha256": "8a295969ec24556ebd7f818506633919e71f840fc86488d53efc185f9768cfe6",
+  "catalog_sha256": "266ad38a8f11190084fc51913ec5216f7716612cd6a870f00b2e002d264916be",
+  "answer": "青禾在 2026 年 8 月期间（2026-08-01 至 2026-08-31）的订单统计如下：\n- 支付订单数：30 单（包含支付后发生全额退款的订单）\n- 有效订单数：27 单（剔除取消及全额退款后实付金额大于零的订单）",
+  "question": "青禾 2026 年 8 月支付订单数和有效订单数各是多少？",
+  "trace_id": "1939b03c-2624-4f75-b68d-9795cf72d48e",
+  "elapsed_seconds": 16.297,
+  "model_usage": {
+    "prompt_tokens": 14013,
+    "completion_tokens": 255,
+    "total_tokens": 14826
+  },
+  "model_calls_with_usage": 2
+}

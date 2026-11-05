@@ -1,0 +1,129 @@
+{
+  "contract_version": "w02-0.1.0-draft",
+  "run_id": "RUN-e018c6043d1749c2a47719771d219cd2",
+  "stage": "extraction",
+  "mode": "live",
+  "status": "succeeded",
+  "model": {
+    "provider": "generativelanguage.googleapis.com",
+    "name": "gemini-3.8-flash",
+    "adapter_version": "w02-extractor-0.1.0"
+  },
+  "implementation": [
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/implementation/platform/fde_product/interview_extraction.py",
+      "sha256": "4158dd8cf48092fbd515c562e326d403e60d15feb76511dd04b9991c77de6e53"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/implementation/platform/fde_product/models.py",
+      "sha256": "17cac712394ede304b9d57f2c3adcf4cb5739bbd6264880efb9603bc5dacb223"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/implementation/tools/w02_interviews.py",
+      "sha256": "7dc6d6e55add4179c10f6cd41944606ee0a7a722ca2e5bc30b25ca4db31a3e00"
+    }
+  ],
+  "configuration": [
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/snapshot/artifacts/w02/workflows/WF-762e79bca7d64ee8b0ad671245c30d85/extraction.json",
+      "sha256": "1dee1e7bb6d5b96226dd9b16bc6212a1e67ea0a0454815d8dec4afcfee7bd2f5"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/snapshot/artifacts/w02/workflows/WF-762e79bca7d64ee8b0ad671245c30d85/inputs/prompt.md",
+      "sha256": "105abe860e6311ccfae5713aa240acf5f7e4e6509690d7ed1d5362a8ed790a5a"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/contracts/transcript.schema.json",
+      "sha256": "855f84b576d3f0b7bea82eac6b817fc0c8c723040f131f43075380110a823f9f"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/contracts/interview_facts.schema.json",
+      "sha256": "34358b1f9cca39f17f3d7b74abda732460be0beaba2f93b8e8f8bcaa3d2e0a80"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/contracts/run_evidence.schema.json",
+      "sha256": "4fed42abba5d6f9a727c52d6e3097e965ffa3b02ef855aadb2387ab1f890ebce"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/settings.json",
+      "sha256": "4bb7bb8c3e3e2a1ffcd3bdeef4d20ea51d8f849f54395e937ed866a76a7c3ee0"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/snapshot/artifacts/w02/workflows/WF-762e79bca7d64ee8b0ad671245c30d85/sources/0.json",
+      "sha256": "2c8b45ede29488195fb3058b0a1da63f5477589b675736dd76f5dc8be02ae5dc"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/snapshot/artifacts/w02/workflows/WF-762e79bca7d64ee8b0ad671245c30d85/sources/1.json",
+      "sha256": "aab870d7199bdb366e6804e153353cf37a40b307c48e86dcb6dce3a9b9d03182"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/snapshot/artifacts/w02/workflows/WF-762e79bca7d64ee8b0ad671245c30d85/sources/2.json",
+      "sha256": "724ef62eb6a9bad9df4ebba7bfeb4eb49b49bcf9ce59d68fa482d6a21d7d3fe4"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/snapshot/artifacts/w02/workflows/WF-762e79bca7d64ee8b0ad671245c30d85/sources/3.json",
+      "sha256": "c93b2bf39c88a2c82ec977670f5d99caf0d8e80f1851ca9f2da0b1b48b17bb5a"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/step-001.request.json",
+      "sha256": "d0ad7ecf72d85f486d6e5978b563de284cbcfd716291b6eaa93df2e7e2c7754f"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/step-001.attempts.json",
+      "sha256": "d82b446fe23668202a9d7e43d3250e9d2acdd9adddf90143e039551a536659c4"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/step-001.response.json",
+      "sha256": "a7841cfe21e88db40cd83abbcae820954d35e58289927ec4f7412fc7b4cb3f26"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/step-002.request.json",
+      "sha256": "12ffcbe0c740bd3659463a37fad95d703daae207c52d0a784e330be68651a02e"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/step-002.attempts.json",
+      "sha256": "fac6a7618b5e66f0bdfe436c9005733e5e026040b00a17846e296aaa40c601d5"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/step-002.response.json",
+      "sha256": "8e7b18e273a305e56aeb2d6bcc0b88456c80304094df5b92e32ee20197e2dd0e"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/step-003.request.json",
+      "sha256": "3d28eae2ce6a08683d7d55ce5b9e672981f24cb7021602783eb49c9bd09b8137"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/step-003.attempts.json",
+      "sha256": "cf194fe239f9d115c58f046f94bdc2d278aa07865c625e5dbcfbeea4816d4938"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/step-003.response.json",
+      "sha256": "ffa84c5ababfdcc5fcaf449551862f44a60ac6610892d2997c9687f4fd1c6b9e"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/step-004.request.json",
+      "sha256": "2dd6fb4b46b2a31c703b42e0adf2e2d1067ec0ed17fbee01b36ccd1bffcbacc9"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/step-004.attempts.json",
+      "sha256": "7f027a557e82e4bd5132e357cb163d24d31f581620f5fab2a9821465f6418e9f"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/step-004.response.json",
+      "sha256": "4e04f94b901c2aceebddd54b878a525eeae60e8db2edcc60555725b9f7936dde"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/candidates.json",
+      "sha256": "7ef1096a70fd07395be100f20c8ca9c7a64c899ef46c7a9c5f4b79b971d6f89a"
+    },
+    {
+      "path": "artifacts/w02/runs/RUN-e018c6043d1749c2a47719771d219cd2/steps.json",
+      "sha256": "319d04d464903baeb19b7429a56ca501a884b25f81879a4e6d7fb83d0792f6fe"
+    }
+  ],
+  "error": null
+}

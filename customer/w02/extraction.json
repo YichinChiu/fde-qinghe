@@ -1,0 +1,17 @@
+{
+  "version": "w02-extractor-0.1.0",
+  "scope_id": "qinghe",
+  "sources": [
+    "artifacts/w02/sources/W3-interview-15f48b22-851e-5b22-a1d7-948260c7269e-transcript.json"
+  ],
+  "prompt": "customer/w02/extraction_prompt.txt",
+  "focus_questions": [
+    "卡的权益结束日（valid_until）、提前终止日（ended_at）落在判定日当天时，门店现场按有效还是无效对待？受访者对这一说法加了哪些限定（门店做法与月报口径的关系、由谁确定）？",
+    "资格按账户判断、一账户多卡不重复计人和订单，受访者怎么说？",
+    "受访者把哪些事项转给其他角色确认？"
+  ],
+  "batch_chars": 4000,
+  "max_batches": 24,
+  "reconcile_chars": 96000,
+  "profile": "json-object"
+}

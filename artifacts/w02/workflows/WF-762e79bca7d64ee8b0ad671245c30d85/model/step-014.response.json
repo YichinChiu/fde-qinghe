@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "EtUGCtIGAWkUfRMa4+cgMtUgHutjtM2nT4flRNUS91pk0YKXLK9eEZitVqtFxe/vWTILQ03U20EiI1SlDiUfS0uT0hVw3GW4JtarF/ld4LNvGgUoj0UD7pcSOun4spotIP1SyOZiibxuxj5pEX+nhIWgbJB6uR9sEbN4uIK8OAdaOKSCVeCAGn5Uv/+DF2C8X5+HC1Bo1SpBOB8TJmeEUAtFgXOjr/fJgna5pSKA15E1hsMO8K73JrSWIDLmyjxnUnAhnk7rYs9OtGMuqy59dlx5oW0h+dLni/mjcA4cNa8yG4zuaeziERQ1M3kKptVloj/jHxqUD4a9szoHr020jG+otwOdW+bDKWu8WWrTuEuFRzSWhZdVwlF94o+IpyrMZax0sWrKV5ZhBbKf9+z9OmJKp3VuIxgTS/8+oiVw8RMNwlEXFPhwDK9LVDTfYxRlPWS0s9FU9dXRW+ZcK75nc7lvSm10Oxv3Fig0wr500Wonp1YRWGpoClyw9dWe86UlHd8HamfunCG1VoX09pz/u4QdRm3Cy5UPqeGpglKdcHx+JiE+RNmvyBqotGzqfKxv4PTMsmub4yU27iU3josZ1l9w33GmVUVdBiMKmTNFnf74Gyg2BcxG1NA1q5AQ2rla4soEXHqL4PJdPuc7Ni1yNjs0YPuQYbHn9aRbLoQrtLRPiw6mp4Xa4CTMrDssCZC1d1csN+ou2fJIZXf53LkSunCs64EA/zZU2K/tBKNmu/sr2mUoFov/HuvukvL8JO/X60/m0N3WQ+7ROfioo9VI5v3ymsAvGBxmpgtFtPyHmFlPqGzQXgYAbiExDEbTU443pRhC0isTxoM0vkQsqavzcNrR4oBdeCOkf4TWKtLg861DdFdgUBoC0+K/TMKJ+S7TysDojwNYqBde2mLCfkpCnTeKijmiAT1DgeL0oJNfTdyl8dqJQ4UKlqiX23Yg/R5MThqFpBuzGMQbT/ZZ3hgkQ4Wch72PUzE0T5m6b7a25cEKdLxeTrd5PxkAUjX4kBGsbyDhhgRG5tmGy3yzLyuR/uB/0IKzqfxnrvHhS9xkPzfKOrR2s5IknDCg6/lGKMNrRRF66EuDmqUa271m9GWWh0CiZfTmiNTVEop3y+9qXObRdGbn5i0JfA=="
+          }
+        },
+        "function": {
+          "arguments": "{\"claim_ids\":[\"CLM-002-0015\",\"CLM-002-0018\",\"CLM-002-0019\",\"CLM-002-0020\"],\"question\":\"请核查第 6 组候选（小林关于王经理职责认知、等级与资格解耦、一账户多卡、注册会员按当前等级分组展示）：\\n1. CLM-002-0015：小林称“王经理只管预算和合同，不裁定资格”；\\n2. CLM-002-0018：等级和付费资格是两个维度，等级和付款金额不代替卡种和有效状态，不能拿等级构成当付费会员数用；\\n3. CLM-002-0019：同一账户持有多张有效卡只算一个账户；\\n4. CLM-002-0020：注册会员数按当前等级分组展示符合运营需要，注明不是注册当时等级，历史等级列为数据限制后续再看。\\n\\n请确认是否采用或修订状态？\"}",
+          "name": "request_review"
+        },
+        "id": "call_134148",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 50599,
+    "completion_tokens": 265,
+    "total_tokens": 51114
+  }
+}

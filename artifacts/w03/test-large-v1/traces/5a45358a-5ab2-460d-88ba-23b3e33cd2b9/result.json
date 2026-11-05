@@ -1,0 +1,24 @@
+{
+  "status": "unsupported",
+  "reason": "请求的时间范围（2024年8月）超出了当前数据集的覆盖范围（2024-09-01 至 2026-09-01）。",
+  "intent": {
+    "status": "unsupported",
+    "reason": "请求的时间范围（2024年8月）超出了当前数据集的覆盖范围（2024-09-01 至 2026-09-01）。",
+    "metrics": [
+      "net_sales_cents"
+    ],
+    "start": "2024-08-01",
+    "end": "2024-09-01",
+    "group_by": [],
+    "filters": []
+  },
+  "question": "青禾 2024 年 8 月的净销售额是多少？",
+  "trace_id": "5a45358a-5ab2-460d-88ba-23b3e33cd2b9",
+  "elapsed_seconds": 13.453,
+  "model_usage": {
+    "prompt_tokens": 495117,
+    "completion_tokens": 127,
+    "total_tokens": 495644
+  },
+  "model_calls_with_usage": 1
+}

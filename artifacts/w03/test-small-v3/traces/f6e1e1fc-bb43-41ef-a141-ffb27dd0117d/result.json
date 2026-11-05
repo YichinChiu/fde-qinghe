@@ -1,0 +1,46 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "monthly_paid_buyer_count",
+      "monthly_paid_order_count",
+      "monthly_paid_sales_cents"
+    ],
+    "start": "2026-08-01",
+    "end": "2026-09-01",
+    "group_by": [],
+    "filters": []
+  },
+  "sql": "SELECT\n  COUNT(DISTINCT CASE WHEN is_paid_member = 1 AND valid_order_count >= 1 THEN member_id ELSE NULL END) AS monthly_paid_buyer_count\n  , SUM(CASE WHEN is_paid_member = 1 THEN valid_order_count ELSE 0 END) AS monthly_paid_order_count\n  , SUM(CASE WHEN is_paid_member = 1 THEN net_sales_cents ELSE 0 END) AS monthly_paid_sales_cents\nFROM \"data\".\"main\".\"member_monthly_summary\" member_monthly_summary_model_src_10000\nWHERE DATE_TRUNC('day', month_start) BETWEEN '2026-08-01' AND '2026-08-31'",
+  "columns": [
+    "monthly_paid_buyer_count",
+    "monthly_paid_order_count",
+    "monthly_paid_sales_cents"
+  ],
+  "rows": [
+    [
+      5,
+      9,
+      44550
+    ]
+  ],
+  "seconds": 0.047,
+  "units": {
+    "monthly_paid_buyer_count": "count",
+    "monthly_paid_order_count": "count",
+    "monthly_paid_sales_cents": "cents"
+  },
+  "data_version": "qinghe-w03-20260923-small",
+  "data_sha256": "8a295969ec24556ebd7f818506633919e71f840fc86488d53efc185f9768cfe6",
+  "catalog_sha256": "bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c",
+  "answer": "青禾 2026 年 8 月（2026-08-01 至 2026-09-01）全渠道全门店的相关统计结果如下：\n- 月末付费会员购买人数：5 个账户\n- 月末付费会员有效订单数：9 笔\n- 月末付费会员净销售额：445.50 元\n\n口径说明及限制：\n1. 统计对象与单位：基于 CRM 会员账户统计，月末符合总部运营月报付费资格的账户；一账户多卡按一个账户计算。\n2. 口径待确认说明：卡种范围与多卡规则为运营口头答复待书面确认（仅包含悦享年卡与家庭季卡，排除联名卡与体验卡）；月末失效端点为本期暂定口径（月末当天到期或提前终止按门店现场做法暂定为无效，依据 FDE 决定 2026-11-05，待小林与老周核对后书面确认）。\n3. 其他提示：2026-01 之前测试卡表历史覆盖未核实，结果为 0 不能解读为业务上为零；本期统计不作考核依据。",
+  "question": "青禾 2026 年 8 月月末付费会员购买人数、月末付费会员有效订单数和月末付费会员净销售额是多少？",
+  "trace_id": "f6e1e1fc-bb43-41ef-a141-ffb27dd0117d",
+  "elapsed_seconds": 18.875,
+  "model_usage": {
+    "prompt_tokens": 16778,
+    "completion_tokens": 493,
+    "total_tokens": 18219
+  },
+  "model_calls_with_usage": 2
+}

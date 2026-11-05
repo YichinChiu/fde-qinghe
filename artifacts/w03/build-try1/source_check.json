@@ -1,0 +1,47 @@
+{
+  "passed": false,
+  "errors": [
+    {
+      "model_usage": {
+        "quote": "订单明确分为线上渠道与门店渠道；谈订单范围时得先说清看的是哪个渠道，不能把两个渠道混在一起看。",
+        "used_for": [
+          {
+            "kind": "semantic_model",
+            "name": "orders"
+          },
+          {
+            "kind": "dimension",
+            "name": "order__channel"
+          }
+        ]
+      }
+    },
+    {
+      "model_usage": {
+        "quote": "小程序订单上的 store_id 具体指下单门店、发货或自提门店还是会员挂靠门店，老周不掌握，待结合实际填写方式和统计说明核实；老周指出不能凭它直接定成交门店数口径。",
+        "used_for": [
+          {
+            "kind": "dimension",
+            "name": "store"
+          },
+          {
+            "kind": "metric",
+            "name": "order_count"
+          },
+          {
+            "kind": "metric",
+            "name": "valid_order_count"
+          },
+          {
+            "kind": "metric",
+            "name": "net_sales_cents"
+          },
+          {
+            "kind": "metric",
+            "name": "avg_order_value"
+          }
+        ]
+      }
+    }
+  ]
+}

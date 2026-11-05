@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "EqsFCqgFAWkUfRNPruObPGxVrBcbTdk+YpjU3xT6afz+RQ48TLX3qMgc9xqynIfs6uNeh5HvxvgCwayQ+KOQ/3hIhrSHr61cnXXtlNd7hd872s4ZLf3NuGIeoqopI+9YCAlsber7lZ53jBWqDuC5riv/3j2t36pGCiRWooNGGr88ecAGWreVanS1HWXBnA4B0sH1I57EvhI5CALCBj+CZmH8MCanZa1WKPuIMLsk/hJGriQ5qigBlcsl0ApdDOL4RiKs5Tmkw9jcVCM2xpWQOwjz5eIUcU6zTVds+p5UYpPU/eFO+6tHp1cZDGiiSeUoToICTUq9Hu+9cYMFHrmSaX+iY3Lq9yWEyRhyeOK+HD04u0mdB1ies4WPd7DneUhmouRFeiX37YmbsFypIeKtgoMuOiMcVl+vjptor8Wa0kUnKODlCCpBJ8we0xomn6UTryk750ytXiXEdna32ZoRFYAnJiex2WGYCsq/AXHvjaAU1MUeSmb88s5dAW+r2vgQl8fQmbOkViLfGmgFUm3WQ2XHUCyIVxBcsdCecz1G27sUvE7WZPnm/c30LlKa55nOLjyaULeXPVXZGQgpQGu3jdIdoQrVe7FNjm75De+XZJTDNDTHlW9LbLVq2xYUL1EJpCxnahyph2WodHkd0YbCMAdnamkp8C6kg4j653y3sNTfXduih/iI7zRMGb9JfUnbFd1taRXBNJJr7r5uCz58fD44xSfDYnqKlgmz6aZSD3GR6FWXUizZ/KU12f5Fxj65VQkRmLfrLg1m2+yYGo8tuP4F6Z8NZq/bH7dLHuUdghPjM9RMkr6K8la3EUbnbV517pmPdTkgl+xANC8kqgNrkOLvHbq8MibfW96GB0hhyxR65yy6LVZSb5Phns7gwmtCJQ1Y/QUCgOCYCtL/FD4="
+          }
+        },
+        "function": {
+          "arguments": "{\"claim_ids\":[\"CLM-001-0001\",\"CLM-001-0002\",\"CLM-001-0003\",\"CLM-001-0004\"],\"question\":\"请核查第 1 组候选（王经理关于阶段验收依据、各方核查职责与付费资格书面确认要求）：\\n1. CLM-001-0001：王经理验收时主要看定义来源与统计口径可追溯、实际查询记录可复现、校验报告说明结果正确；\\n2. CLM-001-0002：职责分工为运营核对业务范围、IT核对字段和数据覆盖、王经理参与统计口径和验收依据核查；\\n3. CLM-001-0003：查询校验仅证明指定测试范围内正确，不等于复购率提升或投资回报；收益目标、预算、合同、正式上线未定待另行确认；\\n4. CLM-001-0004：付费资格和月末有效性属于业务规则，王经理不代裁定；运营答复不能单独作为约定依据，需书面确认卡种范围和月末判断口径。\\n\\n请确认以上候选是否准确反映王经理立场，是否可纳入业务模型与核查记录？\"}",
+          "name": "request_review"
+        },
+        "id": "call_361153",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 30079,
+    "completion_tokens": 316,
+    "total_tokens": 30577
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "你根据本轮真实执行结果回答问题。解释条件时必须使用字段语义：store、store__region、store__store_name 都表示订单成交门店及其地区/名称；home_store 及其地区/名称才表示会员归属门店。返回 intent 中已有字段筛选就是已经应用的查询条件，不能因没有额外中文同名字段而否认已应用的条件。只能引用结果中的数值；金额以分存储，展示元需除100；比例展示百分数需乘100。用简明业务语言解释统计范围、口径及限制，金额保留两位小数、比例适当四舍五入。不要展示内部 status、intent 等字段名。区分零和未定义。聚合返回零是覆盖内的零；未返回某个分组仅说明该分组未列出，不能称为该指标未定义，也不能推断数据覆盖不足。返回 JSON：{\"answer\":\"...\",\"used_metrics\":[],\"citations\":[\"当前执行结果\"]}。\ncustomer_context 指明当前已加载客户与统计单位，data_context 指明本次测试数据版本和覆盖；本轮成功结果已经处于该客户数据范围。问题中的当前客户名称不是门店筛选值，不能因为没有同名门店筛选而否认结果属于该客户。只说明实际应用的筛选和分组；若用户没有要求某维度，不添加假设性的门店歧义。人数按customer_context统计单位表述为账户，不暗示跨系统自然人已去重。用业务词说明范围，不向用户罗列技术字段ID。\n"
+    },
+    {
+      "role": "user",
+      "content": "{\"question\": \"青禾 2026 年 8 月观测期首购会员数、观测期首单数和观测期首单净销售额是多少？\", \"customer_context\": {\"customer\": \"青禾\", \"statistics_unit\": \"CRM 会员账户\", \"scope\": \"本周合成测试库\"}, \"data_context\": {\"seed\": 20260923, \"synthetic\": true, \"counts\": {\"members\": 20, \"orders\": 48, \"stores\": 3, \"cards\": 22}, \"coverage\": [\"2024-09-01\", \"2026-09-01\"], \"sha256\": {\"orders.csv\": \"c6e0dee6081e7a6f7782b54de78b3182835c46184c8e7569fc23feab8cf3c4f1\", \"cards.csv\": \"d27bdabd508d7881a1bea84cb79400c2a770fc1ad42fdb81877163cc018bb8d5\", \"members.csv\": \"e99b7e82389722b1ae2e4fd267c74dd84bd61dfeabaa161221d7ae44ae955b2f\", \"stores.csv\": \"e8160804fd485853f6c75d9a095b1ee6f05bbbd40ba851cac84def35488aa41d\"}, \"id\": \"qinghe-w03-20260923-small\", \"timezone\": \"Asia/Shanghai\", \"reference_date\": \"2026-09-01\", \"generator_version\": \"qinghe-w03-v1\", \"base_seed\": 20260922, \"library_sha256\": \"bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c\"}, \"result\": {\"status\": \"ok\", \"intent\": {\"metrics\": [\"first_buyer_count\", \"first_order_count\", \"first_order_sales_cents\"], \"start\": \"2026-08-01\", \"end\": \"2026-09-01\", \"group_by\": [], \"filters\": []}, \"columns\": [\"first_buyer_count\", \"first_order_count\", \"first_order_sales_cents\"], \"rows\": [[5, 5, 12800]], \"seconds\": 0.047, \"units\": {\"first_buyer_count\": \"count\", \"first_order_count\": \"count\", \"first_order_sales_cents\": \"cents\"}, \"data_version\": \"qinghe-w03-20260923-small\", \"data_sha256\": \"8a295969ec24556ebd7f818506633919e71f840fc86488d53efc185f9768cfe6\", \"catalog_sha256\": \"bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c\"}, \"definitions\": [{\"id\": \"first_buyer_count\", \"name\": \"观测期首购会员数\", \"aliases\": [], \"unit\": \"count\", \"sources\": [{\"file\": \"03_会员运营周报.md\", \"quote\": \"首次有效订单落入查询窗口的不同 CRM 账户数\"}, {\"file\": \"03_会员运营周报.md\", \"quote\": \"先用全覆盖历史确定首次，再按窗口筛选。\"}], \"constraints\": [\"回答须说明（按成交门店分组或筛选时）：小程序订单门店编号含义待IT核实，核实前不能当作门店归属，不改变现有门店考核，不代表门店执行已经改善。\", \"在测试全覆盖期内先按日期及订单号排序确定首单，不代表终身首购。\"], \"query_policy\": {\"full_month_only\": false}}, {\"id\": \"first_order_sales_cents\", \"name\": \"观测期首单净销售额\", \"aliases\": [], \"unit\": \"cents\", \"sources\": [{\"file\": \"03_会员运营周报.md\", \"quote\": \"每个账户在测试覆盖期内第一笔有效订单的净销售额\"}, {\"file\": \"03_会员运营周报.md\", \"quote\": \"按该单日期归属；相同日期按订单号排序；单位分。\"}], \"constraints\": [\"回答须说明（按成交门店分组或筛选时）：小程序订单门店编号含义待IT核实，核实前不能当作门店归属，不改变现有门店考核，不代表门店执行已经改善。\", \"账户全覆盖期第一笔有效订单按该单下单日期归属，相同日期按订单号排序；底层为整数分。\"], \"query_policy\": {\"full_month_only\": false}}, {\"id\": \"first_order_count\", \"name\": \"观测期首单数\", \"aliases\": [], \"unit\": \"count\", \"sources\": [{\"file\": \"03_会员运营周报.md\", \"quote\": \"其第一笔有效订单落入窗口的单数。\"}, {\"file\": \"03_会员运营周报.md\", \"quote\": \"先为每个账户按日期、订单号排序\"}], \"constraints\": [\"回答须说明（按成交门店分组或筛选时）：小程序订单门店编号含义待IT核实，核实前不能当作门店归属，不改变现有门店考核，不代表门店执行已经改善。\", \"全覆盖期内排序后第一笔有效订单落入窗口计数。\"], \"query_policy\": {\"full_month_only\": false}}]}"
+    }
+  ],
+  "model": "gemini-3.8-flash",
+  "reply": {
+    "role": "assistant",
+    "content": "```json\n{\n  \"answer\": \"青禾在 2026 年 8 月（2026-08-01 至 2026-09-01）的统计结果如下：\\n\\n- 观测期首购会员数：5 个 CRM 会员账户\\n- 观测期首单数：5 单\\n- 观测期首单净销售额：128.00 元\\n\\n口径说明：上述指标是在测试全覆盖期内按订单日期及订单号排序确定每个账户的首笔有效订单，首单落入 2026 年 8 月即纳入统计；首购判定仅基于当前测试覆盖期数据，不代表终身首购。\",\n  \"used_metrics\": [\n    \"观测期首购会员数\",\n    \"观测期首单数\",\n    \"观测期首单净销售额\"\n  ],\n  \"citations\": [\n    \"当前执行结果\"\n  ]\n}\n```"
+  },
+  "usage": {
+    "prompt_tokens": 1772,
+    "completion_tokens": 228,
+    "total_tokens": 2291
+  },
+  "seconds": 7.5,
+  "call": {
+    "policy_version": "gateway-stages-20260922",
+    "attempts": [
+      {
+        "attempt": 1,
+        "request": {
+          "model": "gemini-3.8-flash",
+          "messages": [
+            {
+              "role": "system",
+              "content": "你根据本轮真实执行结果回答问题。解释条件时必须使用字段语义：store、store__region、store__store_name 都表示订单成交门店及其地区/名称；home_store 及其地区/名称才表示会员归属门店。返回 intent 中已有字段筛选就是已经应用的查询条件，不能因没有额外中文同名字段而否认已应用的条件。只能引用结果中的数值；金额以分存储，展示元需除100；比例展示百分数需乘100。用简明业务语言解释统计范围、口径及限制，金额保留两位小数、比例适当四舍五入。不要展示内部 status、intent 等字段名。区分零和未定义。聚合返回零是覆盖内的零；未返回某个分组仅说明该分组未列出，不能称为该指标未定义，也不能推断数据覆盖不足。返回 JSON：{\"answer\":\"...\",\"used_metrics\":[],\"citations\":[\"当前执行结果\"]}。\ncustomer_context 指明当前已加载客户与统计单位，data_context 指明本次测试数据版本和覆盖；本轮成功结果已经处于该客户数据范围。问题中的当前客户名称不是门店筛选值，不能因为没有同名门店筛选而否认结果属于该客户。只说明实际应用的筛选和分组；若用户没有要求某维度，不添加假设性的门店歧义。人数按customer_context统计单位表述为账户，不暗示跨系统自然人已去重。用业务词说明范围，不向用户罗列技术字段ID。\n"
+            },
+            {
+              "role": "user",
+              "content": "{\"question\": \"青禾 2026 年 8 月观测期首购会员数、观测期首单数和观测期首单净销售额是多少？\", \"customer_context\": {\"customer\": \"青禾\", \"statistics_unit\": \"CRM 会员账户\", \"scope\": \"本周合成测试库\"}, \"data_context\": {\"seed\": 20260923, \"synthetic\": true, \"counts\": {\"members\": 20, \"orders\": 48, \"stores\": 3, \"cards\": 22}, \"coverage\": [\"2024-09-01\", \"2026-09-01\"], \"sha256\": {\"orders.csv\": \"c6e0dee6081e7a6f7782b54de78b3182835c46184c8e7569fc23feab8cf3c4f1\", \"cards.csv\": \"d27bdabd508d7881a1bea84cb79400c2a770fc1ad42fdb81877163cc018bb8d5\", \"members.csv\": \"e99b7e82389722b1ae2e4fd267c74dd84bd61dfeabaa161221d7ae44ae955b2f\", \"stores.csv\": \"e8160804fd485853f6c75d9a095b1ee6f05bbbd40ba851cac84def35488aa41d\"}, \"id\": \"qinghe-w03-20260923-small\", \"timezone\": \"Asia/Shanghai\", \"reference_date\": \"2026-09-01\", \"generator_version\": \"qinghe-w03-v1\", \"base_seed\": 20260922, \"library_sha256\": \"bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c\"}, \"result\": {\"status\": \"ok\", \"intent\": {\"metrics\": [\"first_buyer_count\", \"first_order_count\", \"first_order_sales_cents\"], \"start\": \"2026-08-01\", \"end\": \"2026-09-01\", \"group_by\": [], \"filters\": []}, \"columns\": [\"first_buyer_count\", \"first_order_count\", \"first_order_sales_cents\"], \"rows\": [[5, 5, 12800]], \"seconds\": 0.047, \"units\": {\"first_buyer_count\": \"count\", \"first_order_count\": \"count\", \"first_order_sales_cents\": \"cents\"}, \"data_version\": \"qinghe-w03-20260923-small\", \"data_sha256\": \"8a295969ec24556ebd7f818506633919e71f840fc86488d53efc185f9768cfe6\", \"catalog_sha256\": \"bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c\"}, \"definitions\": [{\"id\": \"first_buyer_count\", \"name\": \"观测期首购会员数\", \"aliases\": [], \"unit\": \"count\", \"sources\": [{\"file\": \"03_会员运营周报.md\", \"quote\": \"首次有效订单落入查询窗口的不同 CRM 账户数\"}, {\"file\": \"03_会员运营周报.md\", \"quote\": \"先用全覆盖历史确定首次，再按窗口筛选。\"}], \"constraints\": [\"回答须说明（按成交门店分组或筛选时）：小程序订单门店编号含义待IT核实，核实前不能当作门店归属，不改变现有门店考核，不代表门店执行已经改善。\", \"在测试全覆盖期内先按日期及订单号排序确定首单，不代表终身首购。\"], \"query_policy\": {\"full_month_only\": false}}, {\"id\": \"first_order_sales_cents\", \"name\": \"观测期首单净销售额\", \"aliases\": [], \"unit\": \"cents\", \"sources\": [{\"file\": \"03_会员运营周报.md\", \"quote\": \"每个账户在测试覆盖期内第一笔有效订单的净销售额\"}, {\"file\": \"03_会员运营周报.md\", \"quote\": \"按该单日期归属；相同日期按订单号排序；单位分。\"}], \"constraints\": [\"回答须说明（按成交门店分组或筛选时）：小程序订单门店编号含义待IT核实，核实前不能当作门店归属，不改变现有门店考核，不代表门店执行已经改善。\", \"账户全覆盖期第一笔有效订单按该单下单日期归属，相同日期按订单号排序；底层为整数分。\"], \"query_policy\": {\"full_month_only\": false}}, {\"id\": \"first_order_count\", \"name\": \"观测期首单数\", \"aliases\": [], \"unit\": \"count\", \"sources\": [{\"file\": \"03_会员运营周报.md\", \"quote\": \"其第一笔有效订单落入窗口的单数。\"}, {\"file\": \"03_会员运营周报.md\", \"quote\": \"先为每个账户按日期、订单号排序\"}], \"constraints\": [\"回答须说明（按成交门店分组或筛选时）：小程序订单门店编号含义待IT核实，核实前不能当作门店归属，不改变现有门店考核，不代表门店执行已经改善。\", \"全覆盖期内排序后第一笔有效订单落入窗口计数。\"], \"query_policy\": {\"full_month_only\": false}}]}"
+            }
+          ],
+          "stream": false,
+          "max_tokens": 8192
+        },
+        "timeout_seconds": 180.0,
+        "max_tokens": 8192,
+        "usage": {
+          "completion_tokens": 228,
+          "prompt_tokens": 1772,
+          "total_tokens": 2291
+        },
+        "trace_ids": {},
+        "response_id": "y3fsasf2D7XK2roP692ZgQ4",
+        "http_status": 200,
+        "finish_reason": "stop",
+        "response": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"answer\": \"青禾在 2026 年 8 月（2026-08-01 至 2026-09-01）的统计结果如下：\\n\\n- 观测期首购会员数：5 个 CRM 会员账户\\n- 观测期首单数：5 单\\n- 观测期首单净销售额：128.00 元\\n\\n口径说明：上述指标是在测试全覆盖期内按订单日期及订单号排序确定每个账户的首笔有效订单，首单落入 2026 年 8 月即纳入统计；首购判定仅基于当前测试覆盖期数据，不代表终身首购。\",\n  \"used_metrics\": [\n    \"观测期首购会员数\",\n    \"观测期首单数\",\n    \"观测期首单净销售额\"\n  ],\n  \"citations\": [\n    \"当前执行结果\"\n  ]\n}\n```"
+        },
+        "seconds": 7.5
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1772,
+      "completion_tokens": 228,
+      "total_tokens": 2291
+    }
+  }
+}

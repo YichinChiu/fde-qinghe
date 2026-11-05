@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "EuYGCuMGAWkUfRMBWGfhLYWkbNByAmchMIFadit44XCOk/IVKsquqj22tkEqjYDHUvjD7cp4fN1zZyl4U/rniTCYXGMwFc+mTbXA84roSzvvVAfPnRKomRJuW4D2yEfByBkPLUhnpEortjjEO8iuRsJnHIvWe55UJkAgoG6k9ZVgS4ERggHoDSLELZDXDtBo0q+G07bGm+xoLk+DQr7PhRCX3OTfOjbjLyXKN6XqtERGsTOwnDCrbnQ798dzRHqmlSbeh3CpS4JsB/2bqstZdYreoHxM+ZnHZjk7qDY89NSnJsG9FfTZxvQhG1frBiIp++dVO4Ax2ANS5wGbmuIA96iy/m3+cQrZITdMB6thYuLmypRtwLWp0gYoP6GGyjXlzIqJWFijgp+YpbyqcAAccWp/Od41v2xbM7pwt73vTlPYgaIS9O08d8xonIqzzRsI3dLA0dU/U7x+HMjMlIRv13wd04SDwN9SEemCSidfPr5TtgenNDVIWmgfOdDv7tvj6PsE7l4UsG+Hlbif3HsjHwe8+vrSsFx5RF8ftX4Txrl4gkbyVbJmK6+EDlH78MjDsTD9F3rFNjNstzBYwYlm9wUBswn9wW9illUmDZehoOJKNOnVFJ6N4kfgu3wXcQmXIEvDi+nUyKwahHgkma2YH1k8adbfkDPKxPTL+ZWI62AUO/lEGnEu5UwCGduqB04D2aNui0OOs9QbUTGcN6jhDm/NrhABoImZYNBSDCKH849B0vIs/EG3IhJcZCgo49aDiXFceE82P2o8hf3/ErvFdL9OKtLOqUSuQ0mVkhfPRdPM+K+9g0NKs9HFGo5ptc3fC0nDI1rgjwnO60dBXnwhFm8tQ/rEUD/zOj6drBUzVDgsEtuaKTAuQqxkYfIIcVrHYPKl41a98tI26MpSbheQ7UZpa1wc/W+JiVUAyCAtlLwESemkCq7WnlNUzZBRK92N4zu81ky+64EJHeavI0MJrwROJUo5LnM4hVL7YFuvAnqp3VulXv7Q7x8FwK4GsHVFKSfsWC9wWXAeXSM+JkAFxmtL5VTQqZtSeVqk+XV0IBkaB3/h8jHwA4EikJ/wCnqnrWgWgiKY0C/UT2Qj+u0gTl5XfjO5jH8fVvU0JLfHHCOAIV8F1JZQfpvId9E9RWvzks+y2j9dcsQ5"
+          }
+        },
+        "function": {
+          "arguments": "{\"claim_ids\":[\"CLM-001-0001\",\"CLM-001-0002\",\"CLM-001-0003\",\"CLM-001-0004\"]}",
+          "name": "show_evidence"
+        },
+        "id": "call_263906",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 27927,
+    "completion_tokens": 66,
+    "total_tokens": 28221
+  }
+}

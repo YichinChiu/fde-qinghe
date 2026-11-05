@@ -1,0 +1,131 @@
+{
+  "passed": true,
+  "items": [
+    {
+      "model": "orders_source",
+      "check": "primary_key",
+      "columns": [
+        "order_id"
+      ],
+      "rows": 48,
+      "null_rows": 0,
+      "duplicate_rows": 0,
+      "passed": true
+    },
+    {
+      "model": "orders_source",
+      "entity": "member",
+      "target": "members_source",
+      "check": "foreign_key",
+      "unmatched_rows": 0,
+      "passed": true
+    },
+    {
+      "model": "orders_source",
+      "entity": "store",
+      "target": "stores_source",
+      "check": "foreign_key",
+      "unmatched_rows": 0,
+      "passed": true
+    },
+    {
+      "model": "members_source",
+      "check": "primary_key",
+      "columns": [
+        "member_id"
+      ],
+      "rows": 20,
+      "null_rows": 0,
+      "duplicate_rows": 0,
+      "passed": true
+    },
+    {
+      "model": "members_source",
+      "entity": "home_store",
+      "target": "home_stores_source",
+      "check": "foreign_key",
+      "unmatched_rows": 0,
+      "passed": true
+    },
+    {
+      "model": "stores_source",
+      "check": "primary_key",
+      "columns": [
+        "store_id"
+      ],
+      "rows": 3,
+      "null_rows": 0,
+      "duplicate_rows": 0,
+      "passed": true
+    },
+    {
+      "model": "home_stores_source",
+      "check": "primary_key",
+      "columns": [
+        "store_id"
+      ],
+      "rows": 3,
+      "null_rows": 0,
+      "duplicate_rows": 0,
+      "passed": true
+    },
+    {
+      "model": "ranked_orders_model",
+      "check": "primary_key",
+      "columns": [
+        "order_id"
+      ],
+      "rows": 42,
+      "null_rows": 0,
+      "duplicate_rows": 0,
+      "passed": true
+    },
+    {
+      "model": "ranked_orders_model",
+      "entity": "member",
+      "target": "members_source",
+      "check": "foreign_key",
+      "unmatched_rows": 0,
+      "passed": true
+    },
+    {
+      "model": "ranked_orders_model",
+      "entity": "store",
+      "target": "stores_source",
+      "check": "foreign_key",
+      "unmatched_rows": 0,
+      "passed": true
+    },
+    {
+      "model": "member_monthly_summary_model",
+      "check": "primary_key",
+      "columns": [
+        "member_id",
+        "month_start"
+      ],
+      "rows": 29,
+      "null_rows": 0,
+      "duplicate_rows": 0,
+      "passed": true
+    },
+    {
+      "model": "member_monthly_summary_model",
+      "check": "primary_key",
+      "columns": [
+        "member_month_id"
+      ],
+      "rows": 29,
+      "null_rows": 0,
+      "duplicate_rows": 0,
+      "passed": true
+    },
+    {
+      "model": "member_monthly_summary_model",
+      "entity": "member",
+      "target": "members_source",
+      "check": "foreign_key",
+      "unmatched_rows": 0,
+      "passed": true
+    }
+  ]
+}

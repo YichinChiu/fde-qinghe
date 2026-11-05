@@ -1,0 +1,24 @@
+{
+  "status": "unsupported",
+  "reason": "指标“月末付费会员购买人数”(monthly_paid_buyer_count) 仅支持完整自然月查询，不支持 2026 年 8 月 1 日至 8 月 15 日这样的非整月日期范围。建议查询 2026 年 8 月整月（2026-08-01 至 2026-09-01）。",
+  "intent": {
+    "status": "unsupported",
+    "reason": "指标“月末付费会员购买人数”(monthly_paid_buyer_count) 仅支持完整自然月查询，不支持 2026 年 8 月 1 日至 8 月 15 日这样的非整月日期范围。建议查询 2026 年 8 月整月（2026-08-01 至 2026-09-01）。",
+    "metrics": [
+      "monthly_paid_buyer_count"
+    ],
+    "start": "2026-08-01",
+    "end": "2026-08-16",
+    "group_by": [],
+    "filters": []
+  },
+  "question": "青禾 2026 年 8 月 1 日到 8 月 15 日的月末付费会员购买人数是多少？",
+  "trace_id": "6803ec96-2866-4739-b74c-5f10d2cf7f4b",
+  "elapsed_seconds": 7.953,
+  "model_usage": {
+    "prompt_tokens": 12644,
+    "completion_tokens": 175,
+    "total_tokens": 13344
+  },
+  "model_calls_with_usage": 1
+}

@@ -1,0 +1,469 @@
+[
+  {
+    "id": "aug-orders-cancel",
+    "catches": "创建订单含取消单；取消率分母为创建订单数",
+    "question": "青禾 2026 年 8 月的创建订单数、取消订单数和取消率分别是多少？",
+    "intent": {
+      "metrics": [
+        "order_count",
+        "cancelled_order_count",
+        "cancel_rate"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [],
+      "filters": []
+    }
+  },
+  {
+    "id": "aug-paid-valid",
+    "catches": "支付订单含全额退款单，有效订单排除全退和取消",
+    "question": "青禾 2026 年 8 月支付订单数和有效订单数各是多少？",
+    "intent": {
+      "metrics": [
+        "paid_order_count",
+        "valid_order_count"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [],
+      "filters": []
+    }
+  },
+  {
+    "id": "aug-refund-orders",
+    "catches": "部分退款与全额退款的边界（退款小于实付／等于实付）；退款订单率分母为支付订单数",
+    "question": "青禾 2026 年 8 月退款订单数、部分退款订单数、全额退款订单数和退款订单率是多少？",
+    "intent": {
+      "metrics": [
+        "refund_order_count",
+        "partial_refund_order_count",
+        "full_refund_order_count",
+        "refund_order_rate"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [],
+      "filters": []
+    }
+  },
+  {
+    "id": "aug-payment-refund",
+    "catches": "实付不扣退款、退款按原订单日期归属；退款金额占比为原始比率而非百分数",
+    "question": "青禾 2026 年 8 月实付金额、退款金额和退款金额占比是多少？",
+    "intent": {
+      "metrics": [
+        "payment_cents",
+        "refund_cents",
+        "refund_amount_rate"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [],
+      "filters": []
+    }
+  },
+  {
+    "id": "aug-net-sales",
+    "catches": "净销售额扣退款、不计取消单，单位为分",
+    "question": "青禾 2026 年 8 月净销售额是多少？",
+    "intent": {
+      "metrics": [
+        "net_sales_cents"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [],
+      "filters": []
+    }
+  },
+  {
+    "id": "aug-gross-discount",
+    "catches": "优惠金额为原价减实付，退款不冲减优惠；优惠率分母为原价",
+    "question": "青禾 2026 年 8 月支付订单原价金额、优惠金额和优惠率分别是多少？",
+    "intent": {
+      "metrics": [
+        "gross_cents",
+        "discount_cents",
+        "discount_rate"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [],
+      "filters": []
+    }
+  },
+  {
+    "id": "aug-buyers",
+    "catches": "购买会员按账户去重；退款会员按 paid 且退款大于零的订单去重",
+    "question": "青禾 2026 年 8 月购买会员数和退款会员数各是多少？",
+    "intent": {
+      "metrics": [
+        "buyer_count",
+        "refund_buyer_count"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [],
+      "filters": []
+    }
+  },
+  {
+    "id": "aug-selling-stores",
+    "catches": "成交门店数按有效订单门店去重",
+    "question": "青禾 2026 年 8 月成交门店数是多少？",
+    "intent": {
+      "metrics": [
+        "selling_store_count"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [],
+      "filters": []
+    }
+  },
+  {
+    "id": "aug-items",
+    "catches": "商品件数只计有效订单的原始件数；单均件数单位为件／单",
+    "question": "青禾 2026 年 8 月有效订单商品件数和单均商品件数是多少？",
+    "intent": {
+      "metrics": [
+        "valid_order_items",
+        "items_per_order"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [],
+      "filters": []
+    }
+  },
+  {
+    "id": "aug-averages",
+    "catches": "三项比率的分子分母与量纲（分／单、分／账户、单／账户）",
+    "question": "青禾 2026 年 8 月有效订单均额、购买会员人均消费和购买频次分别是多少？",
+    "intent": {
+      "metrics": [
+        "avg_order_value",
+        "avg_buyer_value",
+        "purchase_frequency"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [],
+      "filters": []
+    }
+  },
+  {
+    "id": "jul-new-members-by-tier",
+    "catches": "注册会员按注册日期归属、按账户当前等级分组",
+    "question": "青禾 2026 年 7 月新注册会员数按会员等级分别是多少？",
+    "intent": {
+      "metrics": [
+        "new_member_count"
+      ],
+      "start": "2026-07-01",
+      "end": "2026-08-01",
+      "group_by": [
+        "member__tier"
+      ],
+      "filters": []
+    }
+  },
+  {
+    "id": "all-new-members-by-home-store",
+    "catches": "注册会员按会员归属门店分组（归属门店角色）",
+    "question": "青禾在 2024 年 9 月 1 日到 2026 年 9 月 1 日（不含）期间注册的会员数，按会员归属门店分别是多少？",
+    "intent": {
+      "metrics": [
+        "new_member_count"
+      ],
+      "start": "2024-09-01",
+      "end": "2026-09-01",
+      "group_by": [
+        "home_store"
+      ],
+      "filters": []
+    }
+  },
+  {
+    "id": "aug-first-purchase",
+    "catches": "首购按全覆盖期历史确定，查询窗口只做筛选；首单净销售额扣退款",
+    "question": "青禾 2026 年 8 月观测期首购会员数、观测期首单数和观测期首单净销售额是多少？",
+    "intent": {
+      "metrics": [
+        "first_buyer_count",
+        "first_order_count",
+        "first_order_sales_cents"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [],
+      "filters": []
+    }
+  },
+  {
+    "id": "aug-repeat-orders",
+    "catches": "后续购买订单为全覆盖期第二笔及以后的有效订单，不是月内复购人数",
+    "question": "青禾 2026 年 8 月观测期后续购买订单数是多少？",
+    "intent": {
+      "metrics": [
+        "repeat_order_count"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [],
+      "filters": []
+    }
+  },
+  {
+    "id": "jul-first-purchase",
+    "catches": "7 月首单：之前历史中已有有效订单的账户不算首购",
+    "question": "青禾 2026 年 7 月观测期首购会员数和观测期后续购买订单数是多少？",
+    "intent": {
+      "metrics": [
+        "first_buyer_count",
+        "repeat_order_count"
+      ],
+      "start": "2026-07-01",
+      "end": "2026-08-01",
+      "group_by": [],
+      "filters": []
+    }
+  },
+  {
+    "id": "aug-monthly-repeat",
+    "catches": "月内复购按账户×月汇总，至少两笔有效订单；复购率分母为同月有效购买账户",
+    "question": "青禾 2026 年 8 月月内购买会员数、月内复购会员数和月内复购率是多少？",
+    "intent": {
+      "metrics": [
+        "monthly_buyer_count",
+        "monthly_repeat_buyer_count",
+        "monthly_repeat_rate"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [],
+      "filters": []
+    }
+  },
+  {
+    "id": "jul-aug-monthly-buyers-by-month",
+    "catches": "多月须按月分别列出，不跨月相加",
+    "question": "青禾 2026 年 7 月和 8 月的月内购买会员数，按月分别是多少？",
+    "intent": {
+      "metrics": [
+        "monthly_buyer_count"
+      ],
+      "start": "2026-07-01",
+      "end": "2026-09-01",
+      "group_by": [
+        "metric_time__month"
+      ],
+      "filters": []
+    }
+  },
+  {
+    "id": "aug-paid-buyers-orders-sales",
+    "catches": "月末资格：卡种范围、多卡不重复、valid_until／ended_at 月底当天不算、valid_from 月底当天需当月此前有购买",
+    "question": "青禾 2026 年 8 月月末付费会员购买人数、月末付费会员有效订单数和月末付费会员净销售额是多少？",
+    "intent": {
+      "metrics": [
+        "monthly_paid_buyer_count",
+        "monthly_paid_order_count",
+        "monthly_paid_sales_cents"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [],
+      "filters": []
+    }
+  },
+  {
+    "id": "aug-paid-repeat-avg",
+    "catches": "付费会员复购人数、复购率与订单均额的分子分母",
+    "question": "青禾 2026 年 8 月月末付费会员复购人数、月末付费会员复购率和月末付费会员订单均额是多少？",
+    "intent": {
+      "metrics": [
+        "monthly_paid_repeat_buyer_count",
+        "monthly_paid_repeat_rate",
+        "monthly_paid_avg_order_value"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [],
+      "filters": []
+    }
+  },
+  {
+    "id": "jul-paid-buyers",
+    "catches": "7 月月末资格（与 8 月端点不同的月份）",
+    "question": "青禾 2026 年 7 月月末付费会员购买人数和月末付费会员复购率是多少？",
+    "intent": {
+      "metrics": [
+        "monthly_paid_buyer_count",
+        "monthly_paid_repeat_rate"
+      ],
+      "start": "2026-07-01",
+      "end": "2026-08-01",
+      "group_by": [],
+      "filters": []
+    }
+  },
+  {
+    "id": "aug-net-sales-by-store",
+    "catches": "按成交门店分组，订单 store_id 角色",
+    "question": "青禾 2026 年 8 月净销售额按成交门店编号分别是多少？",
+    "intent": {
+      "metrics": [
+        "net_sales_cents"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [
+        "store"
+      ],
+      "filters": []
+    }
+  },
+  {
+    "id": "aug-net-sales-by-home-region",
+    "catches": "按会员归属地区分组，与成交地区角色区分（原按归属门店编号的用例因框架路径映射缺陷另存，见 artifacts/w03/framework-issue/README.md）",
+    "question": "青禾 2026 年 8 月净销售额按会员归属地区分别是多少？",
+    "intent": {
+      "metrics": [
+        "net_sales_cents"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [
+        "home_store__region"
+      ],
+      "filters": []
+    }
+  },
+  {
+    "id": "aug-valid-orders-by-channel",
+    "catches": "按订单渠道分组，两个渠道分开看",
+    "question": "青禾 2026 年 8 月有效订单数按订单渠道分别是多少？",
+    "intent": {
+      "metrics": [
+        "valid_order_count"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [
+        "order__channel"
+      ],
+      "filters": []
+    }
+  },
+  {
+    "id": "aug-buyers-region-store-channel",
+    "catches": "筛选门店渠道并按成交地区分组",
+    "question": "青禾 2026 年 8 月门店渠道的购买会员数，按成交地区分别是多少？",
+    "intent": {
+      "metrics": [
+        "buyer_count"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [
+        "store__region"
+      ],
+      "filters": [
+        {
+          "field": "order__channel",
+          "op": "eq",
+          "value": "门店"
+        }
+      ]
+    }
+  },
+  {
+    "id": "aug-net-sales-gold-tier",
+    "catches": "按会员等级筛选（等级不是付费资格）",
+    "question": "青禾 2026 年 8 月会员等级为金卡的账户贡献的净销售额是多少？",
+    "intent": {
+      "metrics": [
+        "net_sales_cents"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [],
+      "filters": [
+        {
+          "field": "member__tier",
+          "op": "eq",
+          "value": "金卡"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mar-2025-zero-denominator",
+    "catches": "覆盖内无订单：简单指标为 0，比率零分母为 null",
+    "question": "青禾 2025 年 3 月的净销售额和有效订单均额是多少？",
+    "intent": {
+      "metrics": [
+        "net_sales_cents",
+        "avg_order_value"
+      ],
+      "start": "2025-03-01",
+      "end": "2025-04-01",
+      "group_by": [],
+      "filters": []
+    }
+  },
+  {
+    "id": "syn-aug-valid-orders",
+    "catches": "同义问法：有效单",
+    "question": "2026年8月青禾一共成交了多少笔有效订单？",
+    "intent": {
+      "metrics": [
+        "valid_order_count"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [],
+      "filters": []
+    }
+  },
+  {
+    "id": "syn-aug-net-sales",
+    "catches": "同义问法：扣掉退款后的销售",
+    "question": "青禾今年 8 月（2026 年 8 月）扣掉退款以后卖了多少钱？",
+    "intent": {
+      "metrics": [
+        "net_sales_cents"
+      ],
+      "start": "2026-08-01",
+      "end": "2026-09-01",
+      "group_by": [],
+      "filters": []
+    }
+  },
+  {
+    "id": "clarify-no-period",
+    "catches": "未给时间范围须澄清",
+    "question": "青禾的净销售额是多少？",
+    "status": "clarify"
+  },
+  {
+    "id": "unsupported-out-of-coverage",
+    "catches": "超出数据覆盖不能当 0",
+    "question": "青禾 2026 年 9 月的净销售额是多少？",
+    "status": "unsupported"
+  },
+  {
+    "id": "unsupported-paid-half-month",
+    "catches": "付费会员月报只支持完整自然月",
+    "question": "青禾 2026 年 8 月 1 日到 8 月 15 日的月末付费会员购买人数是多少？",
+    "status": "unsupported"
+  },
+  {
+    "id": "unsupported-paid-by-store",
+    "catches": "付费会员月报暂不按门店拆分",
+    "question": "青禾 2026 年 8 月月末付费会员购买人数按成交门店分别是多少？",
+    "status": "unsupported"
+  }
+]

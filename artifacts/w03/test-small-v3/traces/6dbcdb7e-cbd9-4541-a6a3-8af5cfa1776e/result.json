@@ -1,0 +1,50 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "refund_order_count",
+      "partial_refund_order_count",
+      "full_refund_order_count",
+      "refund_order_rate"
+    ],
+    "start": "2026-08-01",
+    "end": "2026-09-01",
+    "group_by": [],
+    "filters": []
+  },
+  "sql": "WITH sma_10003_cte AS (\n  SELECT\n    DATE_TRUNC('day', ordered_at) AS metric_time__day\n    , CASE WHEN status = 'paid' THEN 1 ELSE 0 END AS __paid_order_count\n    , CASE WHEN status = 'paid' AND refund_cents > 0 THEN 1 ELSE 0 END AS __refund_order_count\n    , CASE WHEN status = 'paid' AND refund_cents > 0 AND refund_cents < paid_cents THEN 1 ELSE 0 END AS __partial_refund_order_count\n    , CASE WHEN status = 'paid' AND paid_cents > 0 AND refund_cents = paid_cents THEN 1 ELSE 0 END AS __full_refund_order_count\n  FROM \"data\".\"main\".\"orders\" orders_source_src_10000\n)\n\nSELECT\n  MAX(subq_10.refund_order_count) AS refund_order_count\n  , MAX(subq_10.partial_refund_order_count) AS partial_refund_order_count\n  , MAX(subq_10.full_refund_order_count) AS full_refund_order_count\n  , MAX(subq_17.refund_order_rate) AS refund_order_rate\nFROM (\n  SELECT\n    SUM(__refund_order_count) AS refund_order_count\n    , SUM(__partial_refund_order_count) AS partial_refund_order_count\n    , SUM(__full_refund_order_count) AS full_refund_order_count\n  FROM sma_10003_cte\n  WHERE metric_time__day BETWEEN '2026-08-01' AND '2026-08-31'\n) subq_10\nCROSS JOIN (\n  SELECT\n    CAST(SUM(__refund_order_count) AS DOUBLE) / CAST(NULLIF(SUM(__paid_order_count), 0) AS DOUBLE) AS refund_order_rate\n  FROM sma_10003_cte\n  WHERE metric_time__day BETWEEN '2026-08-01' AND '2026-08-31'\n) subq_17",
+  "columns": [
+    "refund_order_count",
+    "partial_refund_order_count",
+    "full_refund_order_count",
+    "refund_order_rate"
+  ],
+  "rows": [
+    [
+      4,
+      1,
+      3,
+      0.13333333333333333
+    ]
+  ],
+  "seconds": 0.047,
+  "units": {
+    "refund_order_count": "count",
+    "partial_refund_order_count": "count",
+    "full_refund_order_count": "count",
+    "refund_order_rate": "ratio"
+  },
+  "data_version": "qinghe-w03-20260923-small",
+  "data_sha256": "8a295969ec24556ebd7f818506633919e71f840fc86488d53efc185f9768cfe6",
+  "catalog_sha256": "bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c",
+  "answer": "在青禾 2026 年 8 月（2026-08-01 至 2026-08-31）期间，相关退款指标统计如下（统计口径均按原订单下单日期归属）：\n\n- **退款订单数**：4 笔（已支付且存在退款的订单）\n- **部分退款订单数**：1 笔（退款金额大于零且小于实付金额）\n- **全额退款订单数**：3 笔（实付金额大于零且累计退款金额等于实付金额）\n- **退款订单率**：13.33%（退款订单数占支付订单数的比例）",
+  "question": "青禾 2026 年 8 月退款订单数、部分退款订单数、全额退款订单数和退款订单率是多少？",
+  "trace_id": "6dbcdb7e-cbd9-4541-a6a3-8af5cfa1776e",
+  "elapsed_seconds": 16.937,
+  "model_usage": {
+    "prompt_tokens": 16385,
+    "completion_tokens": 401,
+    "total_tokens": 17614
+  },
+  "model_calls_with_usage": 2
+}

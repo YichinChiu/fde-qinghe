@@ -1,0 +1,42 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "net_sales_cents",
+      "avg_order_value"
+    ],
+    "start": "2025-03-01",
+    "end": "2025-04-01",
+    "group_by": [],
+    "filters": []
+  },
+  "sql": "WITH sma_10003_cte AS (\n  SELECT\n    DATE_TRUNC('day', ordered_at) AS metric_time__day\n    , CASE WHEN status = 'paid' AND paid_cents > refund_cents THEN 1 ELSE 0 END AS __valid_order_count\n    , CASE WHEN status = 'paid' THEN paid_cents - refund_cents ELSE 0 END AS __net_sales_cents\n  FROM \"data\".\"main\".\"orders\" orders_source_src_10000\n)\n\nSELECT\n  MAX(subq_8.net_sales_cents) AS net_sales_cents\n  , MAX(subq_15.avg_order_value) AS avg_order_value\nFROM (\n  SELECT\n    SUM(__net_sales_cents) AS net_sales_cents\n  FROM sma_10003_cte\n  WHERE metric_time__day BETWEEN '2025-03-01' AND '2025-03-31'\n) subq_8\nCROSS JOIN (\n  SELECT\n    CAST(SUM(__net_sales_cents) AS DOUBLE) / CAST(NULLIF(SUM(__valid_order_count), 0) AS DOUBLE) AS avg_order_value\n  FROM sma_10003_cte\n  WHERE metric_time__day BETWEEN '2025-03-01' AND '2025-03-31'\n) subq_15",
+  "columns": [
+    "net_sales_cents",
+    "avg_order_value"
+  ],
+  "rows": [
+    [
+      0,
+      null
+    ]
+  ],
+  "seconds": 0.062,
+  "units": {
+    "net_sales_cents": "cents",
+    "avg_order_value": "cents_per_order"
+  },
+  "data_version": "qinghe-w03-20260923-small",
+  "data_sha256": "8a295969ec24556ebd7f818506633919e71f840fc86488d53efc185f9768cfe6",
+  "catalog_sha256": "bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c",
+  "answer": "在 2025 年 3 月期间（2025-03-01 至 2025-03-31），青禾的净销售额为 0.00 元；有效订单均额因统计期内有效订单数为 0（分母为零）而未定义。\n\n统计口径说明：\n1. 净销售额仅统计已支付（paid）订单的实付金额扣除退款后的金额，取消单不计入，按原订单下单日期归属；\n2. 有效订单均额为净销售额除以有效订单数，分母为零时指标未定义。",
+  "question": "青禾 2025 年 3 月的净销售额和有效订单均额是多少？",
+  "trace_id": "001685b8-45b4-46ed-a609-48459f60134a",
+  "elapsed_seconds": 16.781,
+  "model_usage": {
+    "prompt_tokens": 16015,
+    "completion_tokens": 307,
+    "total_tokens": 16986
+  },
+  "model_calls_with_usage": 2
+}

@@ -1,0 +1,46 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "payment_cents",
+      "refund_cents",
+      "refund_amount_rate"
+    ],
+    "start": "2026-08-01",
+    "end": "2026-09-01",
+    "group_by": [],
+    "filters": []
+  },
+  "sql": "WITH sma_10004_cte AS (\n  SELECT\n    DATE_TRUNC('day', ordered_at) AS metric_time__day\n    , case when status = 'paid' then paid_cents else 0 end AS __payment_cents\n    , case when status = 'paid' then refund_cents else 0 end AS __refund_cents\n  FROM \"data\".\"main\".\"orders\" orders_src_10000\n)\n\nSELECT\n  MAX(subq_8.payment_cents) AS payment_cents\n  , MAX(subq_8.refund_cents) AS refund_cents\n  , MAX(subq_15.refund_amount_rate) AS refund_amount_rate\nFROM (\n  SELECT\n    SUM(__payment_cents) AS payment_cents\n    , SUM(__refund_cents) AS refund_cents\n  FROM sma_10004_cte\n  WHERE metric_time__day BETWEEN '2026-08-01' AND '2026-08-31'\n) subq_8\nCROSS JOIN (\n  SELECT\n    CAST(SUM(__refund_cents) AS DOUBLE) / CAST(NULLIF(SUM(__payment_cents), 0) AS DOUBLE) AS refund_amount_rate\n  FROM sma_10004_cte\n  WHERE metric_time__day BETWEEN '2026-08-01' AND '2026-08-31'\n) subq_15",
+  "columns": [
+    "payment_cents",
+    "refund_cents",
+    "refund_amount_rate"
+  ],
+  "rows": [
+    [
+      119050,
+      18750,
+      0.15749685006299874
+    ]
+  ],
+  "seconds": 0.047,
+  "units": {
+    "payment_cents": "cents",
+    "refund_cents": "cents",
+    "refund_amount_rate": "ratio"
+  },
+  "data_version": "qinghe-w03-20260923-small",
+  "data_sha256": "8a295969ec24556ebd7f818506633919e71f840fc86488d53efc185f9768cfe6",
+  "catalog_sha256": "266ad38a8f11190084fc51913ec5216f7716612cd6a870f00b2e002d264916be",
+  "answer": "青禾在 2026 年 8 月（统计周期 2026-08-01 至 2026-08-31）的订单交易及退款表现如下：\n- 实付金额：1,190.50 元（已支付订单实付金额合计，尚未扣除退款，按原订单下单日期归属）\n- 退款金额：187.50 元（已支付订单退款金额合计，按原订单下单日期归属）\n- 退款金额占比：15.75%（退款金额占实付金额的比例）",
+  "question": "青禾 2026 年 8 月实付金额、退款金额和退款金额占比是多少？",
+  "trace_id": "2d3e5f5d-b6a4-4ec3-9f37-7e86cb222e02",
+  "elapsed_seconds": 15.547,
+  "model_usage": {
+    "prompt_tokens": 14188,
+    "completion_tokens": 341,
+    "total_tokens": 15126
+  },
+  "model_calls_with_usage": 2
+}

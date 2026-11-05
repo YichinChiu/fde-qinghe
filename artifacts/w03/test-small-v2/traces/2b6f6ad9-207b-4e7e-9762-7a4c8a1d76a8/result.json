@@ -1,0 +1,46 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "order_count",
+      "cancelled_order_count",
+      "cancel_rate"
+    ],
+    "start": "2026-08-01",
+    "end": "2026-09-01",
+    "group_by": [],
+    "filters": []
+  },
+  "sql": "WITH sma_10004_cte AS (\n  SELECT\n    DATE_TRUNC('day', ordered_at) AS metric_time__day\n    , 1 AS __order_count\n    , case when status = 'cancelled' then 1 else 0 end AS __cancelled_order_count\n  FROM \"data\".\"main\".\"orders\" orders_src_10000\n)\n\nSELECT\n  MAX(subq_8.order_count) AS order_count\n  , MAX(subq_8.cancelled_order_count) AS cancelled_order_count\n  , MAX(subq_15.cancel_rate) AS cancel_rate\nFROM (\n  SELECT\n    SUM(__order_count) AS order_count\n    , SUM(__cancelled_order_count) AS cancelled_order_count\n  FROM sma_10004_cte\n  WHERE metric_time__day BETWEEN '2026-08-01' AND '2026-08-31'\n) subq_8\nCROSS JOIN (\n  SELECT\n    CAST(SUM(__cancelled_order_count) AS DOUBLE) / CAST(NULLIF(SUM(__order_count), 0) AS DOUBLE) AS cancel_rate\n  FROM sma_10004_cte\n  WHERE metric_time__day BETWEEN '2026-08-01' AND '2026-08-31'\n) subq_15",
+  "columns": [
+    "order_count",
+    "cancelled_order_count",
+    "cancel_rate"
+  ],
+  "rows": [
+    [
+      32,
+      2,
+      0.0625
+    ]
+  ],
+  "seconds": 0.047,
+  "units": {
+    "order_count": "count",
+    "cancelled_order_count": "count",
+    "cancel_rate": "ratio"
+  },
+  "data_version": "qinghe-w03-20260923-small",
+  "data_sha256": "8a295969ec24556ebd7f818506633919e71f840fc86488d53efc185f9768cfe6",
+  "catalog_sha256": "266ad38a8f11190084fc51913ec5216f7716612cd6a870f00b2e002d264916be",
+  "answer": "青禾在 2026 年 8 月（2026-08-01 至 2026-09-01）的订单统计如下：\n- 创建订单数：32 单（按原下单时间统计，包含已取消订单）\n- 取消订单数：2 单（按原下单时间归属的取消订单）\n- 取消率：6.25%（取消订单数除以创建订单数）",
+  "question": "青禾 2026 年 8 月的创建订单数、取消订单数和取消率分别是多少？",
+  "trace_id": "2b6f6ad9-207b-4e7e-9762-7a4c8a1d76a8",
+  "elapsed_seconds": 23.172,
+  "model_usage": {
+    "prompt_tokens": 14142,
+    "completion_tokens": 282,
+    "total_tokens": 15098
+  },
+  "model_calls_with_usage": 2
+}

@@ -1,0 +1,9 @@
+{
+  "version": "w02-workflow-0.1.0",
+  "goal": "W03：为 38 项指标补齐业务事实并更新业务模型。重点核实付费会员资格（卡种范围、有效期起止端点、提前终止、一账户多卡、等级与资格的区别）、账户与订单／卡的关系及去重范围、订单渠道与门店归属（小程序订单 store_id）、卡数据历史覆盖、会员等级字段含义，以及阶段验收依据、各方确认责任、会员筛选放后续与变更确认方式；保留未决项、待书面确认状态和转介关系。报表特有的时间选择和分子分母不写入业务模型。",
+  "extraction_config": "customer/w02/extraction.json",
+  "skill": "customer/w02/skills/extract-business/SKILL.md",
+  "business_model": "docs/w03/business_model.md",
+  "notes": "docs/w03/interview_notes.md",
+  "max_steps": 24
+}

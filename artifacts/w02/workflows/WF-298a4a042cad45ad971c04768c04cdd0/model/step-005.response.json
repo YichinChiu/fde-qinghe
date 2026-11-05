@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "EtgBCtUBAWkUfRMvQnYXbONAt/wsOhR2dRDcTpEXDlMCGRU8Y9/qhE+zCFhk0o0JCYLx6XDPx0dQDpi0lDqSwlTGMvASQHkHsu0MHy64AH+JIkb/kLw6p8A776AyMM5i1OyXI8abSYozJAEYXW4nFgcO9PxI4sYwFbNQXCLJ1c7v2J/Bb1dUsTppkZvV+wnhonrbrr1FfX/3KqEp4+BuApH3MdPISnNqbzzsg+J4yYdGQftSa2bM5rJM88zqQJ6DagIV4fkxlMJQvYaB0DWEzmSBv3/gIZYzsC7E"
+          }
+        },
+        "function": {
+          "arguments": "{\"claim_ids\":[\"CLM-001-0004\"],\"question\":\"请核查候选 CLM-001-0004：\\n陈姐陈述“付费会员卡和免费注册会员是两类，描述会员时要把这两类分清楚”（MSG-03579）。\\n此项与第 1 轮中陈姐（W02 CLM-001-0010、W03 CLM-003-0032）、老周（W02 CLM-001-0017）及小林（W02 CLM-002-0024/CLM-003-0039）的既有陈述一致。\\n请确认是否作为已采用内容的一致性强化补充，状态是否为 reported。\"}",
+          "name": "request_review"
+        },
+        "id": "call_770610",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 25292,
+    "completion_tokens": 199,
+    "total_tokens": 25536
+  }
+}

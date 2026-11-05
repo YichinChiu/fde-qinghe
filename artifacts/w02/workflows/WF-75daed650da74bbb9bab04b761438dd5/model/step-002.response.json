@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "EtMCCtACAWkUfRNVPdpnF/YwRJg5NU6LbrbG2ROO0fMMn1kTpH+EXmMo2FzkA8mhqPthASUrIIWIyF5Q2vYkqDbi7+sMKQWMXEOlImrJzuqmHPC4gCyWsG3MsUM/HWtTfjZyQcjdBIyqrt3RayLCnFJfIZbSdxdNcFHq5JSMioExqkt66B+OE15wZSqLIUGoVSizGRdTkylOyZqCMGmo29s8jZPY3ZrDuVzgBegz+rTjQrr7dH7L9QIRNT4sw/iymE0mYM8FQY8HIIe6cedxMTljkeBhDCU2fqsNHmzo9jMakw9eJFeqVctfBKxC/5+Obj8Ioh+u9Xgl0VutxDPB2+XhjeJ3AMCiCU6ptCKPnaskSJr7VOS6MA2ZQy04+zXzNJi8AWZt87XO0VB8ZAiomQFUn3IKr6e+xiwNu7PEK+61MUMrQdjzYJemI9oQwcGIs0mWOAbY"
+          }
+        },
+        "function": {
+          "arguments": "{}",
+          "name": "extract_candidates"
+        },
+        "id": "call_525547",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 17022,
+    "completion_tokens": 10,
+    "total_tokens": 17080
+  }
+}

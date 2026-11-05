@@ -1,0 +1,42 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "valid_order_items",
+      "items_per_order"
+    ],
+    "start": "2026-08-01",
+    "end": "2026-09-01",
+    "group_by": [],
+    "filters": []
+  },
+  "sql": "WITH sma_10003_cte AS (\n  SELECT\n    DATE_TRUNC('day', ordered_at) AS metric_time__day\n    , CASE WHEN status = 'paid' AND paid_cents > refund_cents THEN 1 ELSE 0 END AS __valid_order_count\n    , CASE WHEN status = 'paid' AND paid_cents > refund_cents THEN quantity ELSE 0 END AS __valid_order_items\n  FROM \"data\".\"main\".\"orders\" orders_source_src_10000\n)\n\nSELECT\n  MAX(subq_8.valid_order_items) AS valid_order_items\n  , MAX(subq_15.items_per_order) AS items_per_order\nFROM (\n  SELECT\n    SUM(__valid_order_items) AS valid_order_items\n  FROM sma_10003_cte\n  WHERE metric_time__day BETWEEN '2026-08-01' AND '2026-08-31'\n) subq_8\nCROSS JOIN (\n  SELECT\n    CAST(SUM(__valid_order_items) AS DOUBLE) / CAST(NULLIF(SUM(__valid_order_count), 0) AS DOUBLE) AS items_per_order\n  FROM sma_10003_cte\n  WHERE metric_time__day BETWEEN '2026-08-01' AND '2026-08-31'\n) subq_15",
+  "columns": [
+    "valid_order_items",
+    "items_per_order"
+  ],
+  "rows": [
+    [
+      33,
+      1.2222222222222223
+    ]
+  ],
+  "seconds": 0.047,
+  "units": {
+    "valid_order_items": "count",
+    "items_per_order": "items_per_order"
+  },
+  "data_version": "qinghe-w03-20260923-small",
+  "data_sha256": "8a295969ec24556ebd7f818506633919e71f840fc86488d53efc185f9768cfe6",
+  "catalog_sha256": "bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c",
+  "answer": "在 2026 年 8 月期间，青禾的有效订单商品件数为 33 件，单均商品件数约为 1.22 件/单。\n\n业务口径说明：\n1. 有效订单商品件数统计的是有效订单中的原始购买件数合计，退款不冲减件数，并非净商品销量；\n2. 单均商品件数由有效订单商品件数除以有效订单数计算得出。",
+  "question": "青禾 2026 年 8 月有效订单商品件数和单均商品件数是多少？",
+  "trace_id": "1a0476af-e23f-4f67-b30b-a2a7180f5a96",
+  "elapsed_seconds": 14.61,
+  "model_usage": {
+    "prompt_tokens": 16033,
+    "completion_tokens": 284,
+    "total_tokens": 16933
+  },
+  "model_calls_with_usage": 2
+}

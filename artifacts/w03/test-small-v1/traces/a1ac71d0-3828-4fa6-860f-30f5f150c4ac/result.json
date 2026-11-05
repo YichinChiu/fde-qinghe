@@ -1,0 +1,17 @@
+{
+  "status": "clarify",
+  "reason": "请提供需要查询的时间范围（例如某个具体月份、自然日或日期区间）。青禾为当前测试数据集客户名称，若需要限定特定门店或渠道，也请一并说明。",
+  "intent": {
+    "status": "clarify",
+    "reason": "请提供需要查询的时间范围（例如某个具体月份、自然日或日期区间）。青禾为当前测试数据集客户名称，若需要限定特定门店或渠道，也请一并说明。"
+  },
+  "question": "青禾的净销售额是多少？",
+  "trace_id": "a1ac71d0-3828-4fa6-860f-30f5f150c4ac",
+  "elapsed_seconds": 4.953,
+  "model_usage": {
+    "prompt_tokens": 12622,
+    "completion_tokens": 50,
+    "total_tokens": 12883
+  },
+  "model_calls_with_usage": 1
+}

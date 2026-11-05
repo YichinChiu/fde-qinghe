@@ -1,0 +1,20 @@
+{
+  "passed": false,
+  "errors": [
+    {
+      "model_usage": {
+        "quote": "陈姐明确要求：小程序订单上的门店编号到底指下单、自提还是挂靠要等 IT 核实，核实前不能当作门店归属；本期统计不改变现有考核，也不代表门店执行已经改善；若涉及展示，必须注明上述限制。",
+        "used_for": [
+          {
+            "kind": "dimension",
+            "name": "store"
+          },
+          {
+            "kind": "semantic_model",
+            "name": "orders"
+          }
+        ]
+      }
+    }
+  ]
+}

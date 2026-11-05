@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "EqABCp0BAWkUfRN/cx9odbT/0SzB2SULrsy284WwTgKF4SH/Dztsvhac6p/V2+nMTL6kutIYRQL8YnC/8PsMynQJDpLjwxWe3yqNDaorEYsLLqyur84WHvj5m2w33heI1v/hXUJGoe0QCiKyVP8mg1cGuMdlPLZfNivTif9APyJA1iB5Z5XZyYnAeDKVX75pII4dQ0AXwl/fuFVYhWEqYfYkOQ=="
+          }
+        },
+        "function": {
+          "arguments": "{\"question\":\"请核查第 2 组候选（王经理关于分工争议处理、会员筛选放后续、变更确认与审批额度权限）：\\n1. CLM-001-0005：运营与门店说法不一致时由运营牵头定，门店提供情况，王经理只看口径和验收依据是否一致、可追溯；\\n2. CLM-001-0006：本期交付需明确不含会员筛选；后续阶段范围与变更依据需写清责任和确认方式，此为核查意见非批准；\\n3. CLM-001-0007：后续业务范围由运营牵头书面确认，字段数据由IT书面确认，王经理核查口径依据；涉及费用/合同责任/验收依据时王经理参与核查，王经理不能当场批准，审批人和授权额度需另行核实；\\n4. CLM-001-0009：具体审批人和授权额度王经理无法确认且不掌握向谁核实，需另行核实，王经理参与核查但不能代批。\\n\\n请确认是否采用或修订状态？\",\"claim_ids\":[\"CLM-001-0005\",\"CLM-001-0006\",\"CLM-001-0007\",\"CLM-001-0009\"]}",
+          "name": "request_review"
+        },
+        "id": "call_416676",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 33523,
+    "completion_tokens": 330,
+    "total_tokens": 33867
+  }
+}

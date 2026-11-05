@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "EvQFCvEFAWkUfROuhHRfhSAsZslBNPiQuTSXJU8L78IoUKV81IIFPBeKe2lr61fHBeqhPufsPb6GKgeYKN3y1w4bCq1N3hO3vKATjvGlLz5GU8XI12mEuRXkH3wnp9UU9dP2FCabosjmO9sKXdwlV+aqhntoeTu5V6NG2XIEe4KduUY0LguxKNxacw010LmZhup0zXCf4Dv7Py28DRVLIiD0ngetcMZbTcF5jONrRa+wsO5qkIoLZY+eF3tdKyXobQT3ATtyfFJgCU8vHlJsN+PuiRK//R/bNxNtK/O80SFaCp3403gGA90kFBf0T50zMySeM5SNCfLp6evBuVd6HzjhuW36NHOBLyUUAoQaofh74M3EwGkWeQ3Hj4UQeLUTvczP80DZpljTB/mUZTdNz+rI/FDHoWATpmeniXIFjL4PUnfXhnenUYrrtxQ6Md/6U69vkfXdpjqvGxMyPZ1ygNQG9WbkA0fn2vQlfeRYcEiIdw/+h9DM5EYozqcsSUgqiesJxwoo0kpQKa3VJ+rLsUSAIfl3Yw5bvPvXjaHRNY6+bIyE6izSsZuerp7bA+Ays3gGQGtHFGZVAsbNelSeK5LcODmXJmZryUGIsoJ8hTFouxHnE6pTcXAB+NNOYYDfUhGMdPHMG5Sd/1ZXDmBJgz9lksU626fC/GCN2PrOqtPQVN9dO7ZExW1fauJ5NDgUTZyn5LqxlvSou5/ZfmbAq9IifbAf1PztEcGQ6Ej5dyuRzBx8felfYtVMeRVwomE2WHR0eJ3svGAy4mi6ZwnIR8g003VOOdt3k9ZPOqD4xPGobuvwQyG0XtGescmzrFa07YKQ9VqY2E6ba7K0TdkyGN+1OpB0Qw+/OV32QcgrFP93OdbeqEJYTLq+Sqni1zaJbfHOlCwXNulFgPI8SAV9PlkPPEM6lxPlH9FVchBhEhBPpyK0olsJvJK7EMxygRRpbZdYMgGn8EOLaGc4KHltEW2BE2RGcs3HjAsUdy0EYOXT93ku6RvB"
+          }
+        },
+        "function": {
+          "arguments": "{\"question\":\"请核查第 7 组候选（运营书面确认状态、账户-订单-卡关系与去重范围、小程序 store_id 含义、tier 快照与标签）：\\n1. CLM-002-0021：小林说明书面确认可由运营出，具体日期未承诺需按流程安排；\\n2. CLM-003-0026：老周说明测试库中账户与订单、账户与卡为一对多，仅在测试账户范围内成立，不代表真实全公司自然人去重，不处理旧 POS 身份合并；订单须分清渠道；\\n3. CLM-003-0027：小程序订单 store_id 含义老周不掌握，须核实填写方式，不能凭它直接定成交门店数口径；\\n4. CLM-003-0028：tier 是否为快照老周不掌握，系统有会员标签，标签字段含义待结合填写方式核实。\\n\\n请确认是否采用或修订状态？\",\"claim_ids\":[\"CLM-002-0021\",\"CLM-003-0026\",\"CLM-003-0027\",\"CLM-003-0028\"]}",
+          "name": "request_review"
+        },
+        "id": "call_95503",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 54338,
+    "completion_tokens": 302,
+    "total_tokens": 54873
+  }
+}

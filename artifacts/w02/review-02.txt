@@ -1,0 +1,4 @@
+﻿CLM-001-0006 修订为 evidence_status=reported，不是 conflicting：王经理所述月末资格判断口径与客户材料 04_本期统计确认邮件.md 一致，没有其他角色提出相反说法；并在 qualifiers 注明“属报表统计选择，写入指标定义，不写入业务模型主体”，因为任务书要求报表特有的时间选择放进指标定义；卡种范围无依据、需运营书面确认这一句保留。
+CLM-001-0011 修订为 evidence_status=unknown，不是 conflicting：小林说的是不掌握、须转介，并无相反说法；补证据老周 MSG-03561、MSG-03563（老周同样不掌握，须与运营核对实际资格记录和统计说明），qualifiers 写“未知：valid_until 落在月底当天是否有效；核实对象：老周与运营按实际资格记录和统计说明核对，完成时间未定”。
+CLM-001-0013 修订为 evidence_status=reported，不是 conflicting：小林纠正的是访谈者的复述，不是与其他角色的分歧；保留“纠正”限定与“待运营书面确认”状态，采用小林 MSG-03554/MSG-03556 的原话“月末才生效、但当月此前有购买的账户，才纳入当月有效购买”。
+CLM-001-0014 修订为 evidence_status=unknown，不是 conflicting，理由同 CLM-001-0011；补证据老周 MSG-03561、MSG-03563。

@@ -1,0 +1,42 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "selling_store_count",
+      "items_per_order"
+    ],
+    "start": "2025-12-01",
+    "end": "2026-01-01",
+    "group_by": [],
+    "filters": []
+  },
+  "sql": "WITH sma_10003_cte AS (\n  SELECT\n    DATE_TRUNC('day', ordered_at) AS metric_time__day\n    , CASE WHEN status = 'paid' AND paid_cents > refund_cents THEN 1 ELSE 0 END AS __valid_order_count\n    , CASE WHEN status = 'paid' AND paid_cents > refund_cents THEN store_id ELSE NULL END AS __selling_store_count\n    , CASE WHEN status = 'paid' AND paid_cents > refund_cents THEN quantity ELSE 0 END AS __valid_order_items\n  FROM \"data\".\"main\".\"orders\" orders_source_src_10000\n)\n\nSELECT\n  MAX(subq_9.selling_store_count) AS selling_store_count\n  , MAX(subq_16.items_per_order) AS items_per_order\nFROM (\n  SELECT\n    COUNT(DISTINCT __selling_store_count) AS selling_store_count\n  FROM sma_10003_cte\n  WHERE metric_time__day BETWEEN '2025-12-01' AND '2025-12-31'\n) subq_9\nCROSS JOIN (\n  SELECT\n    CAST(SUM(__valid_order_items) AS DOUBLE) / CAST(NULLIF(SUM(__valid_order_count), 0) AS DOUBLE) AS items_per_order\n  FROM sma_10003_cte\n  WHERE metric_time__day BETWEEN '2025-12-01' AND '2025-12-31'\n) subq_16",
+  "columns": [
+    "selling_store_count",
+    "items_per_order"
+  ],
+  "rows": [
+    [
+      24,
+      4.019956370687566
+    ]
+  ],
+  "seconds": 0.047,
+  "units": {
+    "selling_store_count": "count",
+    "items_per_order": "items_per_order"
+  },
+  "data_version": "qinghe-w03-20260923-large",
+  "data_sha256": "0074e7f764c63e836617aecb0e217aa3b5cc0cf9ede557179ad46b077dcf8ba8",
+  "catalog_sha256": "bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c",
+  "answer": "青禾在 2025 年 12 月的统计结果如下：\n- 成交门店数：24 家（指统计窗口内至少有 1 笔有效订单的成交门店数）\n- 单均商品件数：4.02 件/单（有效订单商品件数除以有效订单数）\n\n注：小程序订单门店编号含义待 IT 核实，核实前不能当作门店归属，不改变现有门店考核，不代表门店执行已经改善。",
+  "question": "青禾 2025 年 12 月成交门店数和单均商品件数是多少？",
+  "trace_id": "2716f145-8615-4335-a879-9b3d77d4fe47",
+  "elapsed_seconds": 26.39,
+  "model_usage": {
+    "prompt_tokens": 496623,
+    "completion_tokens": 263,
+    "total_tokens": 497858
+  },
+  "model_calls_with_usage": 2
+}

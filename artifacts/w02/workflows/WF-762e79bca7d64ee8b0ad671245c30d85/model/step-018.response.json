@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "EtEHCs4HAWkUfROauIJvIXOIs8MwvxXPK+Tgka0hlYOasoFQdAFNyC5skbpYGnt6ErWVFIEi/h4V3keFB+5sfGbzhUmkRTqjKxTmbc5twVjRourp8EHxZwPTOyrImgRwq5JWijwq5HqZo1B0clgtLbyH6RGXJVR7iSzZbx9JCusDt85arFP2kWOyfThn979KUU0wmYRAwzS3zcqoahUyb2RgBevspwGnjWbpruT1HKxsNX/nOPVQMSROEE2+gI7wG6zrQJPVOfx6Gk+sVtXgWR475/KXYVhg1i0rJqfTefMf4y3gb2lYjqXvrfCsIBGLUjM9zQVKsZwE3Y1PrrxPlRY+HTWQDx8dEKMJxPleEzAHLLSGex7hnqunq8vDNsSugEV2J5ZLK9kzKNltW/1rme1oCJE8SpIIV0RFxjfO0DBmA+JscesxYM5hwrbuJ6ZxebHU3GiGIeQFgPdlDNwVDt/izOTU5LNZAaSgUXqnepBw8TnmgqUeFwdSfRL5hpIrycGqvFmOzPHLrmtfpKpnpxaqzMb3xA+1jZ4cCUwG4S9ICU/fvDfWqJE0P1+NQbHjU7Ef0M3lWYSpRJD6yCsE4dd2F3mcPyF7UyOL2ngOubwpjdth1cVBWDiuFCTxmKXVsYtd+1R6F/7GSjI5LMrNjfzZO2FPVk7BHIDuMdMAUMNLUxA+BRn+8l+i4fUGptptFoHdyTUM91bM2crP53lsofIob/YYTIKUaG+B5MNfOV6Gn9NWSrNQblq9Y7fbUU91QHOoRl9J/J01ELgq3BdbpbQ0J8ZhRgTsBCljF4oeHJjFe3gDBUouYAqCLEZc1AmmuQutDkblioycxMp0QziCH4zW09fAdXNRZxPJfuqkeFX5gg0nOHe28Dx7Ze8fk4fmLGou6gG8qrQpufY5bLt1Dvlq/HH4t3Lu+3Hlc0GwTuhVME3MfXQt4sxABnPoeJiLXceOJgpTidW0eNxK+rqPz4NSbAuCLV5BWb6VWQhMLoYOW2vuHjlzjhSGpogOG6LniepaqtGcwr2FtXZ8GU5MAwgc4YJ/lJIUVfttN9tcQRN3lavfUUpTzW3nVhOvqOvDHYiKYn6jzSGFwqofRax8celjJ/rLoEMMtuNvcMTeSslttpS1Ox0l6bgCZ3dQzaOT9hDzuJJR1BlVbJ/Dh+X4rlOdB8loMsK0Pk7ufxT6r28QUfcndGWM68eYME7FB2qYzdcLV66ncEDEOxwLXtltkvd3eQmpNYf6M06i76ZLMM/C6tu/DhgKPJ62Wxzrv85gfg2C8KqmVb/dv52iqzwzmDolfxY="
+          }
+        },
+        "function": {
+          "arguments": "{\"question\":\"请核查第 8 组候选（老周核查机制与未决项、陈姐关于渠道区分/考核顾虑/四种卡现场细节）：\\n1. CLM-003-0029：老周说明核查步骤（说明对象用途 -\\u003e 与运营确认会员范围 -\\u003e 核对系统统计所用范围/时间/说明 -\\u003e 列出需补记录）；\\n2. CLM-003-0030：端点有效性、卡表历史覆盖、store_id含义、tier快照等维持待核，需补记录清单由老周与运营核对后提供，提供时间与渠道未定；\\n3. CLM-003-0031：陈姐要求订单指标分清渠道，小程序 store_id 核实前不能当作门店归属，不改变现有考核，不代表门店执行改善，门店配合与记录机制不能默认接受；\\n4. CLM-003-0032：陈姐强调现场分清付费卡与免费注册，但四种卡现场具体区分操作细节不掌握、不替门店编造。\\n\\n请确认是否采用或修订状态？\",\"claim_ids\":[\"CLM-003-0029\",\"CLM-003-0030\",\"CLM-003-0031\",\"CLM-003-0032\"]}",
+          "name": "request_review"
+        },
+        "id": "call_529665",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 58029,
+    "completion_tokens": 327,
+    "total_tokens": 58646
+  }
+}

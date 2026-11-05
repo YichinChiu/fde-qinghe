@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "Et0BCtoBAWkUfRM82UZUWK71cdywMYCnUD1SVOrV2ikzX2urphZky0d+7wBea8Ilmalk+jyde/dsGsw2wDKfTbz3MAg348sMGaAFOR59Tzw3Lah1oyu4QokoM1e0uV7LZLAQn7t+4dz0oWAW2y5TnhEmb7oKwEVqJTiZrKwnwWqkSM7/Zjs3KZjAgY0FXSB0TQcPURkUue2hKaGobGM3a/nWusDqxpOTdm8RLJkJoHy4CtI40bsoixBQ7gZck3oenvevAIVQYPuhJZdVc6b3/mvaLQpiuX/kqMogqh9IjRI="
+          }
+        },
+        "function": {
+          "arguments": "{\"question\":\"请 FDE 核查第四组候选（CLM-001-0001、CLM-001-0004、CLM-001-0005、CLM-002-0021）：\\\\n1. 本阶段验收王经理看三样依据：指标定义来源和统计口径可追溯、实际查询记录在测试范围可复现、校验报告说明查询与校验正确；各方分工为运营核对业务范围、IT核对字段和覆盖、王经理参与口径与验收依据核查；该依据不等于复购率提升或投资回报（CLM-001-0001）。\\\\n2. 阶段范围：本期交付需明确不含会员筛选；后续按条件筛选会员以书面范围确认为准，超出按变更处理，写清确认责任与变更依据（王经理核查意见非批准，CLM-001-0004）。\\\\n3. 后续筛选范围确认分工：运营牵头书面确认业务范围，IT书面确认字段与数据可用性，王经理参与口径与验收依据核查；涉及费用/合同责任/验收依据的变更王经理参与核查，但王经理不能代批，审批人和额度需另行核实（CLM-001-0005）。\\\\n4. 老周不掌握 members.tier 是否快照，标签字段含义待结合填写核实；老周将与运营核对范围、时间与统计说明，列出需补记录清单按核对方式提供，时间和来源定不了（CLM-002-0021）。\\\\n请核查提取陈述与限定条件。\",\"claim_ids\":[\"CLM-001-0001\",\"CLM-001-0004\",\"CLM-001-0005\",\"CLM-002-0021\"]}",
+          "name": "request_review"
+        },
+        "id": "call_307488",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 41824,
+    "completion_tokens": 446,
+    "total_tokens": 42330
+  }
+}

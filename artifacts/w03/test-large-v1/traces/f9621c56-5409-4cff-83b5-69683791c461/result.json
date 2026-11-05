@@ -1,0 +1,46 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "payment_cents",
+      "refund_cents",
+      "net_sales_cents"
+    ],
+    "start": "2026-07-01",
+    "end": "2026-08-01",
+    "group_by": [],
+    "filters": []
+  },
+  "sql": "SELECT\n  SUM(CASE WHEN status = 'paid' THEN paid_cents ELSE 0 END) AS payment_cents\n  , SUM(CASE WHEN status = 'paid' THEN refund_cents ELSE 0 END) AS refund_cents\n  , SUM(CASE WHEN status = 'paid' THEN paid_cents - refund_cents ELSE 0 END) AS net_sales_cents\nFROM \"data\".\"main\".\"orders\" orders_source_src_10000\nWHERE DATE_TRUNC('day', ordered_at) BETWEEN '2026-07-01' AND '2026-07-31'",
+  "columns": [
+    "payment_cents",
+    "refund_cents",
+    "net_sales_cents"
+  ],
+  "rows": [
+    [
+      568986393,
+      57313723,
+      511672670
+    ]
+  ],
+  "seconds": 0.047,
+  "units": {
+    "payment_cents": "cents",
+    "refund_cents": "cents",
+    "net_sales_cents": "cents"
+  },
+  "data_version": "qinghe-w03-20260923-large",
+  "data_sha256": "0074e7f764c63e836617aecb0e217aa3b5cc0cf9ede557179ad46b077dcf8ba8",
+  "catalog_sha256": "bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c",
+  "answer": "青禾在 2026 年 7 月（2026-07-01 至 2026-07-31）的销售指标如下：\n\n- **实付金额**：5,689,863.93 元（已支付订单实付金额合计，尚未扣除退款）\n- **退款金额**：573,137.23 元（按原订单下单日期归属，非现金退款发生日）\n- **净销售额**：5,116,726.70 元（已支付订单实付扣除退款后合计，取消单不计，按原订单下单日期归属）",
+  "question": "青禾 2026 年 7 月实付金额、退款金额和净销售额分别是多少？",
+  "trace_id": "f9621c56-5409-4cff-83b5-69683791c461",
+  "elapsed_seconds": 26.39,
+  "model_usage": {
+    "prompt_tokens": 496863,
+    "completion_tokens": 364,
+    "total_tokens": 497971
+  },
+  "model_calls_with_usage": 2
+}

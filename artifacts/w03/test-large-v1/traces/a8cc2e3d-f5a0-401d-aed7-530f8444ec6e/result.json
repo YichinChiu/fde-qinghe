@@ -1,0 +1,50 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "net_sales_cents"
+    ],
+    "start": "2026-07-01",
+    "end": "2026-08-01",
+    "group_by": [
+      "home_store__region"
+    ],
+    "filters": []
+  },
+  "sql": "SELECT\n  subq_12.home_store__region AS member__home_store__region\n  , SUM(subq_6.__net_sales_cents) AS net_sales_cents\nFROM (\n  SELECT\n    member_id AS member\n    , CASE WHEN status = 'paid' THEN paid_cents - refund_cents ELSE 0 END AS __net_sales_cents\n  FROM \"data\".\"main\".\"orders\" orders_source_src_10000\n  WHERE DATE_TRUNC('day', ordered_at) BETWEEN '2026-07-01' AND '2026-07-31'\n) subq_6\nLEFT OUTER JOIN (\n  SELECT\n    members_source_src_10000.member_id AS member\n    , home_stores_source_src_10000.region AS home_store__region\n  FROM \"data\".\"main\".\"members\" members_source_src_10000\n  LEFT OUTER JOIN\n    \"data\".\"main\".\"stores\" home_stores_source_src_10000\n  ON\n    members_source_src_10000.home_store_id = home_stores_source_src_10000.store_id\n) subq_12\nON\n  subq_6.member = subq_12.member\nGROUP BY\n  subq_12.home_store__region",
+  "columns": [
+    "home_store__region",
+    "net_sales_cents"
+  ],
+  "rows": [
+    [
+      "华东",
+      173266020
+    ],
+    [
+      "华南",
+      166393179
+    ],
+    [
+      "华北",
+      172013471
+    ]
+  ],
+  "seconds": 0.078,
+  "units": {
+    "net_sales_cents": "cents"
+  },
+  "data_version": "qinghe-w03-20260923-large",
+  "data_sha256": "0074e7f764c63e836617aecb0e217aa3b5cc0cf9ede557179ad46b077dcf8ba8",
+  "catalog_sha256": "bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c",
+  "answer": "青禾在 2026 年 7 月按会员归属门店地区统计的净销售额如下：\n- 华东：1,732,660.20 元\n- 华北：1,720,134.71 元\n- 华南：1,663,931.79 元\n\n统计口径说明：统计时间为 2026 年 7 月 1 日至 2026 年 7 月 31 日，净销售额仅包含已支付（paid）订单实付金额扣除退款后的合计（取消单不计），按原订单下单日期归属，并按会员归属门店所在地区进行汇总。",
+  "question": "青禾 2026 年 7 月净销售额按会员归属地区分别是多少？",
+  "trace_id": "a8cc2e3d-f5a0-401d-aed7-530f8444ec6e",
+  "elapsed_seconds": 35.954,
+  "model_usage": {
+    "prompt_tokens": 496521,
+    "completion_tokens": 311,
+    "total_tokens": 497541
+  },
+  "model_calls_with_usage": 2
+}

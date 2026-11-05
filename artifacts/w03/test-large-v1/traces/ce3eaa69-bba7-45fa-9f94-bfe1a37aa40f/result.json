@@ -1,0 +1,51 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "buyer_count",
+      "avg_buyer_value"
+    ],
+    "start": "2026-08-01",
+    "end": "2026-09-01",
+    "group_by": [
+      "order__channel"
+    ],
+    "filters": []
+  },
+  "sql": "WITH sma_10003_cte AS (\n  SELECT\n    DATE_TRUNC('day', ordered_at) AS metric_time__day\n    , channel AS order__channel\n    , CASE WHEN status = 'paid' THEN paid_cents - refund_cents ELSE 0 END AS __net_sales_cents\n    , CASE WHEN status = 'paid' AND paid_cents > refund_cents THEN member_id ELSE NULL END AS __buyer_count\n  FROM \"data\".\"main\".\"orders\" orders_source_src_10000\n)\n\nSELECT\n  COALESCE(subq_8.order__channel, subq_14.order__channel) AS order__channel\n  , MAX(subq_8.buyer_count) AS buyer_count\n  , MAX(CAST(subq_14.net_sales_cents AS DOUBLE) / CAST(NULLIF(subq_14.buyer_count, 0) AS DOUBLE)) AS avg_buyer_value\nFROM (\n  SELECT\n    order__channel\n    , COUNT(DISTINCT __buyer_count) AS buyer_count\n  FROM sma_10003_cte\n  WHERE metric_time__day BETWEEN '2026-08-01' AND '2026-08-31'\n  GROUP BY\n    order__channel\n) subq_8\nFULL OUTER JOIN (\n  SELECT\n    order__channel\n    , SUM(__net_sales_cents) AS net_sales_cents\n    , COUNT(DISTINCT __buyer_count) AS buyer_count\n  FROM sma_10003_cte\n  WHERE metric_time__day BETWEEN '2026-08-01' AND '2026-08-31'\n  GROUP BY\n    order__channel\n) subq_14\nON\n  subq_8.order__channel = subq_14.order__channel\nGROUP BY\n  COALESCE(subq_8.order__channel, subq_14.order__channel)",
+  "columns": [
+    "order__channel",
+    "buyer_count",
+    "avg_buyer_value"
+  ],
+  "rows": [
+    [
+      "小程序",
+      10649,
+      24120.699408395154
+    ],
+    [
+      "门店",
+      10546,
+      24375.117769770528
+    ]
+  ],
+  "seconds": 0.078,
+  "units": {
+    "buyer_count": "count",
+    "avg_buyer_value": "cents_per_member"
+  },
+  "data_version": "qinghe-w03-20260923-large",
+  "data_sha256": "0074e7f764c63e836617aecb0e217aa3b5cc0cf9ede557179ad46b077dcf8ba8",
+  "catalog_sha256": "bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c",
+  "answer": "青禾 2026 年 8 月按订单渠道统计的购买会员数及购买会员人均消费如下：\n\n1. **小程序**：\n   - 购买会员数：10,649 个 CRM 会员账户\n   - 购买会员人均消费：241.21 元/账户\n\n2. **门店**：\n   - 购买会员数：10,546 个 CRM 会员账户\n   - 购买会员人均消费：243.75 元/账户\n\n**统计口径说明**：\n- 统计时间范围为 2026 年 8 月 1 日至 2026 年 8 月 31 日。\n- 购买会员数按有有效订单的 CRM 会员账户去重统计，不做跨系统自然人去重。\n- 购买会员人均消费由对应渠道净销售额除以购买会员数计算得出，金额已转换为元并保留两位小数。",
+  "question": "青禾 2026 年 8 月购买会员数和购买会员人均消费，按订单渠道分别是多少？",
+  "trace_id": "ce3eaa69-bba7-45fa-9f94-bfe1a37aa40f",
+  "elapsed_seconds": 24.625,
+  "model_usage": {
+    "prompt_tokens": 496708,
+    "completion_tokens": 404,
+    "total_tokens": 497892
+  },
+  "model_calls_with_usage": 2
+}

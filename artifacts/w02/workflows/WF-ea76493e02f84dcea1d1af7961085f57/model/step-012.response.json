@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "Et0BCtoBAWkUfRM/ntYdWBGobkpibZ0lLs/8HMeeIWXIwKE42u0WDDxC2SbRSwUCANfR5+Ke67+0Tno+WkiqAD1Y4kvO3IXvz2uRQ/VrpXZbyZPtlKa4xlyiV8spNDwP4iU7LgVuxb6mq8vRaMcPZNUws3+gT8dft8UNLqzMtF93taUDPNIWz79Ij2gEtQT4SaUZKd21ZJIa5Kn1GA/HK6ZK2a59eCSrKU2k971DoI9POzcE90wqMSN1SQ7cps3ddzbH5ciB8IR59j8BWe3XGYUR5mReeDSLJV3qonlMFx8="
+          }
+        },
+        "function": {
+          "arguments": "{\"question\":\"请 FDE 核查第五组候选（CLM-001-0002、CLM-001-0007、CLM-001-0015、CLM-001-0016）：\\\\n1. 王经理指出收益目标、预算金额、合同签署和正式上线均未定，需另行确认，不在本次验收范围内（CLM-001-0002）。\\\\n2. 变更与合同的具体审批人和授权额度无法确认，王经理不掌握向谁核实，需另行核实，王经理不能代批（CLM-001-0007）。\\\\n3. 小林确认注册会员数报表本期按账户当前等级分组展示，注明不是注册当时等级，需要注册当时等级构成的列为数据限制（CLM-001-0015，待运营书面确认）。\\\\n4. 小林同意出具书面确认（含卡种范围、月末有效购买口径、当前等级分组），但具体日期不能当场承诺，需按流程安排确定后再告知（CLM-001-0016）。\\\\n请核查提取陈述与限定。\",\"claim_ids\":[\"CLM-001-0002\",\"CLM-001-0007\",\"CLM-001-0015\",\"CLM-001-0016\"]}",
+          "name": "request_review"
+        },
+        "id": "call_460754",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 45792,
+    "completion_tokens": 337,
+    "total_tokens": 46189
+  }
+}

@@ -1,0 +1,11 @@
+--- patches/original/builder.py	2026-11-05 20:19:28.027356100 +0800
++++ platform/fde_product/metrics/builder.py	2026-11-05 20:19:34.634356100 +0800
+@@ -43,7 +43,7 @@
+  contract=read(ROOT/'contracts/w03/build_response.example.json')
+  dimension_targets=read(ROOT/'templates/w03/dimension_targets.json')
+  if not cfg.get('data'):raise ValueError('BUILD_DATA_REQUIRED_FOR_VALIDATION')
+- if model is None:model=configured_model(32768)
++ if model is None:import os;model=configured_model(int(os.environ.get('FDE_W03_BUILD_MAX_TOKENS',32768)))  # local patch: see patches/README.md
+  out.mkdir(parents=True,exist_ok=False)
+  payload={'business_model_filename':'business_model.md','business_model':business,'materials':materials,'targets':targets,'access_tables':TABLES,'dimension_targets':dimension_targets,'native_format':'dbt semantic_models/measures; MetricFlow 0.213; DuckDB','contract':contract}
+  dump(out/'input.json',payload)

@@ -1,0 +1,24 @@
+{
+  "status": "unsupported",
+  "reason": "查询时间 2026 年 9 月超出了当前数据集的数据覆盖范围（2024-09-01 至 2026-09-01）。",
+  "intent": {
+    "status": "unsupported",
+    "reason": "查询时间 2026 年 9 月超出了当前数据集的数据覆盖范围（2024-09-01 至 2026-09-01）。",
+    "metrics": [
+      "net_sales_cents"
+    ],
+    "start": "2026-09-01",
+    "end": "2026-10-01",
+    "group_by": [],
+    "filters": []
+  },
+  "question": "青禾 2026 年 9 月的净销售额是多少？",
+  "trace_id": "a30542a5-c29c-41f5-abd4-d22d78b672d6",
+  "elapsed_seconds": 11.031,
+  "model_usage": {
+    "prompt_tokens": 12631,
+    "completion_tokens": 126,
+    "total_tokens": 13741
+  },
+  "model_calls_with_usage": 1
+}

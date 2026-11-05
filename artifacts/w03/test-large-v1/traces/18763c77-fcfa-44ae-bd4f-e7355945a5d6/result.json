@@ -1,0 +1,46 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "order_count",
+      "valid_order_count",
+      "cancel_rate"
+    ],
+    "start": "2026-04-01",
+    "end": "2026-07-01",
+    "group_by": [],
+    "filters": []
+  },
+  "sql": "WITH sma_10003_cte AS (\n  SELECT\n    DATE_TRUNC('day', ordered_at) AS metric_time__day\n    , 1 AS __order_count\n    , CASE WHEN status = 'paid' AND paid_cents > refund_cents THEN 1 ELSE 0 END AS __valid_order_count\n    , CASE WHEN status = 'cancelled' THEN 1 ELSE 0 END AS __cancelled_order_count\n  FROM \"data\".\"main\".\"orders\" orders_source_src_10000\n)\n\nSELECT\n  MAX(subq_9.order_count) AS order_count\n  , MAX(subq_9.valid_order_count) AS valid_order_count\n  , MAX(subq_16.cancel_rate) AS cancel_rate\nFROM (\n  SELECT\n    SUM(__order_count) AS order_count\n    , SUM(__valid_order_count) AS valid_order_count\n  FROM sma_10003_cte\n  WHERE metric_time__day BETWEEN '2026-04-01' AND '2026-06-30'\n) subq_9\nCROSS JOIN (\n  SELECT\n    CAST(SUM(__cancelled_order_count) AS DOUBLE) / CAST(NULLIF(SUM(__order_count), 0) AS DOUBLE) AS cancel_rate\n  FROM sma_10003_cte\n  WHERE metric_time__day BETWEEN '2026-04-01' AND '2026-06-30'\n) subq_16",
+  "columns": [
+    "order_count",
+    "valid_order_count",
+    "cancel_rate"
+  ],
+  "rows": [
+    [
+      79489,
+      69409,
+      0.08012429392746166
+    ]
+  ],
+  "seconds": 0.063,
+  "units": {
+    "order_count": "count",
+    "valid_order_count": "count",
+    "cancel_rate": "ratio"
+  },
+  "data_version": "qinghe-w03-20260923-large",
+  "data_sha256": "0074e7f764c63e836617aecb0e217aa3b5cc0cf9ede557179ad46b077dcf8ba8",
+  "catalog_sha256": "bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c",
+  "answer": "在2026年第二季度（2026年4月1日至2026年6月30日）期间，青禾的订单统计情况如下：\n\n1. **创建订单数**：共下达 79,489 单（包含取消订单及全额退款订单）；\n2. **有效订单数**：其中有效订单为 69,409 单（即已支付且实付金额大于退款金额的订单）；\n3. **取消率**：取消率为 8.01%（取消订单数占创建订单数的比例）。",
+  "question": "2026年第二季度，青禾一共下了多少单、其中有效订单多少、取消率多少？",
+  "trace_id": "18763c77-fcfa-44ae-bd4f-e7355945a5d6",
+  "elapsed_seconds": 23.031,
+  "model_usage": {
+    "prompt_tokens": 496821,
+    "completion_tokens": 334,
+    "total_tokens": 498065
+  },
+  "model_calls_with_usage": 2
+}

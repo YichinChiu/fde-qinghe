@@ -1,0 +1,48 @@
+{
+ "expected": {
+  "status": "ok",
+  "intent": {
+   "metrics": [
+    "payment_cents"
+   ],
+   "start": "2026-08-01",
+   "end": "2026-09-01",
+   "group_by": [],
+   "filters": []
+  },
+  "columns": [
+   "payment_cents"
+  ],
+  "rows": [
+   [
+    1000000000
+   ]
+  ],
+  "units": {
+   "payment_cents": "cents"
+  }
+ },
+ "actual": {
+  "status": "ok",
+  "intent": {
+   "metrics": [
+    "payment_cents"
+   ],
+   "start": "2026-08-01",
+   "end": "2026-09-01",
+   "group_by": [],
+   "filters": []
+  },
+  "columns": [
+   "payment_cents"
+  ],
+  "rows": [
+   [
+    1000000001
+   ]
+  ],
+  "units": {
+   "payment_cents": "cents"
+  }
+ }
+}

@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "EqQDCqEDAWkUfRPmR7Hy9Ulm0zqftDrbFSuxeg5y+SZvEQCmL0M3MVdONNpmJ6jdOVZYszYqbrawMTWoo2w6hz081wt9ui1fdtJIw84imUgoWkX4Ni5v1clwDMA94GrqqKZ2ngdxVGqDbAIh+MFYI/3d5uliLw9NAuFiaaXrDZksb1HdA01BBwbbs/eUfX/m1KTkJwGFL279D1K73mtYPVcQbr7jHK9Z87DPgq1bGL+TwAkSGOixaz4GrO901QmoztBNo95xVLLKIE3LFc1KDR+mF4T1H0pvLjTjXw0G/is0fWHKWdOz2H+eLAyKZUIgPj7AhU15H8ms2UelttTruYhR29CUuvITIVshFaf7Jhsp5iP1ilRBnRe60D33ydV/I6kHj90SrmPgSvRIsNQStkQP++IfEoBF8+sY9eb/lvQqZL6UXjx7uMEKxDpT6ISh+2+Gjv894y+//iKQqOzQW3UHYTaujEVPVvBFL5AuosJ7Dz5J5Nnnsw5sfkbglEeocbtKizqs2dG/WnspNoq4E0NAZynE3kMJffY0AL7AStXYu2OBy1eU"
+          }
+        },
+        "function": {
+          "arguments": "{\"claim_ids\":[\"CLM-003-0033\"],\"question\":\"请核查第 9 组候选（陈姐关于门店活动职责与差异转介运营）：\\nCLM-003-0033：门店活动职责为核对适用范围、说明权益、接待咨询、配合注册与执行、反馈现场问题；若门店实际做法与运营月报口径有差异，记下交运营牵头确定，陈姐不替运营定口径。\\n\\n请确认是否采用或修订状态？\"}",
+          "name": "request_review"
+        },
+        "id": "call_415299",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 59892,
+    "completion_tokens": 129,
+    "total_tokens": 60103
+  }
+}

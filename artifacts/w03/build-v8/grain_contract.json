@@ -1,0 +1,21 @@
+{
+  "orders_source": [
+    "order_id"
+  ],
+  "members_source": [
+    "member_id"
+  ],
+  "stores_source": [
+    "store_id"
+  ],
+  "home_stores_source": [
+    "store_id"
+  ],
+  "ranked_orders_model": [
+    "order_id"
+  ],
+  "member_monthly_summary_model": [
+    "member_id",
+    "month_start"
+  ]
+}

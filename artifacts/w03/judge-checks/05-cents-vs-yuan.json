@@ -1,0 +1,64 @@
+{
+ "expected": {
+  "status": "ok",
+  "intent": {
+   "metrics": [
+    "net_sales_cents"
+   ],
+   "start": "2026-08-01",
+   "end": "2026-09-01",
+   "group_by": [],
+   "filters": []
+  },
+  "columns": [
+   "net_sales_cents"
+  ],
+  "rows": [
+   [
+    100300
+   ]
+  ],
+  "units": {
+   "net_sales_cents": "cents"
+  },
+  "data_version": "qinghe-w03-20260923-small"
+ },
+ "actual": {
+  "status": "ok",
+  "intent": {
+   "metrics": [
+    "net_sales_cents"
+   ],
+   "start": "2026-08-01",
+   "end": "2026-09-01",
+   "group_by": [],
+   "filters": []
+  },
+  "sql": "SELECT\n  SUM(case when status = 'paid' then paid_cents - refund_cents else 0 end) AS net_sales_cents\nFROM \"data\".\"main\".\"orders\" orders_src_10000\nWHERE DATE_TRUNC('day', ordered_at) BETWEEN '2026-08-01' AND '2026-08-31'",
+  "columns": [
+   "net_sales_cents"
+  ],
+  "rows": [
+   [
+    100300
+   ]
+  ],
+  "seconds": 0.015,
+  "units": {
+   "net_sales_cents": "yuan"
+  },
+  "data_version": "qinghe-w03-20260923-small",
+  "data_sha256": "8a295969ec24556ebd7f818506633919e71f840fc86488d53efc185f9768cfe6",
+  "catalog_sha256": "266ad38a8f11190084fc51913ec5216f7716612cd6a870f00b2e002d264916be",
+  "answer": "青禾在 2026 年 8 月（2026-08-01 至 2026-08-31）的净销售额为 1,003.00 元。该统计口径为已支付订单实付金额扣除退款后的合计金额，取消订单不计入，且退款按原订单下单日期归属。",
+  "question": "青禾 2026 年 8 月净销售额是多少？",
+  "trace_id": "5ffab8ef-7b8b-421c-9c22-4cfa340e0ba6",
+  "elapsed_seconds": 15.969,
+  "model_usage": {
+   "prompt_tokens": 13904,
+   "completion_tokens": 224,
+   "total_tokens": 14972
+  },
+  "model_calls_with_usage": 2
+ }
+}

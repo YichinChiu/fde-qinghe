@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "EtwBCtkBAWkUfRN6PzsT42tzWxTI91SO8cB16EG3y1u+ec4HtaUXBU2UesbPX6O3TvxuW6LUvsiJ3gcIQQ+5P8uqiO2cGY90n9k0HEn0jIBQC200B20kUdHXx9UHRYXaCSvCr1Z2Kv8pk1dUMYqHUFSqtX76eFNk228PIv2ZV2nEPyrbNRgWwQQWZ36tDcBGoLRBdR0rZxFI9KqYMFTMgXSxNf2Ei0pnkXrjUvQpJ6lHp+HOcXFFygMrEKvonnI9LylUA7hoOlz0bp0kkUxG8uMHKPlAVXhGNTx6uj5OAQ=="
+          }
+        },
+        "function": {
+          "arguments": "{\"claim_ids\":[\"CLM-003-0033\"]}",
+          "name": "show_evidence"
+        },
+        "id": "call_593989",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 59284,
+    "completion_tokens": 27,
+    "total_tokens": 59358
+  }
+}

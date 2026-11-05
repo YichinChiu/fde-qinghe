@@ -1,0 +1,46 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "monthly_buyer_count"
+    ],
+    "start": "2026-07-01",
+    "end": "2026-09-01",
+    "group_by": [
+      "metric_time__month"
+    ],
+    "filters": []
+  },
+  "sql": "SELECT\n  metric_time__month\n  , SUM(__monthly_buyer_count) AS monthly_buyer_count\nFROM (\n  SELECT\n    DATE_TRUNC('month', month_start) AS metric_time__month\n    , case when valid_order_cnt >= 1 then 1 else 0 end AS __monthly_buyer_count\n  FROM \"data\".\"main\".\"monthly_buyer_summary\" monthly_buyer_summary_src_10000\n  WHERE DATE_TRUNC('month', month_start) BETWEEN '2026-07-01' AND '2026-08-31'\n) subq_5\nGROUP BY\n  metric_time__month",
+  "columns": [
+    "metric_time__month",
+    "monthly_buyer_count"
+  ],
+  "rows": [
+    [
+      "2026-07-01 00:00:00",
+      11
+    ],
+    [
+      "2026-08-01 00:00:00",
+      15
+    ]
+  ],
+  "seconds": 0.031,
+  "units": {
+    "monthly_buyer_count": "count"
+  },
+  "data_version": "qinghe-w03-20260923-small",
+  "data_sha256": "8a295969ec24556ebd7f818506633919e71f840fc86488d53efc185f9768cfe6",
+  "catalog_sha256": "266ad38a8f11190084fc51913ec5216f7716612cd6a870f00b2e002d264916be",
+  "answer": "根据青禾当前测试库数据统计，在全门店口径下，2026 年 7 月和 8 月的月内购买会员数（即当月至少产生一笔有效订单的 CRM 会员账户数）按月分别如下：\n- 2026 年 7 月：11 个账户\n- 2026 年 8 月：15 个账户\n\n注：该指标仅统计完整自然月且按月独立去重，多月数据不可直接累加。",
+  "question": "青禾 2026 年 7 月和 8 月的月内购买会员数，按月分别是多少？",
+  "trace_id": "74776f9a-2cd9-4b06-97fb-74d20ad68c7f",
+  "elapsed_seconds": 14.563,
+  "model_usage": {
+    "prompt_tokens": 13996,
+    "completion_tokens": 256,
+    "total_tokens": 14827
+  },
+  "model_calls_with_usage": 2
+}

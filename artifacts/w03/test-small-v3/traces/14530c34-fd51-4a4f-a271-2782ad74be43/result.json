@@ -1,0 +1,42 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "monthly_paid_buyer_count",
+      "monthly_paid_repeat_rate"
+    ],
+    "start": "2026-07-01",
+    "end": "2026-08-01",
+    "group_by": [],
+    "filters": []
+  },
+  "sql": "WITH sma_10001_cte AS (\n  SELECT\n    DATE_TRUNC('day', month_start) AS metric_time__day\n    , CASE WHEN is_paid_member = 1 AND valid_order_count >= 1 THEN member_id ELSE NULL END AS __monthly_paid_buyer_count\n    , CASE WHEN is_paid_member = 1 AND valid_order_count >= 2 THEN member_id ELSE NULL END AS __monthly_paid_repeat_buyer_count\n  FROM \"data\".\"main\".\"member_monthly_summary\" member_monthly_summary_model_src_10000\n)\n\nSELECT\n  MAX(subq_8.monthly_paid_buyer_count) AS monthly_paid_buyer_count\n  , MAX(subq_15.monthly_paid_repeat_rate) AS monthly_paid_repeat_rate\nFROM (\n  SELECT\n    COUNT(DISTINCT __monthly_paid_buyer_count) AS monthly_paid_buyer_count\n  FROM sma_10001_cte\n  WHERE metric_time__day BETWEEN '2026-07-01' AND '2026-07-31'\n) subq_8\nCROSS JOIN (\n  SELECT\n    CAST(COUNT(DISTINCT __monthly_paid_repeat_buyer_count) AS DOUBLE) / CAST(NULLIF(COUNT(DISTINCT __monthly_paid_buyer_count), 0) AS DOUBLE) AS monthly_paid_repeat_rate\n  FROM sma_10001_cte\n  WHERE metric_time__day BETWEEN '2026-07-01' AND '2026-07-31'\n) subq_15",
+  "columns": [
+    "monthly_paid_buyer_count",
+    "monthly_paid_repeat_rate"
+  ],
+  "rows": [
+    [
+      6,
+      0.0
+    ]
+  ],
+  "seconds": 0.046,
+  "units": {
+    "monthly_paid_buyer_count": "count",
+    "monthly_paid_repeat_rate": "ratio"
+  },
+  "data_version": "qinghe-w03-20260923-small",
+  "data_sha256": "8a295969ec24556ebd7f818506633919e71f840fc86488d53efc185f9768cfe6",
+  "catalog_sha256": "bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c",
+  "answer": "在 2026 年 7 月（统计周期 2026-07-01 至 2026-07-31），青禾全渠道及全门店范围内的相关指标如下：\n- 月末付费会员购买人数：6 个 CRM 会员账户\n- 月末付费会员复购率：0.00%\n\n口径说明及限制：\n1. 统计单位为 CRM 会员账户。月末付费会员购买人数是指在自然月内有至少一笔有效订单，且月末符合付费资格的不同账户数；月末付费会员复购率指月末付费会员复购人数与购买人数的比值。\n2. 卡种范围与多卡规则基于运营口头答复（待书面确认）：仅统计悦享年卡与家庭季卡，排除联名卡与体验卡；同一账户持有多张卡按一个账户计算。\n3. 本期暂定口径（待书面确认）：月末当天到期或提前终止按门店现场做法暂定为无效。\n4. 2026-01 之前测试卡表历史覆盖未核实，结果为 0 不能解读为业务上为零；本期统计数据不作考核依据。",
+  "question": "青禾 2026 年 7 月月末付费会员购买人数和月末付费会员复购率是多少？",
+  "trace_id": "14530c34-fd51-4a4f-a271-2782ad74be43",
+  "elapsed_seconds": 18.812,
+  "model_usage": {
+    "prompt_tokens": 16385,
+    "completion_tokens": 477,
+    "total_tokens": 17667
+  },
+  "model_calls_with_usage": 2
+}

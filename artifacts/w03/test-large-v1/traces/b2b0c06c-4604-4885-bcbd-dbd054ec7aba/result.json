@@ -1,0 +1,46 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "monthly_paid_buyer_count",
+      "monthly_paid_order_count",
+      "monthly_paid_sales_cents"
+    ],
+    "start": "2026-08-01",
+    "end": "2026-09-01",
+    "group_by": [],
+    "filters": []
+  },
+  "sql": "SELECT\n  COUNT(DISTINCT CASE WHEN is_paid_member = 1 AND valid_order_count >= 1 THEN member_id ELSE NULL END) AS monthly_paid_buyer_count\n  , SUM(CASE WHEN is_paid_member = 1 THEN valid_order_count ELSE 0 END) AS monthly_paid_order_count\n  , SUM(CASE WHEN is_paid_member = 1 THEN net_sales_cents ELSE 0 END) AS monthly_paid_sales_cents\nFROM \"data\".\"main\".\"member_monthly_summary\" member_monthly_summary_model_src_10000\nWHERE DATE_TRUNC('day', month_start) BETWEEN '2026-08-01' AND '2026-08-31'",
+  "columns": [
+    "monthly_paid_buyer_count",
+    "monthly_paid_order_count",
+    "monthly_paid_sales_cents"
+  ],
+  "rows": [
+    [
+      3683,
+      6565,
+      113027218
+    ]
+  ],
+  "seconds": 0.093,
+  "units": {
+    "monthly_paid_buyer_count": "count",
+    "monthly_paid_order_count": "count",
+    "monthly_paid_sales_cents": "cents"
+  },
+  "data_version": "qinghe-w03-20260923-large",
+  "data_sha256": "0074e7f764c63e836617aecb0e217aa3b5cc0cf9ede557179ad46b077dcf8ba8",
+  "catalog_sha256": "bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c",
+  "answer": "根据青禾 2026 年 8 月（2026-08-01 至 2026-09-01）全渠道及全门店的统计结果：\n- 月末付费会员购买人数：3,683 个账户\n- 月末付费会员有效订单数：6,565 笔\n- 月末付费会员净销售额：1,130,272.18 元\n\n口径说明及业务限制：\n1. 统计单位为 CRM 会员账户。卡种范围与多卡规则为运营口头答复待书面确认（本期付费会员仅包含悦享年卡与家庭季卡，排除联名卡与体验卡；一账户多卡按一个账户计算）；\n2. 月末失效端点为本期暂定口径（依据 FDE 决定采纳门店做法，月末当天到期或提前终止暂定为无效，待书面确认）；\n3. 2026-01 之前测试卡表历史覆盖未核实，结果为 0 不能解读为业务上为零；\n4. 本期统计不作考核依据。",
+  "question": "青禾 2026 年 8 月月末付费会员购买人数、月末付费会员有效订单数和月末付费会员净销售额是多少？",
+  "trace_id": "b2b0c06c-4604-4885-bcbd-dbd054ec7aba",
+  "elapsed_seconds": 29.312,
+  "model_usage": {
+    "prompt_tokens": 497429,
+    "completion_tokens": 486,
+    "total_tokens": 498911
+  },
+  "model_calls_with_usage": 2
+}

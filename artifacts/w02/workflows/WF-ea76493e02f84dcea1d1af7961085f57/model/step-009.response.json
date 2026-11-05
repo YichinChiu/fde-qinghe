@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "EtUECtIEAWkUfRNWxdBo5HEBfcahe7U0i0z0P51RRC1g0AhOXgx3CbT5QDTIb3ATbnQTzXbuf/EGUxtzTaZnhRmgobDJdMRqh0rhwXXOQ/XmvV1yRydiVnyDch2mWHDJg5KFWE8dclk1EWWlypd3cHgEV6+bnBl++vHB4dsGifke2x8n2rCLGjw5ZDz5tFQ94xYAtyIcQaKEhIFspX6wncCj5sZmLXMvTGqrKCduJSXzNM5mC3pVsczG2ZNcGJ2GUO9Bu2GBrkX9pVUXv4jCS4xtTmfy5/6HmQG68EO+07FFm4WleizBGUWVHRPlxU3ZZJndrFx+qKT/uNLzYj9lNo+GKF5+GgTRGAoGqkFFSYTAFrUlHTxcJLg0dS1bk6xMB1BPVVceATfnYt26SsopUrEHjkqkEDM5U16/t+q7EBVAP+HXgkBX04wvzG1UnMiRralHSckhO8Lgu3ISgFGcPGiLbFqVqaTMUL8XOPdD0nLevokhD3oM/Kbs7pIwhZJAqGsaGAw1KsywaaLGsCyr9OxBMX+ZyXkKa9VEZev1RQVI2a5QesTielZbEZf0iEwVYiII/4p99UImSki4Ic6THRepJYkEvPZMIvEtvayLdpMnfNNFEUHdooAKb7NbKNgoR7VnNLwpslmNms38KLMWQ43bEER1TZBvKh+RrJu3AJiVQGMluilVTQIMveQli2G7qsjkomJBdk6z5qFwoCS121/mzI59b7nIX6o/Q6gr7OUgnM40l2c1Q0J/5jdYOt+a+8AwKoO4gkDP/5PL8zPcalW9AfWsmPyH"
+          }
+        },
+        "function": {
+          "arguments": "{\"claim_ids\":[\"CLM-001-0001\",\"CLM-001-0004\",\"CLM-001-0005\",\"CLM-002-0021\"]}",
+          "name": "show_evidence"
+        },
+        "id": "call_406613",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 38898,
+    "completion_tokens": 66,
+    "total_tokens": 39216
+  }
+}

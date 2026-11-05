@@ -1,0 +1,24 @@
+{
+  "status": "clarify",
+  "reason": "查询净销售额需要明确的时间范围（例如某个自然月、某天或起止日期），请补充需要查询的时间段。",
+  "intent": {
+    "status": "clarify",
+    "reason": "查询净销售额需要明确的时间范围（例如某个自然月、某天或起止日期），请补充需要查询的时间段。",
+    "metrics": [
+      "net_sales_cents"
+    ],
+    "start": null,
+    "end": null,
+    "group_by": [],
+    "filters": []
+  },
+  "question": "青禾的净销售额是多少？",
+  "trace_id": "6113b485-3fbe-4951-84ac-ac46ffa4eeaf",
+  "elapsed_seconds": 4.782,
+  "model_usage": {
+    "prompt_tokens": 14484,
+    "completion_tokens": 91,
+    "total_tokens": 14807
+  },
+  "model_calls_with_usage": 1
+}

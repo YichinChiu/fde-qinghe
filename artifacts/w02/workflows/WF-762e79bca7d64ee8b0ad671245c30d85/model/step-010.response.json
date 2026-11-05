@@ -1,0 +1,25 @@
+{
+  "message": {
+    "role": "assistant",
+    "tool_calls": [
+      {
+        "extra_content": {
+          "google": {
+            "thought_signature": "EuwFCukFAWkUfRPBoibqUKUCMaBmcC6Utes6S2UEHxEYgqUCWJ3+olD3Y5qXe0QfmX5fy7vXSBoSI4Y1DVMIGIZeIYhm7EdOI5Q0rwO0U2dcN0N6yFX3OemytjjYxbkYLvhobgKtkxtHxegKUIsmjbCV+HBci9QFj8QHs88F+6fCWmzF+5DklcOUEotSYsDA5nHpvsQ0dKYVLv726YvK6Z+1tz59rLDE4EckydvINFZ6T2xfzTvTgeC646XBS9tXm+oNXnzw4KMPHMH++J4eTQvEarK998vFv/WempHmR7xBvjf6EccLTIavk0QLKGSLNycmRrIkyWHTDccaRmTCKbi1jFWNw81FFQliAyefGE4/ripj26hiayXG7clJZtnAUr71dGhQ4YtzKUTDbwPO+TKNTL6s7bV5jF2f975bv3GXLK8n5YrgTI2rNAHq6fOR92rgDuc8NAjxzUs3sI1WxuUPi8ZrBLWfwDAnv48Fv0RrpMJvyjhF7w+kIDNvtXEE7Sg7mJS6hNI2X7QK9j8rLyxobz9HpZpBdMuvgC3xvLwGnEYCKfM4mQFkFjbL1YgM8IA8K/5NrUW+dWhKizVq47JQdEaLq6K1c0w8lsJUOD4Gus5iUdqRZlkrW8uwMS5iTbCtrmtVZMRlbZ+EDWXg/0Wf+jr5VRJ9osnuYomS6zUdyss+8+UteahorV6dpBo1FsgvMmMZBx3Dp+OPO41dJYoDDdJvImSUiqypJrnl0A0W65GMYDO7Cr8JM01NZYZS5omAvX5P4VDrm7bHwQJspKCrYGqH6WF/CmDe0BjyFP4sdZzvrkUeaEDzed7X0S02999HfCSjLv3MGp2hgBl44cyk5kAFFiht9yqa3nnBOqPdjiD3wbT+H/Y718TqJzfrDiCjUhrkhsvk1cYHvzAGUcVhhcC2g19Y9yuH0n47Vadt1iLeTD03RWdkRBLHsr9gIm/V5+rhO/U7g5tZQ6Vy2SIcF/WgaOOzcZM2VePyyw=="
+          }
+        },
+        "function": {
+          "arguments": "{\"question\":\"请核查第 4 组候选（小林关于有效日期端点、实际资格记录与转介）：\\n1. CLM-001-0012：仅凭 valid_until 落在月底当天无法判断，需看实际资格记录，不能直接答“算”，只约束本期月报；\\n2. CLM-002-0013：小林不掌握实际资格记录来源，转介 IT 老周核实系统记录；\\n3. CLM-002-0016：权益开始日落在月底当天，月末才生效、但当月此前有购买的账户才纳入当月有效购买，并非一律按月末有资格算；待运营书面确认；\\n4. CLM-002-0017：ended_at 和 valid_until 落在月底当天无明确规则，维持未决，转介老周核实系统记录。\\n\\n请确认是否采用或修订状态？\",\"claim_ids\":[\"CLM-001-0012\",\"CLM-002-0013\",\"CLM-002-0016\",\"CLM-002-0017\"]}",
+          "name": "request_review"
+        },
+        "id": "call_253558",
+        "type": "function"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 42507,
+    "completion_tokens": 284,
+    "total_tokens": 42998
+  }
+}

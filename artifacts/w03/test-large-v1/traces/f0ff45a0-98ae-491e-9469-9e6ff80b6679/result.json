@@ -1,0 +1,38 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "monthly_paid_repeat_rate"
+    ],
+    "start": "2026-08-01",
+    "end": "2026-09-01",
+    "group_by": [],
+    "filters": []
+  },
+  "sql": "SELECT\n  CAST(COUNT(DISTINCT CASE WHEN is_paid_member = 1 AND valid_order_count >= 2 THEN member_id ELSE NULL END) AS DOUBLE) / CAST(NULLIF(COUNT(DISTINCT CASE WHEN is_paid_member = 1 AND valid_order_count >= 1 THEN member_id ELSE NULL END), 0) AS DOUBLE) AS monthly_paid_repeat_rate\nFROM \"data\".\"main\".\"member_monthly_summary\" member_monthly_summary_model_src_10000\nWHERE DATE_TRUNC('day', month_start) BETWEEN '2026-08-01' AND '2026-08-31'",
+  "columns": [
+    "monthly_paid_repeat_rate"
+  ],
+  "rows": [
+    [
+      0.4461037197936465
+    ]
+  ],
+  "seconds": 0.063,
+  "units": {
+    "monthly_paid_repeat_rate": "ratio"
+  },
+  "data_version": "qinghe-w03-20260923-large",
+  "data_sha256": "0074e7f764c63e836617aecb0e217aa3b5cc0cf9ede557179ad46b077dcf8ba8",
+  "catalog_sha256": "bb7f78585efc94ff201d17d4f390d61c96c0af576a4d3630e999422e2345416c",
+  "answer": "青禾在2026年8月，月末仍为付费会员的CRM会员账户当月复购率为 44.61%。\n\n口径与限制说明：\n1. 统计口径为月末付费会员复购人数除以月末付费会员购买人数。\n2. 卡种范围与多卡规则为运营口头答复待书面确认：本期付费会员仅包含悦享年卡与家庭季卡，排除联名卡与体验卡；一账户多卡按一个账户计算。\n3. 月末失效端点为本期暂定口径：月末当天到期或提前终止按门店现场做法暂定为无效（依据FDE决定2026-11-05采纳门店做法，待小林与老周核对后书面确认）。\n4. 2026-01之前测试卡表历史覆盖未核实，结果为0不能解读为业务上为零；本期统计不作考核依据。",
+  "question": "2026年8月底还是付费会员的那些账户，当月复购率是多少？",
+  "trace_id": "f0ff45a0-98ae-491e-9469-9e6ff80b6679",
+  "elapsed_seconds": 31.75,
+  "model_usage": {
+    "prompt_tokens": 496653,
+    "completion_tokens": 387,
+    "total_tokens": 498204
+  },
+  "model_calls_with_usage": 2
+}
