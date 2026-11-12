@@ -1,0 +1,154 @@
+{
+  "batches": [
+    {
+      "skill_sha256": "af8401281a9e4be768a628c45329e856ce1a7c0bf8d1d649782616be87ccb125",
+      "input_hashes": {
+        "business_model.md": "d19082988aa4ceae8f45f575923763641997cb1257d4b9ac9598c57b46a4e5d1",
+        "00_材料说明.md": "c60776a6a1c030b02b1ce89f773327871c80bb34dca9c486df43c9acb0a6dc28",
+        "01_订单日报说明.md": "976fa129493e6bd2861a58d74df2ba3ad4448ea01a2d25651124222a61cebb67",
+        "02_财务邮件.md": "f81e0ddb5c03dd4eb2d01094816716d8375d03fe883b947ec8297edf8d525557",
+        "03_会员运营周报.md": "25ab933556bf34bef21b528d4c7838c9baad33ae289d59f09501e765080bb492",
+        "04_本期统计确认邮件.md": "c4f847fd90fd0765d37ad22f20d4a4eb0bab90f8543ae0f05d7a3cbee104c4be",
+        "05_数据字典.md": "b4c905ae6d2f4c08e139c695a2868b66ee5047b2b8ea94d6eccba55aebb79c16",
+        "06_任务清单.md": "ed414526217320c5e9ef049cfc1cfb56b670a5af57a57a9450a1e264cd71904d",
+        "07_客户内部沟通.md": "916d0f6d78033aff30dc6053cb58d774bfdefe5e3aa9a4e36ca54f143af3b425",
+        "08_业务目标与工作清单.md": "de9d737c423cc31b2f9d60c9ba8693b9d4257a3aa69b9efedb52674aeb2efe97"
+      },
+      "defined": [
+        "order_count",
+        "paid_order_count",
+        "valid_order_count",
+        "cancelled_order_count",
+        "refund_order_count",
+        "partial_refund_order_count",
+        "full_refund_order_count",
+        "payment_cents",
+        "refund_cents",
+        "net_sales_cents",
+        "gross_cents",
+        "discount_cents",
+        "buyer_count",
+        "refund_buyer_count",
+        "selling_store_count",
+        "valid_order_items",
+        "avg_order_value",
+        "avg_buyer_value",
+        "purchase_frequency",
+        "refund_amount_rate",
+        "cancel_rate",
+        "refund_order_rate",
+        "discount_rate",
+        "items_per_order",
+        "new_member_count",
+        "first_buyer_count",
+        "first_order_sales_cents",
+        "first_order_count",
+        "repeat_order_count",
+        "monthly_buyer_count",
+        "monthly_repeat_buyer_count",
+        "monthly_repeat_rate",
+        "monthly_paid_buyer_count",
+        "monthly_paid_order_count",
+        "monthly_paid_sales_cents",
+        "monthly_paid_repeat_buyer_count",
+        "monthly_paid_repeat_rate",
+        "monthly_paid_avg_order_value"
+      ],
+      "unresolved": [],
+      "business_model_usage": [
+        {
+          "quote": "账户与订单、账户与卡分别是一对多关系。",
+          "used_for": [
+            {
+              "kind": "semantic_model",
+              "name": "orders_source"
+            },
+            {
+              "kind": "derived_model",
+              "name": "ranked_orders"
+            }
+          ]
+        },
+        {
+          "quote": "订单指标必须分清线上与门店渠道，不能混在一起看；",
+          "used_for": [
+            {
+              "kind": "dimension",
+              "name": "order__channel"
+            }
+          ]
+        },
+        {
+          "quote": "小程序订单上的门店编号在 IT 核实前不能当作门店归属；",
+          "used_for": [
+            {
+              "kind": "dimension",
+              "name": "store"
+            },
+            {
+              "kind": "metric",
+              "name": "selling_store_count"
+            }
+          ]
+        },
+        {
+          "quote": "本期统计不改变现有门店考核，也不代表门店执行已经改善；",
+          "used_for": [
+            {
+              "kind": "metric",
+              "name": "selling_store_count"
+            }
+          ]
+        },
+        {
+          "quote": "并在回答中注明“按账户当前等级，不是注册当时的等级”",
+          "used_for": [
+            {
+              "kind": "dimension",
+              "name": "member__tier"
+            },
+            {
+              "kind": "metric",
+              "name": "new_member_count"
+            }
+          ]
+        },
+        {
+          "quote": "门店现场到期/终止当天已失效",
+          "used_for": [
+            {
+              "kind": "derived_model",
+              "name": "member_monthly_summary"
+            },
+            {
+              "kind": "metric",
+              "name": "monthly_paid_buyer_count"
+            }
+          ]
+        },
+        {
+          "quote": "须等老周核对完系统记录再与门店做法对齐",
+          "used_for": [
+            {
+              "kind": "derived_model",
+              "name": "member_monthly_summary"
+            },
+            {
+              "kind": "metric",
+              "name": "monthly_paid_buyer_count"
+            }
+          ]
+        },
+        {
+          "quote": "若门店实际做法与运营月报口径存在差异",
+          "used_for": [
+            {
+              "kind": "derived_model",
+              "name": "member_monthly_summary"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

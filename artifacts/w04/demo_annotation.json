@@ -1,0 +1,28 @@
+{
+  "selected_chain": "月内复购率趋势核对：新 CRM 覆盖范围内的月度复购率及其分子分母（服务沈总“复购下滑”判断与小林的回访运营）",
+  "runs": [
+    {
+      "run_path": "demo_runs/run-02/dbcb4938-2686-4d4d-b9bc-066fe05d50eb",
+      "bad_case": false,
+      "bad_case_reason": "",
+      "tuning": {
+        "before_run_path": "demo_runs/run-01/242abf21-2f28-4450-b6af-f4083041e181",
+        "before_bad_case": true,
+        "before_bad_case_reason": "数值正确，但先给出不带范围的整体结论“月内复购率确实呈现下降趋势……整体下行特征明显”，覆盖限制（老收银系统未导出、注销会员订单隔离）只在末尾补一句注释，属于结论仍按全公司下、末尾补“数据不全”的情况。",
+        "change_location": "提示词／上下文",
+        "change": "在回答提示词末尾增加一条“覆盖范围限定”规则：覆盖说明或指标约束要求限定范围时，每一句判断都要在句子本身写明适用范围，不得先下整体结论再在末尾补注；趋势只描述覆盖范围内指标数值的变化，并说明未覆盖来源可能使结论变化（customer/w04/answer_prompt.txt 第 3 行，其余不变）。",
+        "reason": "定位：查询意图与 SQL 正确，结果数值与独立查询一致；覆盖说明已在 data_context 中，指标约束也要求限定范围，但原提示词只要求“解释统计范围、口径及限制”，没有要求把范围放进结论句，模型因此把限制写成末尾注释。问题在回答生成环节，故只改提示词。"
+      }
+    },
+    {
+      "run_path": "demo_runs/run-03/3f905a82-8707-418a-9d5b-ad0e6e7e62f5",
+      "bad_case": false,
+      "bad_case_reason": ""
+    },
+    {
+      "run_path": "demo_runs/run-04/a3c75607-4041-4882-b3ef-ae6772eddb14",
+      "bad_case": false,
+      "bad_case_reason": ""
+    }
+  ]
+}

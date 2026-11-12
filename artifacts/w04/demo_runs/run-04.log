@@ -1,0 +1,114 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "monthly_buyer_count",
+      "monthly_repeat_buyer_count"
+    ],
+    "start": "2025-09-01",
+    "end": "2026-09-01",
+    "group_by": [
+      "metric_time__month"
+    ],
+    "filters": []
+  },
+  "sql": "SELECT\n  metric_time__month\n  , COUNT(DISTINCT __monthly_buyer_count) AS monthly_buyer_count\n  , COUNT(DISTINCT __monthly_repeat_buyer_count) AS monthly_repeat_buyer_count\nFROM (\n  SELECT\n    DATE_TRUNC('month', month_start) AS metric_time__month\n    , CASE WHEN valid_order_count >= 1 THEN member_id ELSE NULL END AS __monthly_buyer_count\n    , CASE WHEN valid_order_count >= 2 THEN member_id ELSE NULL END AS __monthly_repeat_buyer_count\n  FROM \"data\".\"main\".\"member_monthly_summary\" member_monthly_summary_model_src_10000\n  WHERE DATE_TRUNC('day', month_start) BETWEEN '2025-09-01' AND '2026-08-31'\n) subq_6\nGROUP BY\n  metric_time__month",
+  "columns": [
+    "metric_time__month",
+    "monthly_buyer_count",
+    "monthly_repeat_buyer_count"
+  ],
+  "rows": [
+    [
+      "2026-08-01 00:00:00",
+      5473,
+      646
+    ],
+    [
+      "2025-10-01 00:00:00",
+      3998,
+      638
+    ],
+    [
+      "2026-04-01 00:00:00",
+      4607,
+      662
+    ],
+    [
+      "2026-06-01 00:00:00",
+      5383,
+      696
+    ],
+    [
+      "2026-07-01 00:00:00",
+      5110,
+      581
+    ],
+    [
+      "2026-02-01 00:00:00",
+      4963,
+      699
+    ],
+    [
+      "2026-03-01 00:00:00",
+      4730,
+      675
+    ],
+    [
+      "2025-09-01 00:00:00",
+      3653,
+      611
+    ],
+    [
+      "2025-11-01 00:00:00",
+      4304,
+      660
+    ],
+    [
+      "2026-01-01 00:00:00",
+      4430,
+      647
+    ],
+    [
+      "2025-12-01 00:00:00",
+      4246,
+      642
+    ],
+    [
+      "2026-05-01 00:00:00",
+      5029,
+      656
+    ]
+  ],
+  "seconds": 0.078,
+  "units": {
+    "monthly_buyer_count": "count",
+    "monthly_repeat_buyer_count": "count"
+  },
+  "data_version": "qinghe-w04-v1.1",
+  "data_sha256": "df42082e6974341333438c0f599c522fce7944e67132ca577d58d040673bf6d5",
+  "catalog_sha256": "2f6a39500926ba4b0809b769b117fd223c402ca29d52814a13cfc51f3ecd3655",
+  "coverage_notes": {
+    "source": "新 CRM 导出：会员、订单、会员卡、门店四个文件。不含门店老收银系统中的部分会员消费（老周 MSG-05387、MSG-05395，涉及门店与时间段待核），CRM 中“未购买”不等于没有消费。已注销会员的资料按公司规定清理，订单保留但无法关联会员，按 UNLINKED_ACCOUNT 隔离（老周 MSG-05387）。手机号已中间四位脱敏；姓名、手机号、生日不进入查询库。小林工作账（回访名单、勿扰名单）只用于对照、未导入查询库；勿扰名单中有会员在 CRM 无触达限制，触达名单须另用工作账过滤。",
+    "time_range": {
+      "start": "2024-09-01",
+      "end_exclusive": "2026-09-01"
+    },
+    "quarantined": {
+      "shop": 0,
+      "member": 0,
+      "order": 252,
+      "card": 0
+    }
+  },
+  "answer": "在新 CRM 已导出的订单数据覆盖范围内，青禾在 2025年9月至2026年8月期间，各自然月的月内购买会员数（当月≥1笔有效订单）与月内复购会员数（当月≥2笔有效订单）如下（统计单位为 CRM 会员账户）：\n\n- 2025年09月：月内购买会员数 3,653 个账户，月内复购会员数 611 个账户\n- 2025年10月：月内购买会员数 3,998 个账户，月内复购会员数 638 个账户\n- 2025年11月：月内购买会员数 4,304 个账户，月内复购会员数 660 个账户\n- 2025年12月：月内购买会员数 4,246 个账户，月内复购会员数 642 个账户\n- 2026年01月：月内购买会员数 4,430 个账户，月内复购会员数 647 个账户\n- 2026年02月：月内购买会员数 4,963 个账户，月内复购会员数 699 个账户\n- 2026年03月：月内购买会员数 4,730 个账户，月内复购会员数 675 个账户\n- 2026年04月：月内购买会员数 4,607 个账户，月内复购会员数 662 个账户\n- 2026年05月：月内购买会员数 5,029 个账户，月内复购会员数 656 个账户\n- 2026年06月：月内购买会员数 5,383 个账户，月内复购会员数 696 个账户\n- 2026年07月：月内购买会员数 5,110 个账户，月内复购会员数 581 个账户\n- 2026年08月：月内购买会员数 5,473 个账户，月内复购会员数 646 个账户\n\n统计口径说明与数据限制：上述统计仅基于新 CRM 导出的有效订单，不包含门店老收银系统中未导出的部分会员消费，已注销会员订单因隔离无法关联账户，未覆盖的数据来源可能使实际数据发生变化；指标仅支持按月分别列出，不可跨月直接累加人数。",
+  "question": "2025年9月到2026年8月，每个月的月内购买会员数和月内复购会员数分别是多少？",
+  "trace_id": "a3c75607-4041-4882-b3ef-ae6772eddb14",
+  "elapsed_seconds": 25.109,
+  "model_usage": {
+    "prompt_tokens": 29866,
+    "completion_tokens": 824,
+    "total_tokens": 32245
+  },
+  "model_calls_with_usage": 2
+}

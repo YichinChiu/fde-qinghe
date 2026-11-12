@@ -1,0 +1,2 @@
+source_file,source_row,reason_code,raw_json
+cast-error.csv,2,INVALID_INTEGER,"{""order_id"": ""WT20240901000005"", ""paid_cents"": ""not-an-integer""}"

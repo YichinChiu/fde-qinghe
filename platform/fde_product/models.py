@@ -104,7 +104,6 @@ class CompatibleModel:
         if self.request_profile in ("json-object","deepseek-json","gateway-json") and not tools:
             payload["response_format"]={"type":"json_object"}
         payload.update(thinking_parameters(self.request_profile, "enabled", self.wire_format))
-        if os.environ.get("FDE_MODEL_REASONING_EFFORT"):payload["reasoning_effort"]=os.environ["FDE_MODEL_REASONING_EFFORT"]  # local patch: see patches/README.md
         if self.request_profile.startswith("gateway-") and self.gateway_cache_bypass:
             # Observed same response ID for opposite switches: bypass response cache.
             payload["cache"] = {"no-cache":True,"no-store":True}

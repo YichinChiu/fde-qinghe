@@ -1,0 +1,25 @@
+[0m13:55:27  Running with dbt=1.12.5
+[0m13:55:28  Registered adapter: duckdb=1.11.0
+[0m13:55:28  Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m13:55:30  Found 6 models, 6 metrics, 500 macros, 5 semantic models
+[0m13:55:30  
+[0m13:55:30  Concurrency: 1 threads (target='dev')
+[0m13:55:30  
+[0m13:55:31  1 of 6 START sql view model main.cards ......................................... [RUN]
+[0m13:55:31  1 of 6 OK created sql view model main.cards .................................... [[32mOK[0m in 0.14s]
+[0m13:55:31  2 of 6 START sql view model main.members ....................................... [RUN]
+[0m13:55:31  2 of 6 OK created sql view model main.members .................................. [[32mOK[0m in 0.02s]
+[0m13:55:31  3 of 6 START sql view model main.orders ........................................ [RUN]
+[0m13:55:31  3 of 6 OK created sql view model main.orders ................................... [[32mOK[0m in 0.02s]
+[0m13:55:31  4 of 6 START sql view model main.stores ........................................ [RUN]
+[0m13:55:31  4 of 6 OK created sql view model main.stores ................................... [[32mOK[0m in 0.02s]
+[0m13:55:31  5 of 6 START sql view model main.time_spine .................................... [RUN]
+[0m13:55:31  5 of 6 OK created sql view model main.time_spine ............................... [[32mOK[0m in 0.02s]
+[0m13:55:31  6 of 6 START sql view model main.monthly_member_receipts ....................... [RUN]
+[0m13:55:31  6 of 6 OK created sql view model main.monthly_member_receipts .................. [[32mOK[0m in 0.02s]
+[0m13:55:31  
+[0m13:55:31  Finished running 6 view models in 0 hours 0 minutes and 0.42 seconds (0.42s).
+[0m13:55:31  
+[0m13:55:31  [32mCompleted successfully[0m
+[0m13:55:31  
+[0m13:55:31  Done. PASS=6 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=6

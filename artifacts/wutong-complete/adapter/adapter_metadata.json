@@ -1,0 +1,211 @@
+{
+  "record_counts": {
+    "member": {
+      "read": 2017,
+      "accepted": 2017,
+      "quarantined": 0,
+      "deduplicated": 0
+    },
+    "order": {
+      "read": 20003,
+      "accepted": 19923,
+      "quarantined": 40,
+      "deduplicated": 40
+    },
+    "shop": {
+      "read": 8,
+      "accepted": 8,
+      "quarantined": 0,
+      "deduplicated": 0
+    },
+    "card": {
+      "read": 0,
+      "accepted": 0,
+      "quarantined": 0,
+      "deduplicated": 0
+    }
+  },
+  "field_mapping": [
+    {
+      "source_file": "读者导出.csv",
+      "source_fields": [
+        "读者编号"
+      ],
+      "target": "members.member_id",
+      "transformation": "保留稳定原编号"
+    },
+    {
+      "source_file": "读者导出.csv",
+      "source_fields": [
+        "办证日期"
+      ],
+      "target": "members.registered_at",
+      "transformation": "按规则解析 ISO、日/月/年、中文日期"
+    },
+    {
+      "source_file": "读者导出.csv",
+      "source_fields": [
+        "办证门店"
+      ],
+      "target": "members.home_store_id",
+      "transformation": "保留原门店号"
+    },
+    {
+      "source_file": "读者导出.csv",
+      "source_fields": [
+        "会员级别"
+      ],
+      "target": "members.tier",
+      "transformation": "保留等级"
+    },
+    {
+      "source_file": "读者导出.csv",
+      "source_fields": [
+        "备注标签"
+      ],
+      "target": "member_tags.tag",
+      "transformation": "先识别合法标签，保留未知标签"
+    },
+    {
+      "source_file": "读者导出.csv",
+      "source_fields": [
+        "备注标签"
+      ],
+      "target": "member_notes.raw_text",
+      "transformation": "井号备注拆分，完整原文保留"
+    },
+    {
+      "source_file": "销售流水.csv",
+      "source_fields": [
+        "票据号"
+      ],
+      "target": "orders.order_id",
+      "transformation": "保留原票据号"
+    },
+    {
+      "source_file": "销售流水.csv",
+      "source_fields": [
+        "读者编号"
+      ],
+      "target": "orders.member_id",
+      "transformation": "校验会员关联"
+    },
+    {
+      "source_file": "销售流水.csv",
+      "source_fields": [
+        "成交店号"
+      ],
+      "target": "orders.store_id",
+      "transformation": "校验门店关联"
+    },
+    {
+      "source_file": "销售流水.csv",
+      "source_fields": [
+        "结账时刻"
+      ],
+      "target": "orders.ordered_at",
+      "transformation": "取本地日期"
+    },
+    {
+      "source_file": "销售流水.csv",
+      "source_fields": [
+        "结账状态"
+      ],
+      "target": "orders.status",
+      "transformation": "已撤单转 cancelled；已结账、部分退货、已退清转 paid；其他隔离"
+    },
+    {
+      "source_file": "销售流水.csv",
+      "source_fields": [
+        "书品原额"
+      ],
+      "target": "orders.gross_cents",
+      "transformation": "Decimal 元乘 100"
+    },
+    {
+      "source_file": "销售流水.csv",
+      "source_fields": [
+        "实际收款"
+      ],
+      "target": "orders.paid_cents",
+      "transformation": "Decimal 元乘 100"
+    },
+    {
+      "source_file": "销售流水.csv",
+      "source_fields": [
+        "已退金额"
+      ],
+      "target": "orders.refund_cents",
+      "transformation": "Decimal 元乘 100"
+    },
+    {
+      "source_file": "销售流水.csv",
+      "source_fields": [
+        "册数"
+      ],
+      "target": "orders.quantity",
+      "transformation": "转整数"
+    },
+    {
+      "source_file": "销售流水.csv",
+      "source_fields": [
+        "收款入口"
+      ],
+      "target": "orders.channel",
+      "transformation": "书店收银转门店，其他隔离"
+    },
+    {
+      "source_file": "门店名册.csv",
+      "source_fields": [
+        "店号"
+      ],
+      "target": "stores.store_id",
+      "transformation": "保持"
+    },
+    {
+      "source_file": "门店名册.csv",
+      "source_fields": [
+        "门店名称"
+      ],
+      "target": "stores.store_name",
+      "transformation": "保持"
+    },
+    {
+      "source_file": "门店名册.csv",
+      "source_fields": [
+        "所属区域"
+      ],
+      "target": "stores.region",
+      "transformation": "保持"
+    }
+  ],
+  "samples": [
+    {
+      "source_file": "销售流水.csv",
+      "source_row": 1,
+      "status": "accepted",
+      "destination": "orders.csv 记录 1",
+      "reason": "字段、单位、日期和关联符合契约"
+    },
+    {
+      "source_file": "销售流水.csv",
+      "source_row": 437,
+      "status": "quarantined",
+      "destination": "quarantine.csv 记录 1",
+      "reason": "UNSUPPORTED_CHANNEL"
+    }
+  ],
+  "coverage_notes": {
+    "source": "门店收银系统导出；线上订单在另一平台，本次未导出。",
+    "time_range": {
+      "start": "2024-09-01",
+      "end_exclusive": "2026-09-01"
+    },
+    "quarantined": {
+      "member": 0,
+      "order": 40,
+      "shop": 0,
+      "card": 0
+    }
+  }
+}

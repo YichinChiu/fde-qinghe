@@ -1,0 +1,52 @@
+{
+  "one_column": {
+    "expected": "自动探测得到 1 列但仍成功；显式表头和宽度检查拒绝第 901 条记录",
+    "actual": {
+      "detected_columns": 1,
+      "rows": 1001,
+      "fixed": "CSV_WIDTH_MISMATCH:missing-column.csv:record=901:expected=3:actual=2"
+    },
+    "passed": true
+  },
+  "slash_tag": {
+    "expected": "错误规则删掉合法斜杠标签；修正后完整保留",
+    "actual": {
+      "before": 2036,
+      "wrong_after": 1276,
+      "lost": 760,
+      "sample": [
+        "历史/社科",
+        "历史/社科",
+        "亲子/绘本"
+      ],
+      "fixed_preserved": 760
+    },
+    "passed": true
+  },
+  "ignore_errors": {
+    "expected": "直接 count 为 2，落表仅 1；修正为接受 1＋持久隔离 1",
+    "actual": {
+      "apparent_count": 2,
+      "persisted_count": 1,
+      "accepted": 1,
+      "quarantined": 1
+    },
+    "passed": true
+  },
+  "repeat_append": {
+    "expected": "追加导入翻倍；独立全量重导不累积",
+    "actual": {
+      "first": 19923,
+      "append_second": 39846,
+      "fresh_imports": [
+        19923,
+        19923
+      ]
+    },
+    "passed": true
+  },
+  "source_gap": {
+    "status": "skipped",
+    "reason": "需要未导出平台的订单，学员包不提供"
+  }
+}

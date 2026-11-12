@@ -9,9 +9,11 @@ materials/data/large/
 .pytest_cache/
 # 构建检查时生成的可重建查询库
 **/validation-project/
-# 提交包（由仓库内容打包生成）
-w03-submit.zip
+# 提交包与解压自查（由仓库内容打包生成）
+w04-submit.zip
 # 密钥
 *.key
-# 工作流运行锁
-artifacts/w02/.workflow.lock
+# 青禾原始导出（含会员姓名、手机号、工作账），只在项目环境使用，不进公开仓库
+materials/data/qinghe-w04-v1.1/
+# 梧桐例题重放输出（可由 examples/w04/wutong/replay.py 重新生成）
+artifacts/wutong-*/

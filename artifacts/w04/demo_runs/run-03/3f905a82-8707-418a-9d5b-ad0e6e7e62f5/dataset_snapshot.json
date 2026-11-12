@@ -1,0 +1,76 @@
+{
+  "id": "qinghe-w04-v1.1",
+  "contract_version": "w04-data-0.1.0",
+  "coverage": [
+    "2024-09-01",
+    "2026-09-01"
+  ],
+  "reference_date": "2026-09-01",
+  "timezone": "Asia/Shanghai",
+  "source_sha256": {
+    "crm_card_export.csv": "1e2539c564d1e007f3aaaa11b1d16de9a50a63858fed5dc09537089321b5e424",
+    "crm_member_export.csv": "dfe1e842c80f947bf85b0b356073e6eb0c9cd7385072fbc731452d7a60ea8913",
+    "crm_order_export.csv": "e95a5a467f044ef6d059014a71dcd39edc178d88e8ea06f87f2ecb1a40040052",
+    "crm_shop.csv": "bcef4a1edb12f18695b545fef64b7da2c7504f3cfc535937f08c7380a5f00045",
+    "小林工作账_勿扰名单.csv": "8460b149d9208bfad5d90f2299ecc49c69c56d4970e91fb066bec63d9889af8d",
+    "小林工作账_回访名单.csv": "3dd64d64b5e9524bd0fbd23736b4f32f6a234b0acf47d0c5b469906a2b0b346e"
+  },
+  "sha256": {
+    "cards.csv": "ece9f86c88357ef2bedfb93361ec49c913e6c580960c7d523c44fbf83ae77a93",
+    "member_notes.csv": "f59ae7cc77d8377ca5a68c0c29bbf6c83a2b3f2f7e2fbe8a2bd79eaed487a1b0",
+    "member_tags.csv": "0a7525b92f7731eb53d0e1e5a15609b88bb3f34c47649593039f731a58e8a206",
+    "members.csv": "6ca27bea580099f34024b93c64bac0402d9b672d29894b2effd2d57532dd839c",
+    "orders.csv": "46bf19e849043c61d64c3451b2caf3a36f4f68f7106ff3963829bae33abed202",
+    "quarantine.csv": "cb220cc39dc4a6ba74275661c51db5a2634ade6f8c4503e18638af52d392c7ea",
+    "stores.csv": "244fd3e72d35f3d664a80cb6473776203958bcadb747e181ba32b1b81223cae3"
+  },
+  "counts": {
+    "members": 119754,
+    "orders": 167665,
+    "stores": 403,
+    "cards": 16648,
+    "member_tags": 56215,
+    "member_notes": 8749,
+    "quarantine": 252
+  },
+  "record_counts": {
+    "shop": {
+      "read": 403,
+      "accepted": 403,
+      "quarantined": 0,
+      "deduplicated": 0
+    },
+    "member": {
+      "read": 119754,
+      "accepted": 119754,
+      "quarantined": 0,
+      "deduplicated": 0
+    },
+    "order": {
+      "read": 168253,
+      "accepted": 167665,
+      "quarantined": 252,
+      "deduplicated": 336
+    },
+    "card": {
+      "read": 16648,
+      "accepted": 16648,
+      "quarantined": 0,
+      "deduplicated": 0
+    }
+  },
+  "coverage_notes": {
+    "source": "新 CRM 导出：会员、订单、会员卡、门店四个文件。不含门店老收银系统中的部分会员消费（老周 MSG-05387、MSG-05395，涉及门店与时间段待核），CRM 中“未购买”不等于没有消费。已注销会员的资料按公司规定清理，订单保留但无法关联会员，按 UNLINKED_ACCOUNT 隔离（老周 MSG-05387）。手机号已中间四位脱敏；姓名、手机号、生日不进入查询库。小林工作账（回访名单、勿扰名单）只用于对照、未导入查询库；勿扰名单中有会员在 CRM 无触达限制，触达名单须另用工作账过滤。",
+    "time_range": {
+      "start": "2024-09-01",
+      "end_exclusive": "2026-09-01"
+    },
+    "quarantined": {
+      "shop": 0,
+      "member": 0,
+      "order": 252,
+      "card": 0
+    }
+  },
+  "library_sha256": "2f6a39500926ba4b0809b769b117fd223c402ca29d52814a13cfc51f3ecd3655"
+}

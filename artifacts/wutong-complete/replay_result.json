@@ -1,0 +1,50 @@
+{
+  "snapshot": "complete",
+  "passed": true,
+  "record_counts": [
+    {
+      "record_type": "member",
+      "read": 2017,
+      "accepted": 2017,
+      "quarantined": 0,
+      "deduplicated": 0,
+      "reconciliation": {
+        "balanced": true,
+        "evidence": "源文件 2017 = 接受 2017 + 隔离 0 + 去重 0；库内 2017"
+      }
+    },
+    {
+      "record_type": "order",
+      "read": 20003,
+      "accepted": 19923,
+      "quarantined": 40,
+      "deduplicated": 40,
+      "reconciliation": {
+        "balanced": true,
+        "evidence": "源文件 20003 = 接受 19923 + 隔离 40 + 去重 40；库内 19923"
+      }
+    },
+    {
+      "record_type": "shop",
+      "read": 8,
+      "accepted": 8,
+      "quarantined": 0,
+      "deduplicated": 0,
+      "reconciliation": {
+        "balanced": true,
+        "evidence": "源文件 8 = 接受 8 + 隔离 0 + 去重 0；库内 8"
+      }
+    },
+    {
+      "record_type": "card",
+      "read": 0,
+      "accepted": 0,
+      "quarantined": 0,
+      "deduplicated": 0,
+      "reconciliation": {
+        "balanced": true,
+        "evidence": "源文件 0 = 接受 0 + 隔离 0 + 去重 0；库内 0"
+      }
+    }
+  ]
+}

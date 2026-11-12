@@ -1,0 +1,139 @@
+2026-11-12 21:55:15,339 INFO cli_configuration.py:157 [MainThread] - Set up MF CLI logging
+  root_logger_level: INFO
+  root_logger_handlers:
+    [
+      <StreamHandler <stderr> (CRITICAL)>,
+      <TimedRotatingFileHandler D:\workspace\01_Projects\FDE_1024102\project\工程\w04-work\fde-agent-w04\artifacts\wutong-start\prepared-import\logs\metricflow.log (INFO)>,
+    ]
+  previous_root_logger_level: WARNING
+  previous_root_logger_handlers: (<StreamHandler <stderr> (NOTSET)>,)
+  log_format: %(asctime)s %(levelname)s %(filename)s:%(lineno)d [%(threadName)s] - %(message)s
+2026-11-12 21:55:15,364 INFO graph_builder.py:87 [MainThread] - Generated semantic graph. (node_count=46, edge_count=71, duration=0.00 s)
+2026-11-12 21:55:15,368 INFO performance_helpers.py:60 [MainThread] - [START D0] cache_output_data_sets for 11 nodes
+2026-11-12 21:55:15,371 INFO performance_helpers.py:92 [MainThread] - [END D0] cache_output_data_sets for 11 nodes [duration=0.00 s]
+2026-11-12 21:55:15,377 INFO performance_helpers.py:60 [MainThread] - [START D0] Explain Request
+2026-11-12 21:55:15,377 INFO performance_helpers.py:60 [MainThread] - [START D1] MetricFlowQueryParser.parse_and_validate_query()
+2026-11-12 21:55:15,377 INFO performance_helpers.py:60 [MainThread] - [START D2] MetricFlowQueryResolver.resolve_query()
+2026-11-12 21:55:15,377 INFO performance_helpers.py:60 [MainThread] - [START D3] WhereFilterSpecResolver.resolve_lookup()
+2026-11-12 21:55:15,378 INFO performance_helpers.py:92 [MainThread] - [END D3] WhereFilterSpecResolver.resolve_lookup() [duration=0.00 s]
+2026-11-12 21:55:15,378 INFO performance_helpers.py:92 [MainThread] - [END D2] MetricFlowQueryResolver.resolve_query() [duration=0.00 s]
+2026-11-12 21:55:15,378 INFO performance_helpers.py:92 [MainThread] - [END D1] MetricFlowQueryParser.parse_and_validate_query() [duration=0.00 s]
+2026-11-12 21:55:15,378 INFO metricflow_engine.py:615 [MainThread] - Building dataflow plan (dataflow_plan_optimizations={SOURCE_SCAN})
+2026-11-12 21:55:15,381 INFO metricflow_engine.py:643 [MainThread] - Building execution plan
+2026-11-12 21:55:15,381 INFO dataflow_to_sql.py:106 [MainThread] - Using option set for SQL generation:
+  optimization_level: O5
+  option_set:
+    SqlGenerationOptionSet(
+      optimizers=(
+        <metricflow.sql.optimizer.column_pruning.column_pruner.SqlColumnPrunerOptimizer object at 0x000002AAE2AF3500>,
+        <metricflow.sql.optimizer.rewriting_sub_query_reducer.SqlRewritingSubQueryReducer object at 0x000002AAE2AF1C10>,
+        <metricflow.sql.optimizer.table_alias_simplifier.SqlTableAliasSimplifier object at 0x000002AAE2AF2CF0>,
+      ),
+      allow_cte=True,
+    )
+2026-11-12 21:55:15,385 INFO performance_helpers.py:92 [MainThread] - [END D0] Explain Request [duration=0.01 s]
+2026-11-12 21:55:15,387 INFO performance_helpers.py:60 [MainThread] - [START D0] Explain Request
+2026-11-12 21:55:15,387 INFO performance_helpers.py:60 [MainThread] - [START D1] MetricFlowQueryParser.parse_and_validate_query()
+2026-11-12 21:55:15,387 INFO performance_helpers.py:60 [MainThread] - [START D2] MetricFlowQueryResolver.resolve_query()
+2026-11-12 21:55:15,388 INFO performance_helpers.py:60 [MainThread] - [START D3] WhereFilterSpecResolver.resolve_lookup()
+2026-11-12 21:55:15,388 INFO performance_helpers.py:92 [MainThread] - [END D3] WhereFilterSpecResolver.resolve_lookup() [duration=0.00 s]
+2026-11-12 21:55:15,389 INFO performance_helpers.py:92 [MainThread] - [END D2] MetricFlowQueryResolver.resolve_query() [duration=0.00 s]
+2026-11-12 21:55:15,389 INFO performance_helpers.py:92 [MainThread] - [END D1] MetricFlowQueryParser.parse_and_validate_query() [duration=0.00 s]
+2026-11-12 21:55:15,389 INFO metricflow_engine.py:615 [MainThread] - Building dataflow plan (dataflow_plan_optimizations={SOURCE_SCAN})
+2026-11-12 21:55:15,391 INFO metricflow_engine.py:643 [MainThread] - Building execution plan
+2026-11-12 21:55:15,391 INFO dataflow_to_sql.py:106 [MainThread] - Using option set for SQL generation:
+  optimization_level: O5
+  option_set:
+    SqlGenerationOptionSet(
+      optimizers=(
+        <metricflow.sql.optimizer.column_pruning.column_pruner.SqlColumnPrunerOptimizer object at 0x000002AAE2B45850>,
+        <metricflow.sql.optimizer.rewriting_sub_query_reducer.SqlRewritingSubQueryReducer object at 0x000002AAE2B46DE0>,
+        <metricflow.sql.optimizer.table_alias_simplifier.SqlTableAliasSimplifier object at 0x000002AAE2B45700>,
+      ),
+      allow_cte=True,
+    )
+2026-11-12 21:55:15,393 INFO performance_helpers.py:92 [MainThread] - [END D0] Explain Request [duration=0.01 s]
+2026-11-12 21:55:15,395 INFO performance_helpers.py:60 [MainThread] - [START D0] Explain Request
+2026-11-12 21:55:15,395 INFO performance_helpers.py:60 [MainThread] - [START D1] MetricFlowQueryParser.parse_and_validate_query()
+2026-11-12 21:55:15,395 INFO performance_helpers.py:60 [MainThread] - [START D2] MetricFlowQueryResolver.resolve_query()
+2026-11-12 21:55:15,395 INFO performance_helpers.py:60 [MainThread] - [START D3] WhereFilterSpecResolver.resolve_lookup()
+2026-11-12 21:55:15,395 INFO performance_helpers.py:92 [MainThread] - [END D3] WhereFilterSpecResolver.resolve_lookup() [duration=0.00 s]
+2026-11-12 21:55:15,395 INFO performance_helpers.py:92 [MainThread] - [END D2] MetricFlowQueryResolver.resolve_query() [duration=0.00 s]
+2026-11-12 21:55:15,395 INFO performance_helpers.py:92 [MainThread] - [END D1] MetricFlowQueryParser.parse_and_validate_query() [duration=0.00 s]
+2026-11-12 21:55:15,395 INFO metricflow_engine.py:615 [MainThread] - Building dataflow plan (dataflow_plan_optimizations={SOURCE_SCAN})
+2026-11-12 21:55:15,397 INFO metricflow_engine.py:643 [MainThread] - Building execution plan
+2026-11-12 21:55:15,399 INFO dataflow_to_sql.py:106 [MainThread] - Using option set for SQL generation:
+  optimization_level: O5
+  option_set:
+    SqlGenerationOptionSet(
+      optimizers=(
+        <metricflow.sql.optimizer.column_pruning.column_pruner.SqlColumnPrunerOptimizer object at 0x000002AAE141E5A0>,
+        <metricflow.sql.optimizer.rewriting_sub_query_reducer.SqlRewritingSubQueryReducer object at 0x000002AAE1550350>,
+        <metricflow.sql.optimizer.table_alias_simplifier.SqlTableAliasSimplifier object at 0x000002AAE15508C0>,
+      ),
+      allow_cte=True,
+    )
+2026-11-12 21:55:15,403 INFO performance_helpers.py:92 [MainThread] - [END D0] Explain Request [duration=0.01 s]
+2026-11-12 21:55:15,404 INFO performance_helpers.py:60 [MainThread] - [START D0] Explain Request
+2026-11-12 21:55:15,404 INFO performance_helpers.py:60 [MainThread] - [START D1] MetricFlowQueryParser.parse_and_validate_query()
+2026-11-12 21:55:15,404 INFO performance_helpers.py:60 [MainThread] - [START D2] MetricFlowQueryResolver.resolve_query()
+2026-11-12 21:55:15,405 INFO performance_helpers.py:60 [MainThread] - [START D3] WhereFilterSpecResolver.resolve_lookup()
+2026-11-12 21:55:15,405 INFO performance_helpers.py:92 [MainThread] - [END D3] WhereFilterSpecResolver.resolve_lookup() [duration=0.00 s]
+2026-11-12 21:55:15,405 INFO performance_helpers.py:92 [MainThread] - [END D2] MetricFlowQueryResolver.resolve_query() [duration=0.00 s]
+2026-11-12 21:55:15,405 INFO performance_helpers.py:92 [MainThread] - [END D1] MetricFlowQueryParser.parse_and_validate_query() [duration=0.00 s]
+2026-11-12 21:55:15,405 INFO metricflow_engine.py:615 [MainThread] - Building dataflow plan (dataflow_plan_optimizations={SOURCE_SCAN})
+2026-11-12 21:55:15,407 INFO metricflow_engine.py:643 [MainThread] - Building execution plan
+2026-11-12 21:55:15,407 INFO dataflow_to_sql.py:106 [MainThread] - Using option set for SQL generation:
+  optimization_level: O5
+  option_set:
+    SqlGenerationOptionSet(
+      optimizers=(
+        <metricflow.sql.optimizer.column_pruning.column_pruner.SqlColumnPrunerOptimizer object at 0x000002AAE2AE5DF0>,
+        <metricflow.sql.optimizer.rewriting_sub_query_reducer.SqlRewritingSubQueryReducer object at 0x000002AAE2AE7080>,
+        <metricflow.sql.optimizer.table_alias_simplifier.SqlTableAliasSimplifier object at 0x000002AAE2AE5E20>,
+      ),
+      allow_cte=True,
+    )
+2026-11-12 21:55:15,411 INFO performance_helpers.py:92 [MainThread] - [END D0] Explain Request [duration=0.01 s]
+2026-11-12 21:55:15,413 INFO performance_helpers.py:60 [MainThread] - [START D0] Explain Request
+2026-11-12 21:55:15,413 INFO performance_helpers.py:60 [MainThread] - [START D1] MetricFlowQueryParser.parse_and_validate_query()
+2026-11-12 21:55:15,413 INFO performance_helpers.py:60 [MainThread] - [START D2] MetricFlowQueryResolver.resolve_query()
+2026-11-12 21:55:15,413 INFO performance_helpers.py:60 [MainThread] - [START D3] WhereFilterSpecResolver.resolve_lookup()
+2026-11-12 21:55:15,413 INFO performance_helpers.py:92 [MainThread] - [END D3] WhereFilterSpecResolver.resolve_lookup() [duration=0.00 s]
+2026-11-12 21:55:15,414 INFO performance_helpers.py:92 [MainThread] - [END D2] MetricFlowQueryResolver.resolve_query() [duration=0.00 s]
+2026-11-12 21:55:15,414 INFO performance_helpers.py:92 [MainThread] - [END D1] MetricFlowQueryParser.parse_and_validate_query() [duration=0.00 s]
+2026-11-12 21:55:15,414 INFO metricflow_engine.py:615 [MainThread] - Building dataflow plan (dataflow_plan_optimizations={SOURCE_SCAN})
+2026-11-12 21:55:15,417 INFO metricflow_engine.py:643 [MainThread] - Building execution plan
+2026-11-12 21:55:15,418 INFO dataflow_to_sql.py:106 [MainThread] - Using option set for SQL generation:
+  optimization_level: O5
+  option_set:
+    SqlGenerationOptionSet(
+      optimizers=(
+        <metricflow.sql.optimizer.column_pruning.column_pruner.SqlColumnPrunerOptimizer object at 0x000002AAE2AF35F0>,
+        <metricflow.sql.optimizer.rewriting_sub_query_reducer.SqlRewritingSubQueryReducer object at 0x000002AAE2AFB770>,
+        <metricflow.sql.optimizer.table_alias_simplifier.SqlTableAliasSimplifier object at 0x000002AAE2AFB2C0>,
+      ),
+      allow_cte=True,
+    )
+2026-11-12 21:55:15,421 INFO performance_helpers.py:92 [MainThread] - [END D0] Explain Request [duration=0.01 s]
+2026-11-12 21:55:15,424 INFO performance_helpers.py:60 [MainThread] - [START D0] Explain Request
+2026-11-12 21:55:15,424 INFO performance_helpers.py:60 [MainThread] - [START D1] MetricFlowQueryParser.parse_and_validate_query()
+2026-11-12 21:55:15,424 INFO performance_helpers.py:60 [MainThread] - [START D2] MetricFlowQueryResolver.resolve_query()
+2026-11-12 21:55:15,424 INFO performance_helpers.py:60 [MainThread] - [START D3] WhereFilterSpecResolver.resolve_lookup()
+2026-11-12 21:55:15,424 INFO performance_helpers.py:92 [MainThread] - [END D3] WhereFilterSpecResolver.resolve_lookup() [duration=0.00 s]
+2026-11-12 21:55:15,424 INFO performance_helpers.py:92 [MainThread] - [END D2] MetricFlowQueryResolver.resolve_query() [duration=0.00 s]
+2026-11-12 21:55:15,424 INFO performance_helpers.py:92 [MainThread] - [END D1] MetricFlowQueryParser.parse_and_validate_query() [duration=0.00 s]
+2026-11-12 21:55:15,424 INFO metricflow_engine.py:615 [MainThread] - Building dataflow plan (dataflow_plan_optimizations={SOURCE_SCAN})
+2026-11-12 21:55:15,425 INFO metricflow_engine.py:643 [MainThread] - Building execution plan
+2026-11-12 21:55:15,425 INFO dataflow_to_sql.py:106 [MainThread] - Using option set for SQL generation:
+  optimization_level: O5
+  option_set:
+    SqlGenerationOptionSet(
+      optimizers=(
+        <metricflow.sql.optimizer.column_pruning.column_pruner.SqlColumnPrunerOptimizer object at 0x000002AAE2B65850>,
+        <metricflow.sql.optimizer.rewriting_sub_query_reducer.SqlRewritingSubQueryReducer object at 0x000002AAE2B64BC0>,
+        <metricflow.sql.optimizer.table_alias_simplifier.SqlTableAliasSimplifier object at 0x000002AAE2B64470>,
+      ),
+      allow_cte=True,
+    )
+2026-11-12 21:55:15,429 INFO performance_helpers.py:92 [MainThread] - [END D0] Explain Request [duration=0.01 s]

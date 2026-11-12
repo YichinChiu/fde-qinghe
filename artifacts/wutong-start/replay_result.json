@@ -1,0 +1,15 @@
+{
+  "snapshot": "start",
+  "readable_records": {
+    "读者卡.csv": 0,
+    "读者导出.csv": 2017,
+    "销售流水.csv": 20003,
+    "门店名册.csv": 8
+  },
+  "prepared_import_passed": true,
+  "blank_failures": [
+    "W04_PROFILE_UNIMPLEMENTED",
+    "W04_ADAPTER_UNIMPLEMENTED"
+  ],
+  "passed": true
+}

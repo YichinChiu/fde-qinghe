@@ -1,0 +1,30 @@
+{
+  "status": "unsupported",
+  "reason": "月内复购率指标仅支持全渠道、全门店口径，不支持按订单渠道（如门店渠道）进行筛选或下钻。",
+  "intent": {
+    "status": "unsupported",
+    "reason": "月内复购率指标仅支持全渠道、全门店口径，不支持按订单渠道（如门店渠道）进行筛选或下钻。",
+    "metrics": [
+      "monthly_repeat_rate"
+    ],
+    "start": "2026-08-01",
+    "end": "2026-09-01",
+    "group_by": [],
+    "filters": [
+      {
+        "field": "order__channel",
+        "op": "eq",
+        "value": "门店"
+      }
+    ]
+  },
+  "question": "2026年8月，门店渠道的月内复购率是多少？",
+  "trace_id": "3f905a82-8707-418a-9d5b-ad0e6e7e62f5",
+  "elapsed_seconds": 6.578,
+  "model_usage": {
+    "prompt_tokens": 26441,
+    "completion_tokens": 155,
+    "total_tokens": 27080
+  },
+  "model_calls_with_usage": 1
+}

@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "issues": [],
+  "models_checked": [
+    "cards",
+    "members",
+    "monthly_member_receipts",
+    "orders",
+    "stores",
+    "time_spine"
+  ],
+  "phase": "before_project_creation",
+  "client_rows_read": false
+}

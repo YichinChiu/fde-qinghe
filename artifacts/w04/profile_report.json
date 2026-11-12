@@ -1,0 +1,1799 @@
+{
+  "contract_version": "w04-0.1.0",
+  "data_version": "qinghe-w04-v1.1",
+  "fields": [
+    {
+      "source_file": "crm_card_export.csv",
+      "field": "card_no",
+      "inferred_type": "string",
+      "total_count": 16648,
+      "missing_count": 0,
+      "range": {
+        "min": "C20220811000001",
+        "max": "C20260831000009"
+      }
+    },
+    {
+      "source_file": "crm_card_export.csv",
+      "field": "hy_id",
+      "inferred_type": "string",
+      "total_count": 16648,
+      "missing_count": 0,
+      "range": {
+        "min": "QH10000004",
+        "max": "QH10119679"
+      }
+    },
+    {
+      "source_file": "crm_card_export.csv",
+      "field": "card_kind",
+      "inferred_type": "string",
+      "total_count": 16648,
+      "missing_count": 0,
+      "distribution": [
+        {
+          "value": "体验卡",
+          "count": 1333
+        },
+        {
+          "value": "员工卡",
+          "count": 299
+        },
+        {
+          "value": "家庭季卡",
+          "count": 3823
+        },
+        {
+          "value": "异业联名卡",
+          "count": 1814
+        },
+        {
+          "value": "悦享卡（年）",
+          "count": 1201
+        },
+        {
+          "value": "悦享年卡",
+          "count": 8178
+        }
+      ]
+    },
+    {
+      "source_file": "crm_card_export.csv",
+      "field": "st_dt",
+      "inferred_type": "date",
+      "total_count": 16648,
+      "missing_count": 0,
+      "range": {
+        "min": "2022-08-11",
+        "max": "2026-08-31"
+      }
+    },
+    {
+      "source_file": "crm_card_export.csv",
+      "field": "ed_dt",
+      "inferred_type": "date",
+      "total_count": 16648,
+      "missing_count": 0,
+      "range": {
+        "min": "2023-01-30",
+        "max": "2027-08-31"
+      }
+    },
+    {
+      "source_file": "crm_card_export.csv",
+      "field": "stop_dt",
+      "inferred_type": "date",
+      "total_count": 16648,
+      "missing_count": 15754,
+      "range": {
+        "min": "2023-02-28",
+        "max": "2026-08-31"
+      }
+    },
+    {
+      "source_file": "crm_card_export.csv",
+      "field": "pay_amt",
+      "inferred_type": "decimal",
+      "total_count": 16648,
+      "missing_count": 0,
+      "distribution": [
+        {
+          "value": "0.00",
+          "count": 299
+        },
+        {
+          "value": "129.00",
+          "count": 433
+        },
+        {
+          "value": "169.00",
+          "count": 547
+        },
+        {
+          "value": "19.90",
+          "count": 350
+        },
+        {
+          "value": "199.00",
+          "count": 3593
+        },
+        {
+          "value": "249.00",
+          "count": 2260
+        },
+        {
+          "value": "29.90",
+          "count": 406
+        },
+        {
+          "value": "299.00",
+          "count": 2840
+        },
+        {
+          "value": "359.00",
+          "count": 926
+        },
+        {
+          "value": "59.00",
+          "count": 1287
+        },
+        {
+          "value": "69.00",
+          "count": 904
+        },
+        {
+          "value": "79.00",
+          "count": 1163
+        },
+        {
+          "value": "9.90",
+          "count": 577
+        },
+        {
+          "value": "99.00",
+          "count": 1063
+        }
+      ]
+    },
+    {
+      "source_file": "crm_member_export.csv",
+      "field": "hy_id",
+      "inferred_type": "string",
+      "total_count": 119754,
+      "missing_count": 0,
+      "range": {
+        "min": "QH10000001",
+        "max": "QH10119855"
+      }
+    },
+    {
+      "source_file": "crm_member_export.csv",
+      "field": "nm",
+      "inferred_type": "string",
+      "total_count": 119754,
+      "missing_count": 5700,
+      "range": {
+        "min": "丁世强",
+        "max": "龚龙梅"
+      }
+    },
+    {
+      "source_file": "crm_member_export.csv",
+      "field": "mobile",
+      "inferred_type": "string",
+      "total_count": 119754,
+      "missing_count": 0,
+      "range": {
+        "min": "130****0012",
+        "max": "199****9996"
+      }
+    },
+    {
+      "source_file": "crm_member_export.csv",
+      "field": "birth",
+      "inferred_type": "date",
+      "total_count": 119754,
+      "missing_count": 21161,
+      "range": {
+        "min": "1930-01-13",
+        "max": "2009-12-29"
+      }
+    },
+    {
+      "source_file": "crm_member_export.csv",
+      "field": "join_dt",
+      "inferred_type": "date(mixed formats)",
+      "total_count": 119754,
+      "missing_count": 0,
+      "range": {
+        "min": "2018-01-04",
+        "max": "2026-08-31"
+      }
+    },
+    {
+      "source_file": "crm_member_export.csv",
+      "field": "create_tm",
+      "inferred_type": "datetime",
+      "total_count": 119754,
+      "missing_count": 0,
+      "range": {
+        "min": "2023-06-01 01:11:45",
+        "max": "2026-08-31 22:33:30"
+      }
+    },
+    {
+      "source_file": "crm_member_export.csv",
+      "field": "lv",
+      "inferred_type": "string",
+      "total_count": 119754,
+      "missing_count": 0,
+      "distribution": [
+        {
+          "value": "普通",
+          "count": 83900
+        },
+        {
+          "value": "金卡",
+          "count": 9532
+        },
+        {
+          "value": "银卡",
+          "count": 26322
+        }
+      ]
+    },
+    {
+      "source_file": "crm_member_export.csv",
+      "field": "stat",
+      "inferred_type": "integer",
+      "total_count": 119754,
+      "missing_count": 0,
+      "distribution": [
+        {
+          "value": "0",
+          "count": 22296
+        },
+        {
+          "value": "1",
+          "count": 79949
+        },
+        {
+          "value": "2",
+          "count": 5821
+        },
+        {
+          "value": "3",
+          "count": 11688
+        }
+      ]
+    },
+    {
+      "source_file": "crm_member_export.csv",
+      "field": "src_ch",
+      "inferred_type": "string",
+      "total_count": 119754,
+      "missing_count": 0,
+      "distribution": [
+        {
+          "value": "商城",
+          "count": 6703
+        },
+        {
+          "value": "小程序",
+          "count": 18366
+        },
+        {
+          "value": "系统导入",
+          "count": 39917
+        },
+        {
+          "value": "门店",
+          "count": 54768
+        }
+      ]
+    },
+    {
+      "source_file": "crm_member_export.csv",
+      "field": "reg_shop",
+      "inferred_type": "integer",
+      "total_count": 119754,
+      "missing_count": 0,
+      "range": {
+        "min": "1004",
+        "max": "9969"
+      }
+    },
+    {
+      "source_file": "crm_member_export.csv",
+      "field": "reg_dev",
+      "inferred_type": "string",
+      "total_count": 119754,
+      "missing_count": 39917,
+      "range": {
+        "min": "0000de94bc35d29c",
+        "max": "fffff4104aa9080a"
+      }
+    },
+    {
+      "source_file": "crm_member_export.csv",
+      "field": "tag",
+      "inferred_type": "string",
+      "total_count": 119754,
+      "missing_count": 77049,
+      "range": {
+        "min": "129元卡，预售改。",
+        "max": "高价值，门店留的联系方式待确认。"
+      }
+    },
+    {
+      "source_file": "crm_order_export.csv",
+      "field": "ord_no",
+      "inferred_type": "string",
+      "total_count": 168253,
+      "missing_count": 0,
+      "range": {
+        "min": "O20240901000001",
+        "max": "O20260831000266"
+      }
+    },
+    {
+      "source_file": "crm_order_export.csv",
+      "field": "hy_id",
+      "inferred_type": "string",
+      "total_count": 168253,
+      "missing_count": 0,
+      "range": {
+        "min": "QH10000001",
+        "max": "QH10119827"
+      }
+    },
+    {
+      "source_file": "crm_order_export.csv",
+      "field": "shop_cd",
+      "inferred_type": "integer",
+      "total_count": 168253,
+      "missing_count": 0,
+      "range": {
+        "min": "1004",
+        "max": "9969"
+      }
+    },
+    {
+      "source_file": "crm_order_export.csv",
+      "field": "ord_tm",
+      "inferred_type": "datetime",
+      "total_count": 168253,
+      "missing_count": 0,
+      "range": {
+        "min": "2024-09-01 00:24:26",
+        "max": "2026-08-31 23:46:14"
+      }
+    },
+    {
+      "source_file": "crm_order_export.csv",
+      "field": "ord_stat",
+      "inferred_type": "string",
+      "total_count": 168253,
+      "missing_count": 0,
+      "distribution": [
+        {
+          "value": "全额退款",
+          "count": 13147
+        },
+        {
+          "value": "已取消",
+          "count": 25841
+        },
+        {
+          "value": "已完成",
+          "count": 120388
+        },
+        {
+          "value": "已支付",
+          "count": 229
+        },
+        {
+          "value": "部分退款",
+          "count": 8648
+        }
+      ]
+    },
+    {
+      "source_file": "crm_order_export.csv",
+      "field": "amt_total",
+      "inferred_type": "decimal",
+      "total_count": 168253,
+      "missing_count": 0,
+      "range": {
+        "min": "6.33",
+        "max": "2225.12"
+      }
+    },
+    {
+      "source_file": "crm_order_export.csv",
+      "field": "amt_pay",
+      "inferred_type": "decimal",
+      "total_count": 168253,
+      "missing_count": 0,
+      "range": {
+        "min": "0.00",
+        "max": "1881.35"
+      }
+    },
+    {
+      "source_file": "crm_order_export.csv",
+      "field": "amt_rfd",
+      "inferred_type": "decimal",
+      "total_count": 168253,
+      "missing_count": 0,
+      "range": {
+        "min": "0.00",
+        "max": "1881.35"
+      }
+    },
+    {
+      "source_file": "crm_order_export.csv",
+      "field": "qty",
+      "inferred_type": "integer",
+      "total_count": 168253,
+      "missing_count": 0,
+      "range": {
+        "min": "1",
+        "max": "117"
+      }
+    },
+    {
+      "source_file": "crm_order_export.csv",
+      "field": "ch",
+      "inferred_type": "string",
+      "total_count": 168253,
+      "missing_count": 0,
+      "distribution": [
+        {
+          "value": "商城",
+          "count": 25239
+        },
+        {
+          "value": "小程序",
+          "count": 49617
+        },
+        {
+          "value": "门店",
+          "count": 93397
+        }
+      ]
+    },
+    {
+      "source_file": "crm_shop.csv",
+      "field": "shop_cd",
+      "inferred_type": "integer",
+      "total_count": 403,
+      "missing_count": 0,
+      "range": {
+        "min": "1004",
+        "max": "9969"
+      }
+    },
+    {
+      "source_file": "crm_shop.csv",
+      "field": "shop_nm",
+      "inferred_type": "string",
+      "total_count": 403,
+      "missing_count": 0,
+      "range": {
+        "min": "上海中山公园店",
+        "max": "重庆龙兴便民店"
+      }
+    },
+    {
+      "source_file": "crm_shop.csv",
+      "field": "area",
+      "inferred_type": "string",
+      "total_count": 403,
+      "missing_count": 0,
+      "distribution": [
+        {
+          "value": "华东",
+          "count": 183
+        },
+        {
+          "value": "华中",
+          "count": 30
+        },
+        {
+          "value": "华北",
+          "count": 59
+        },
+        {
+          "value": "华南",
+          "count": 89
+        },
+        {
+          "value": "西南",
+          "count": 42
+        }
+      ]
+    },
+    {
+      "source_file": "crm_shop.csv",
+      "field": "open_dt",
+      "inferred_type": "date",
+      "total_count": 403,
+      "missing_count": 0,
+      "range": {
+        "min": "2016-01-03",
+        "max": "2026-07-26"
+      }
+    },
+    {
+      "source_file": "crm_shop.csv",
+      "field": "shop_stat",
+      "inferred_type": "string",
+      "total_count": 403,
+      "missing_count": 0,
+      "distribution": [
+        {
+          "value": "营业",
+          "count": 400
+        },
+        {
+          "value": "闭店",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "source_file": "小林工作账_勿扰名单.csv",
+      "field": "会员号",
+      "inferred_type": "string",
+      "total_count": 121,
+      "missing_count": 0,
+      "range": {
+        "min": "QH10000419",
+        "max": "QH10103378"
+      }
+    },
+    {
+      "source_file": "小林工作账_勿扰名单.csv",
+      "field": "原因",
+      "inferred_type": "string",
+      "total_count": 121,
+      "missing_count": 0,
+      "distribution": [
+        {
+          "value": "其他",
+          "count": 17
+        },
+        {
+          "value": "投诉",
+          "count": 29
+        },
+        {
+          "value": "本人要求",
+          "count": 75
+        }
+      ]
+    },
+    {
+      "source_file": "小林工作账_勿扰名单.csv",
+      "field": "登记日期",
+      "inferred_type": "date",
+      "total_count": 121,
+      "missing_count": 0,
+      "range": {
+        "min": "2024-11-10",
+        "max": "2026-08-31"
+      }
+    },
+    {
+      "source_file": "小林工作账_回访名单.csv",
+      "field": "会员号",
+      "inferred_type": "string",
+      "total_count": 301,
+      "missing_count": 0,
+      "range": {
+        "min": "QH10000184",
+        "max": "QH10106624"
+      }
+    },
+    {
+      "source_file": "小林工作账_回访名单.csv",
+      "field": "姓名",
+      "inferred_type": "string",
+      "total_count": 301,
+      "missing_count": 0,
+      "range": {
+        "min": "丁天慧",
+        "max": "龚泉行"
+      }
+    },
+    {
+      "source_file": "小林工作账_回访名单.csv",
+      "field": "门店",
+      "inferred_type": "string",
+      "total_count": 301,
+      "missing_count": 0,
+      "range": {
+        "min": "上海中山公园店",
+        "max": "重庆龙兴便民店"
+      }
+    },
+    {
+      "source_file": "小林工作账_回访名单.csv",
+      "field": "最近购买",
+      "inferred_type": "date",
+      "total_count": 301,
+      "missing_count": 0,
+      "range": {
+        "min": "2024-09-08",
+        "max": "2026-06-14"
+      }
+    },
+    {
+      "source_file": "小林工作账_回访名单.csv",
+      "field": "分组",
+      "inferred_type": "string",
+      "total_count": 301,
+      "missing_count": 0,
+      "distribution": [
+        {
+          "value": "沉睡60天",
+          "count": 15
+        },
+        {
+          "value": "沉睡90天",
+          "count": 286
+        }
+      ]
+    },
+    {
+      "source_file": "小林工作账_回访名单.csv",
+      "field": "回访日期",
+      "inferred_type": "date",
+      "total_count": 301,
+      "missing_count": 33,
+      "range": {
+        "min": "2026-06-01",
+        "max": "2026-08-31"
+      }
+    },
+    {
+      "source_file": "小林工作账_回访名单.csv",
+      "field": "回访结果",
+      "inferred_type": "string",
+      "total_count": 301,
+      "missing_count": 33,
+      "distribution": [
+        {
+          "value": "",
+          "count": 30
+        },
+        {
+          "value": "-",
+          "count": 2
+        },
+        {
+          "value": "已联系-无意向",
+          "count": 87
+        },
+        {
+          "value": "已联系-有意向",
+          "count": 60
+        },
+        {
+          "value": "无",
+          "count": 1
+        },
+        {
+          "value": "未接通",
+          "count": 71
+        },
+        {
+          "value": "要求不再联系",
+          "count": 26
+        },
+        {
+          "value": "说在门店用老卡买",
+          "count": 24
+        }
+      ]
+    },
+    {
+      "source_file": "小林工作账_回访名单.csv",
+      "field": "备注",
+      "inferred_type": "string",
+      "total_count": 301,
+      "missing_count": 14,
+      "range": {
+        "min": "丁天慧这段时间不需要了，也请先停掉回访。",
+        "max": "黄慧铭这段时间不需要了，也请先停掉回访。"
+      }
+    },
+    {
+      "source_file": "小林工作账_回访名单.csv",
+      "field": "拉名单日期",
+      "inferred_type": "date",
+      "total_count": 301,
+      "missing_count": 0,
+      "distribution": [
+        {
+          "value": "2026-06-01",
+          "count": 27
+        },
+        {
+          "value": "2026-06-08",
+          "count": 20
+        },
+        {
+          "value": "2026-06-15",
+          "count": 23
+        },
+        {
+          "value": "2026-06-22",
+          "count": 22
+        },
+        {
+          "value": "2026-06-29",
+          "count": 19
+        },
+        {
+          "value": "2026-07-06",
+          "count": 20
+        },
+        {
+          "value": "2026-07-13",
+          "count": 17
+        },
+        {
+          "value": "2026-07-20",
+          "count": 21
+        },
+        {
+          "value": "2026-07-27",
+          "count": 19
+        },
+        {
+          "value": "2026-08-03",
+          "count": 16
+        },
+        {
+          "value": "2026-08-10",
+          "count": 21
+        },
+        {
+          "value": "2026-08-17",
+          "count": 27
+        },
+        {
+          "value": "2026-08-24",
+          "count": 19
+        },
+        {
+          "value": "2026-08-31",
+          "count": 30
+        }
+      ]
+    }
+  ],
+  "anomalies": [
+    {
+      "pattern": "完全重复行：336 条与前文记录逐字段相同，其中 336 条紧跟每 1000 条分页边界（疑似分页导出重叠）",
+      "evidence": {
+        "source_file": "crm_order_export.csv",
+        "sample_rows": [
+          1001,
+          1002,
+          1003,
+          2001,
+          3001,
+          3002,
+          3003,
+          4001,
+          4002,
+          5001,
+          5002,
+          5003,
+          6001,
+          6002,
+          7001,
+          7002,
+          8001,
+          10001,
+          10002,
+          10003
+        ]
+      }
+    },
+    {
+      "pattern": "门店编码格式不一：shop_cd 有 2 条含首尾空格、全角数字或小写字母，规范化后才能关联门店表",
+      "evidence": {
+        "source_file": "crm_shop.csv",
+        "sample_rows": [
+          89,
+          285
+        ]
+      }
+    },
+    {
+      "pattern": "门店编码出现字母开头：shop_cd 有 58 条形如 A446 的编码，不是字典写的 4 位数字",
+      "evidence": {
+        "source_file": "crm_shop.csv",
+        "sample_rows": [
+          346,
+          347,
+          348,
+          349,
+          350,
+          351,
+          352,
+          353,
+          354,
+          355,
+          356,
+          357,
+          358,
+          359,
+          360,
+          361,
+          362,
+          363,
+          364,
+          365
+        ]
+      }
+    },
+    {
+      "pattern": "门店编码格式不一：reg_shop 有 586 条含首尾空格、全角数字或小写字母，规范化后才能关联门店表",
+      "evidence": {
+        "source_file": "crm_member_export.csv",
+        "sample_rows": [
+          22,
+          443,
+          461,
+          754,
+          957,
+          1140,
+          1403,
+          1429,
+          1931,
+          2055,
+          2056,
+          2480,
+          2494,
+          2712,
+          2735,
+          2752,
+          2754,
+          2873,
+          2880,
+          3109
+        ]
+      }
+    },
+    {
+      "pattern": "门店编码出现字母开头：reg_shop 有 5778 条形如 A446 的编码，不是字典写的 4 位数字",
+      "evidence": {
+        "source_file": "crm_member_export.csv",
+        "sample_rows": [
+          33126,
+          33144,
+          33203,
+          33224,
+          33308,
+          33319,
+          33430,
+          33548,
+          33564,
+          33732,
+          33847,
+          33925,
+          34090,
+          34127,
+          34375,
+          34474,
+          34486,
+          34624,
+          34631,
+          34635
+        ]
+      }
+    },
+    {
+      "pattern": "门店编码格式不一：shop_cd 有 862 条含首尾空格、全角数字或小写字母，规范化后才能关联门店表",
+      "evidence": {
+        "source_file": "crm_order_export.csv",
+        "sample_rows": [
+          318,
+          450,
+          871,
+          948,
+          1838,
+          2134,
+          2200,
+          2207,
+          2587,
+          2659,
+          2673,
+          2983,
+          3053,
+          3471,
+          3608,
+          4217,
+          4255,
+          4345,
+          4593,
+          4693
+        ]
+      }
+    },
+    {
+      "pattern": "门店编码出现字母开头：shop_cd 有 9267 条形如 A446 的编码，不是字典写的 4 位数字",
+      "evidence": {
+        "source_file": "crm_order_export.csv",
+        "sample_rows": [
+          21280,
+          21641,
+          22094,
+          22468,
+          22643,
+          22645,
+          23189,
+          23342,
+          24229,
+          24942,
+          25042,
+          25059,
+          25586,
+          26101,
+          26295,
+          26401,
+          26699,
+          26809,
+          26898,
+          27017
+        ]
+      }
+    },
+    {
+      "pattern": "日期格式混用：join_dt 有 3613 条不是 ISO 写法（YYYY/MM/DD 1823 条、YYYYMMDD 1790 条）",
+      "evidence": {
+        "source_file": "crm_member_export.csv",
+        "sample_rows": [
+          49,
+          69,
+          102,
+          137,
+          144,
+          154,
+          173,
+          174,
+          180,
+          194,
+          198,
+          252,
+          281,
+          321,
+          365,
+          373,
+          382,
+          395,
+          407,
+          480
+        ]
+      }
+    },
+    {
+      "pattern": "字典外取值：card_kind 出现 悦享年卡 8178 条、员工卡 299 条",
+      "evidence": {
+        "source_file": "crm_card_export.csv",
+        "sample_rows": [
+          1047,
+          1790,
+          1921,
+          1922,
+          1923,
+          1925,
+          1929,
+          1930,
+          1932,
+          1933,
+          1935,
+          1936,
+          1938,
+          1940,
+          1941,
+          1942,
+          1944,
+          1946,
+          1947,
+          1948
+        ]
+      }
+    },
+    {
+      "pattern": "字典外代码：stat 出现 0 22296 条，字典只定义 1、2、3",
+      "evidence": {
+        "source_file": "crm_member_export.csv",
+        "sample_rows": [
+          13,
+          41,
+          76,
+          107,
+          115,
+          169,
+          192,
+          195,
+          259,
+          332,
+          473,
+          483,
+          680,
+          685,
+          718,
+          829,
+          845,
+          873,
+          877,
+          902
+        ]
+      }
+    },
+    {
+      "pattern": "字典外取值：src_ch 出现 系统导入 39917 条",
+      "evidence": {
+        "source_file": "crm_member_export.csv",
+        "sample_rows": [
+          37504,
+          37505,
+          37506,
+          37507,
+          37508,
+          37509,
+          37510,
+          37511,
+          37512,
+          37513,
+          37514,
+          37515,
+          37516,
+          37517,
+          37518,
+          37519,
+          37520,
+          37521,
+          37522,
+          37523
+        ]
+      }
+    },
+    {
+      "pattern": "字典外取值：area 出现 西南 42 条、华中 30 条",
+      "evidence": {
+        "source_file": "crm_shop.csv",
+        "sample_rows": [
+          3,
+          11,
+          17,
+          20,
+          21,
+          32,
+          36,
+          37,
+          39,
+          42,
+          53,
+          60,
+          69,
+          81,
+          90,
+          91,
+          94,
+          99,
+          102,
+          110
+        ]
+      }
+    },
+    {
+      "pattern": "金额带小数：pay_amt 有 16648 条带两位小数（如 199.00），与字典“整数分”不符",
+      "evidence": {
+        "source_file": "crm_card_export.csv",
+        "sample_rows": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      }
+    },
+    {
+      "pattern": "金额带小数：amt_total 有 168253 条带两位小数（如 61.01），与字典“整数分”不符",
+      "evidence": {
+        "source_file": "crm_order_export.csv",
+        "sample_rows": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      }
+    },
+    {
+      "pattern": "金额带小数：amt_pay 有 168253 条带两位小数（如 54.91），与字典“整数分”不符",
+      "evidence": {
+        "source_file": "crm_order_export.csv",
+        "sample_rows": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      }
+    },
+    {
+      "pattern": "金额带小数：amt_rfd 有 168253 条带两位小数（如 54.91），与字典“整数分”不符",
+      "evidence": {
+        "source_file": "crm_order_export.csv",
+        "sample_rows": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      }
+    },
+    {
+      "pattern": "退款金额大于实付：84 条订单 amt_rfd > amt_pay（净消费为负）",
+      "evidence": {
+        "source_file": "crm_order_export.csv",
+        "sample_rows": [
+          2851,
+          5749,
+          6743,
+          8207,
+          10302,
+          11363,
+          13043,
+          13110,
+          15612,
+          17572,
+          19059,
+          23699,
+          24185,
+          25069,
+          25302,
+          26989,
+          28471,
+          30184,
+          30682,
+          31826
+        ]
+      }
+    },
+    {
+      "pattern": "件数异常大：9 条订单 qty > 50，疑似团购或录入错误",
+      "evidence": {
+        "source_file": "crm_order_export.csv",
+        "sample_rows": [
+          686,
+          11936,
+          23722,
+          25832,
+          54037,
+          67921,
+          87453,
+          113728,
+          127874
+        ]
+      }
+    },
+    {
+      "pattern": "孤儿订单：168 条记录的会员号在会员表中找不到关联（涉及 75 个会员号；其中 75 个会员号落在会员表编号区间内（会员表区间内缺号 101 个），疑似会员导出缺页）",
+      "evidence": {
+        "source_file": "crm_order_export.csv",
+        "sample_rows": [
+          51052,
+          51178,
+          51442,
+          58182,
+          58691,
+          67782,
+          73721,
+          73767,
+          74299,
+          75435,
+          80076,
+          80544,
+          81415,
+          81935,
+          85408,
+          85903,
+          86054,
+          86192,
+          86561,
+          86924
+        ]
+      }
+    },
+    {
+      "pattern": "空值写法不一：tag 用 - 8625 条、NULL 6685 条、无 3183 条 表示无标签",
+      "evidence": {
+        "source_file": "crm_member_export.csv",
+        "sample_rows": [
+          1,
+          11,
+          15,
+          19,
+          29,
+          47,
+          49,
+          69,
+          76,
+          78,
+          82,
+          100,
+          101,
+          103,
+          111,
+          117,
+          121,
+          125,
+          149,
+          154
+        ]
+      }
+    },
+    {
+      "pattern": "标签分隔符混用：10502 条使用中文逗号、分号、斜杠或空格分隔",
+      "evidence": {
+        "source_file": "crm_member_export.csv",
+        "sample_rows": [
+          4,
+          6,
+          9,
+          16,
+          34,
+          41,
+          44,
+          59,
+          110,
+          115,
+          118,
+          160,
+          171,
+          195,
+          214,
+          221,
+          238,
+          257,
+          265,
+          283
+        ]
+      }
+    },
+    {
+      "pattern": "标签字段混入备注：10434 条含附录标签表以外的内容（190 种，常见：小程序偏好、夜间购物、银发族、电话暂时打不通、联系状态-优先留微信消息、服务-下次到店再核资料、客户关系-常在附近上班、熟客-店长认识）",
+      "evidence": {
+        "source_file": "crm_member_export.csv",
+        "sample_rows": [
+          4,
+          9,
+          10,
+          13,
+          22,
+          33,
+          40,
+          44,
+          57,
+          59,
+          60,
+          83,
+          97,
+          106,
+          110,
+          138,
+          144,
+          172,
+          184,
+          201
+        ]
+      }
+    },
+    {
+      "pattern": "标签字段含触达限制备注：443 条（如 勿打电话、勿发短信），字典未定义此类内容",
+      "evidence": {
+        "source_file": "crm_member_export.csv",
+        "sample_rows": [
+          201,
+          419,
+          858,
+          865,
+          1120,
+          1598,
+          1979,
+          2457,
+          2723,
+          3157,
+          3555,
+          4024,
+          4025,
+          4367,
+          4983,
+          5205,
+          5249,
+          5269,
+          5464,
+          5570
+        ]
+      }
+    },
+    {
+      "pattern": "姓名为占位词“顾客”：6809 条",
+      "evidence": {
+        "source_file": "crm_member_export.csv",
+        "sample_rows": [
+          122,
+          124,
+          926,
+          927,
+          929,
+          931,
+          932,
+          935,
+          1470,
+          1472,
+          1518,
+          1520,
+          1522,
+          2335,
+          2337,
+          2338,
+          2340,
+          2407,
+          2409,
+          3223
+        ]
+      }
+    },
+    {
+      "pattern": "手机号已脱敏：119754 条中间四位为 ****，脱敏后 76405 条与他人重号，无法用手机号识别同一人",
+      "evidence": {
+        "source_file": "crm_member_export.csv",
+        "sample_rows": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      }
+    },
+    {
+      "pattern": "系统迁移批次：39917 条注册渠道为“系统导入”，create_tm 集中在 2025-03-15 前后（当日 18424 条），reg_dev 为空；create_tm 晚于 join_dt 的有 39917 条",
+      "evidence": {
+        "source_file": "crm_member_export.csv",
+        "sample_rows": [
+          37504,
+          37505,
+          37506,
+          37507,
+          37508,
+          37509,
+          37510,
+          37511,
+          37512,
+          37513,
+          37514,
+          37515,
+          37516,
+          37517,
+          37518,
+          37519,
+          37520,
+          37521,
+          37522,
+          37523
+        ]
+      }
+    },
+    {
+      "pattern": "门店名称重复：35 个店名对应多个门店编码，共 99 条",
+      "evidence": {
+        "source_file": "crm_shop.csv",
+        "sample_rows": [
+          4,
+          8,
+          11,
+          12,
+          14,
+          17,
+          21,
+          28,
+          42,
+          55,
+          60,
+          63,
+          65,
+          67,
+          81,
+          84,
+          94,
+          100,
+          105,
+          110
+        ]
+      }
+    },
+    {
+      "pattern": "闭店门店仍有订单：582 条订单发生在 3 家闭店门店，门店表没有闭店日期，无法判断订单是否在闭店之后",
+      "evidence": {
+        "source_file": "crm_order_export.csv",
+        "sample_rows": [
+          115,
+          595,
+          613,
+          1199,
+          1444,
+          1735,
+          1780,
+          1807,
+          1875,
+          2000,
+          2001,
+          2116,
+          2119,
+          2928,
+          3208,
+          3253,
+          3504,
+          3519,
+          3641,
+          3766
+        ]
+      }
+    },
+    {
+      "pattern": "勿扰名单与 CRM 不一致：工作账 30 人在 CRM 标签/备注里没有触达限制记录",
+      "evidence": {
+        "source_file": "小林工作账_勿扰名单.csv",
+        "sample_rows": [
+          2,
+          7,
+          8,
+          11,
+          16,
+          18,
+          22,
+          26,
+          31,
+          33,
+          37,
+          42,
+          43,
+          45,
+          48,
+          49,
+          53,
+          58,
+          63,
+          70
+        ]
+      }
+    },
+    {
+      "pattern": "空值写法不一：stop_dt 用 空串 10301 条、NULL 4441 条、- 965 条、无 47 条 表示缺失",
+      "evidence": {
+        "source_file": "crm_card_export.csv",
+        "sample_rows": [
+          5,
+          9,
+          10,
+          21,
+          31,
+          35,
+          41,
+          42,
+          46,
+          47,
+          53,
+          58,
+          60,
+          61,
+          65,
+          69,
+          72,
+          76,
+          81,
+          85
+        ]
+      }
+    },
+    {
+      "pattern": "空值写法不一：nm 用 空串 4179 条、NULL 888 条、无 521 条、- 112 条 表示缺失",
+      "evidence": {
+        "source_file": "crm_member_export.csv",
+        "sample_rows": [
+          30,
+          934,
+          1420,
+          1519,
+          2333,
+          2408,
+          2511,
+          3237,
+          3238,
+          3240,
+          3241,
+          5035,
+          5036,
+          5256,
+          5262,
+          5503,
+          5550,
+          5551,
+          5803,
+          6693
+        ]
+      }
+    },
+    {
+      "pattern": "空值写法不一：birth 用 空串 12721 条、NULL 6222 条、- 1975 条、无 243 条 表示缺失",
+      "evidence": {
+        "source_file": "crm_member_export.csv",
+        "sample_rows": [
+          42,
+          54,
+          82,
+          101,
+          106,
+          123,
+          128,
+          132,
+          205,
+          238,
+          247,
+          301,
+          332,
+          421,
+          432,
+          539,
+          661,
+          672,
+          693,
+          914
+        ]
+      }
+    },
+    {
+      "pattern": "空值写法不一：回访日期 用 空串 28 条、- 4 条、无 1 条 表示缺失",
+      "evidence": {
+        "source_file": "小林工作账_回访名单.csv",
+        "sample_rows": [
+          4,
+          15,
+          58,
+          100,
+          299
+        ]
+      }
+    },
+    {
+      "pattern": "空值写法不一：回访结果 用 空串 30 条、- 2 条、无 1 条 表示缺失",
+      "evidence": {
+        "source_file": "小林工作账_回访名单.csv",
+        "sample_rows": [
+          4,
+          100,
+          169
+        ]
+      }
+    }
+  ],
+  "dictionary_differences": [
+    {
+      "source_file": "crm_order_export.csv",
+      "field": "ord_no",
+      "dictionary_claim": "唯一",
+      "actual": "336 条记录编号重复（完全相同 336 条，内容不同 0 条）",
+      "impact": "按主键去重前会重复计入订单数和金额；完全相同的按分页重叠去重，内容不同的隔离待核"
+    },
+    {
+      "source_file": "crm_shop.csv",
+      "field": "shop_cd",
+      "dictionary_claim": "4 位数字门店编码",
+      "actual": "58 条为“字母+3 位数字”编码，这些门店开业日期在 2025-01-02 至 2026-07-26；另有 2 条只是空格/全角/大小写写法不同",
+      "impact": "按 4 位数字校验会把新编码门店的订单和会员误判为无效；写法差异在映射时规范化，字母编码保留并请客户确认编码规则"
+    },
+    {
+      "source_file": "crm_member_export.csv",
+      "field": "reg_shop",
+      "dictionary_claim": "4 位数字门店编码",
+      "actual": "5778 条为“字母+3 位数字”编码；另有 586 条只是空格/全角/大小写写法不同",
+      "impact": "按 4 位数字校验会把新编码门店的订单和会员误判为无效；写法差异在映射时规范化，字母编码保留并请客户确认编码规则"
+    },
+    {
+      "source_file": "crm_member_export.csv",
+      "field": "join_dt",
+      "dictionary_claim": "日期（未注明格式，其余记录为 ISO）",
+      "actual": "3613 条使用 YYYY/MM/DD 1823 条、YYYYMMDD 1790 条",
+      "impact": "按单一格式解析会丢失或误判这些记录的日期；适配时多格式显式解析，统一为 ISO"
+    },
+    {
+      "source_file": "crm_card_export.csv",
+      "field": "card_kind",
+      "dictionary_claim": "悦享卡（年）、家庭季卡、异业联名卡、体验卡",
+      "actual": "另有字典未列的取值 悦享年卡 8178 条、员工卡 299 条",
+      "impact": "同一卡种存在新旧两种名称，需合并映射后再按卡种统计；字典外卡种（如员工卡）是否计入付费会员需客户确认"
+    },
+    {
+      "source_file": "crm_member_export.csv",
+      "field": "lv",
+      "dictionary_claim": "代码：1 普通，2 银卡，3 金卡",
+      "actual": "实际存中文名称而非代码：普通 83900 条、银卡 26322 条、金卡 9532 条",
+      "impact": "映射时按名称取值，不能按 1/2/3 代码翻译，否则全部落空"
+    },
+    {
+      "source_file": "crm_member_export.csv",
+      "field": "stat",
+      "dictionary_claim": "代码：1 正常，2 冻结，3 注销",
+      "actual": "另有字典未定义的取值 0 22296 条",
+      "impact": "含义不明的状态不能并入“正常”或丢弃；保留原值，影响活跃会员数等口径，需向 IT 确认含义"
+    },
+    {
+      "source_file": "crm_member_export.csv",
+      "field": "src_ch",
+      "dictionary_claim": "门店、小程序、商城",
+      "actual": "另有字典未列的取值 系统导入 39917 条",
+      "impact": "“系统导入”不是会员真实注册渠道，按渠道统计新会员会失真；需向 IT 确认迁移批次的原始渠道"
+    },
+    {
+      "source_file": "crm_shop.csv",
+      "field": "area",
+      "dictionary_claim": "华东、华南、华北",
+      "actual": "另有字典未列的取值 西南 42 条、华中 30 条",
+      "impact": "按大区汇总时字典外大区不能丢弃；需按实际大区更新字典"
+    },
+    {
+      "source_file": "crm_card_export.csv",
+      "field": "pay_amt",
+      "dictionary_claim": "整数，单位：分",
+      "actual": "16648/16648 条为带两位小数的元，如 199.00",
+      "impact": "若按“分”读入，所有金额缩小 100 倍；映射时按元×100 转为整数分"
+    },
+    {
+      "source_file": "crm_order_export.csv",
+      "field": "amt_total",
+      "dictionary_claim": "整数，单位：分",
+      "actual": "168253/168253 条为带两位小数的元，如 61.01",
+      "impact": "若按“分”读入，所有金额缩小 100 倍；映射时按元×100 转为整数分"
+    },
+    {
+      "source_file": "crm_order_export.csv",
+      "field": "amt_pay",
+      "dictionary_claim": "整数，单位：分",
+      "actual": "168253/168253 条为带两位小数的元，如 54.91",
+      "impact": "若按“分”读入，所有金额缩小 100 倍；映射时按元×100 转为整数分"
+    },
+    {
+      "source_file": "crm_order_export.csv",
+      "field": "amt_rfd",
+      "dictionary_claim": "整数，单位：分",
+      "actual": "168253/168253 条为带两位小数的元，如 54.91",
+      "impact": "若按“分”读入，所有金额缩小 100 倍；映射时按元×100 转为整数分"
+    },
+    {
+      "source_file": "crm_order_export.csv",
+      "field": "hy_id",
+      "dictionary_claim": "见会员表（应能关联到会员）",
+      "actual": "168 条记录关联不到会员表，涉及 75 个会员号",
+      "impact": "这些会员的属性、标签、注册信息暂缺；不能算作“无会员”，隔离并写入覆盖说明，向 IT 要补导"
+    },
+    {
+      "source_file": "crm_member_export.csv",
+      "field": "tag",
+      "dictionary_claim": "多个标签用逗号分隔",
+      "actual": "10502 条还用了“，”“;”“；”“/”或空格分隔",
+      "impact": "只按英文逗号拆分会把多个标签粘成一个未知值；拆分时连字符不能作分隔符（母婴-0到3岁 是合法标签）"
+    },
+    {
+      "source_file": "crm_member_export.csv",
+      "field": "tag",
+      "dictionary_claim": "取值见附录标签表（12 个）",
+      "actual": "10434 条含表外内容 190 种，常见：小程序偏好、夜间购物、银发族、电话暂时打不通、联系状态-优先留微信消息、服务-下次到店再核资料、客户关系-常在附近上班、熟客-店长认识；其中既有疑似新标签，也有带句号或“类别-内容”写法的手写备注",
+      "impact": "不能当无效值删除；确认过的新标签进标签表，备注整条保留原文和来源，触达限制类备注必须识别出来"
+    },
+    {
+      "source_file": "crm_member_export.csv",
+      "field": "mobile",
+      "dictionary_claim": "11 位手机号",
+      "actual": "119754 条为 3+****+4 脱敏格式（按公司规定）",
+      "impact": "不能用手机号做身份合并或触达；身份合并只能依赖会员号"
+    },
+    {
+      "source_file": "crm_member_export.csv",
+      "field": "create_tm、reg_dev",
+      "dictionary_claim": "字典未定义该字段",
+      "actual": "导出含字典外字段 create_tm、reg_dev；create_tm 是建档时间，迁移会员的 create_tm 是迁移日期",
+      "impact": "注册日期必须用 join_dt，不能用 create_tm，否则迁移会员会被算成 2025 年 3 月的新会员"
+    }
+  ]
+}

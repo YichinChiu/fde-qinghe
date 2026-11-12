@@ -1,0 +1,99 @@
+{
+  "status": "ok",
+  "intent": {
+    "metrics": [
+      "monthly_repeat_rate"
+    ],
+    "start": "2025-09-01",
+    "end": "2026-09-01",
+    "group_by": [
+      "metric_time__month"
+    ],
+    "filters": []
+  },
+  "sql": "SELECT\n  metric_time__month\n  , CAST(monthly_repeat_buyer_count AS DOUBLE) / CAST(NULLIF(monthly_buyer_count, 0) AS DOUBLE) AS monthly_repeat_rate\nFROM (\n  SELECT\n    metric_time__month\n    , COUNT(DISTINCT __monthly_repeat_buyer_count) AS monthly_repeat_buyer_count\n    , COUNT(DISTINCT __monthly_buyer_count) AS monthly_buyer_count\n  FROM (\n    SELECT\n      DATE_TRUNC('month', month_start) AS metric_time__month\n      , CASE WHEN valid_order_count >= 1 THEN member_id ELSE NULL END AS __monthly_buyer_count\n      , CASE WHEN valid_order_count >= 2 THEN member_id ELSE NULL END AS __monthly_repeat_buyer_count\n    FROM \"data\".\"main\".\"member_monthly_summary\" member_monthly_summary_model_src_10000\n    WHERE DATE_TRUNC('day', month_start) BETWEEN '2025-09-01' AND '2026-08-31'\n  ) subq_6\n  GROUP BY\n    metric_time__month\n) subq_8",
+  "columns": [
+    "metric_time__month",
+    "monthly_repeat_rate"
+  ],
+  "rows": [
+    [
+      "2026-02-01 00:00:00",
+      0.14084223252065284
+    ],
+    [
+      "2026-05-01 00:00:00",
+      0.13044342811692186
+    ],
+    [
+      "2025-12-01 00:00:00",
+      0.15120113047574188
+    ],
+    [
+      "2026-03-01 00:00:00",
+      0.1427061310782241
+    ],
+    [
+      "2025-11-01 00:00:00",
+      0.1533457249070632
+    ],
+    [
+      "2026-01-01 00:00:00",
+      0.14604966139954853
+    ],
+    [
+      "2026-08-01 00:00:00",
+      0.11803398501735794
+    ],
+    [
+      "2026-07-01 00:00:00",
+      0.1136986301369863
+    ],
+    [
+      "2026-06-01 00:00:00",
+      0.12929593163663386
+    ],
+    [
+      "2026-04-01 00:00:00",
+      0.1436943781202518
+    ],
+    [
+      "2025-10-01 00:00:00",
+      0.15957978989494748
+    ],
+    [
+      "2025-09-01 00:00:00",
+      0.16725978647686832
+    ]
+  ],
+  "seconds": 0.11,
+  "units": {
+    "monthly_repeat_rate": "ratio"
+  },
+  "data_version": "qinghe-w04-v1.1",
+  "data_sha256": "df42082e6974341333438c0f599c522fce7944e67132ca577d58d040673bf6d5",
+  "catalog_sha256": "2f6a39500926ba4b0809b769b117fd223c402ca29d52814a13cfc51f3ecd3655",
+  "coverage_notes": {
+    "source": "新 CRM 导出：会员、订单、会员卡、门店四个文件。不含门店老收银系统中的部分会员消费（老周 MSG-05387、MSG-05395，涉及门店与时间段待核），CRM 中“未购买”不等于没有消费。已注销会员的资料按公司规定清理，订单保留但无法关联会员，按 UNLINKED_ACCOUNT 隔离（老周 MSG-05387）。手机号已中间四位脱敏；姓名、手机号、生日不进入查询库。小林工作账（回访名单、勿扰名单）只用于对照、未导入查询库；勿扰名单中有会员在 CRM 无触达限制，触达名单须另用工作账过滤。",
+    "time_range": {
+      "start": "2024-09-01",
+      "end_exclusive": "2026-09-01"
+    },
+    "quarantined": {
+      "shop": 0,
+      "member": 0,
+      "order": 252,
+      "card": 0
+    }
+  },
+  "answer": "在新 CRM 已导出的订单与会员账户数据中，2025年9月至2026年8月各月的月内复购率（月内复购会员账户数 / 月内购买会员账户数）如下：\n- 2025年09月：16.73%\n- 2025年10月：15.96%\n- 2025年11月：15.33%\n- 2025年12月：15.12%\n- 2026年01月：14.60%\n- 2026年02月：14.08%\n- 2026年03月：14.27%\n- 2026年04月：14.37%\n- 2026年05月：13.04%\n- 2026年06月：12.93%\n- 2026年07月：11.37%\n- 2026年08月：11.80%\n\n关于复购率是否在下降：\n- 在新 CRM 已导出的订单数据覆盖范围内，该指标数值整体呈现波动下行趋势，从2025年9月的16.73%逐步降至2026年7月的11.37%低点，并在2026年8月小幅回升至11.80%。\n- 但该统计仅反映新 CRM 现有数据内的数值变化，由于门店老收银系统中部分会员消费未导出到新系统、且已注销会员订单因合规清理无法关联账户，未覆盖的数据来源可能导致实际结论发生变化，因此不能直接推断青禾全公司或全部真实会员的复购率一定在下降。",
+  "question": "2025年9月到2026年8月，每个月的月内复购率分别是多少？复购率是不是在下降？",
+  "trace_id": "dbcb4938-2686-4d4d-b9bc-066fe05d50eb",
+  "elapsed_seconds": 22.938,
+  "model_usage": {
+    "prompt_tokens": 29745,
+    "completion_tokens": 611,
+    "total_tokens": 31681
+  },
+  "model_calls_with_usage": 2
+}

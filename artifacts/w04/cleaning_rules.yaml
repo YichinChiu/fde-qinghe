@@ -1,0 +1,155 @@
+# 青禾 W04 清洗规则。适配器（customer/w04/solution.py）逐条读取并执行，不只是说明。
+# abnormal_records[].condition 使用“类型:参数”写法，适配器按冒号前的类型解释参数：
+#   map:A=B|C=D        取值映射；allowed:A|B  允许取值；formats:...  日期格式；
+#   pattern:正则       备注识别；其余为固定判定名。
+# 依据中的 MSG 编号对应 artifacts/w04/interviews/ 下的原始访谈导出。
+contract_version: w04-0.1.0
+data_version: qinghe-w04-v1.1
+
+tag_cleaning:
+  delimiters: [',', '，', ';', '；', '/', ' ']
+  legal_tags_source: tags.txt
+  hyphenated_tag_handling: >-
+    先按分隔符切出片段，再整段匹配 tags.txt 的 16 个正式标签；连字符不是分隔符，
+    “母婴-0到3岁”“母婴-3到6岁”作为完整标签保留（小林 MSG-05406）。
+  unknown_tag_handling: >-
+    只有 tags.txt 中经客户确认的正式标签进入 member_tags；其他片段一律作为备注进入 member_notes，
+    不删除。字典附录 12 个加 2025 年新增 4 个（夜间购物、会员日活跃、小程序偏好、银发族）为正式标签（小林 MSG-05406）。
+  note_extraction: >-
+    非标签片段按出现顺序组成备注：片段以“关键词-”开头（见规则 note_new_keyword）、或前一条备注已以句号结束、
+    或当前还没有备注时，另起一条；否则视为前一条备注的续写，连同原分隔符并入前一条
+    （“卡务-11月办卡，门店留有登记”算一条、逗号保留，小林 MSG-05412）。
+    每条备注写 source_file、source_row、source_field=tag、raw_text=字段完整原值；类别按 note_category_* 规则依次判定。
+
+invalid_values:
+  - source_fields: [nm, birth, tag, reg_dev, reg_shop, stop_dt]
+    values: ['', 'NULL', '-', '无']
+    action: to_null
+    reason: >-
+      同一字段混用四种缺失写法（profile_report 空值写法不一）；老周认可统一按缺失处理（MSG-05403）；
+      陈姐确认提前终止日期空着表示没有提前终止（MSG-05434）。tag 为缺失时不产生标签和备注。
+
+abnormal_records:
+  # ---- 规范化 ----
+  - rule_id: money_yuan
+    condition: decimal_yuan_to_cents
+    action: normalize
+    reason_code: YUAN_TO_CENTS
+    evidence: 订单三个金额和卡表 pay_amt 全部为两位小数的元；老周确认按元导出、字典“整数分”未更新（MSG-05381）。Decimal 乘 100，非整分隔离。
+  - rule_id: dates
+    condition: formats:%Y-%m-%d|%Y/%m/%d|%Y%m%d|%Y-%m-%d %H:%M:%S
+    action: normalize
+    reason_code: DATE_NORMALIZED
+    evidence: join_dt 有 YYYY/MM/DD 1,823 条、YYYYMMDD 1,790 条；老周认可统一解析（MSG-05399）。订单取本地日期。
+  - rule_id: store_code
+    condition: nfkc_trim_upper
+    action: normalize
+    reason_code: STORE_CODE_NORMALIZED
+    evidence: 门店编码含首尾空格、全角空格、全角数字或小写（订单 862 条、会员 586 条、门店表 2 条），规范化后全部能关联门店表。字母开头编码合法保留（老周 MSG-05391）。
+  - rule_id: account_status
+    condition: map:1=活跃|2=冻结|3=注销|0=未激活
+    action: normalize
+    reason_code: ACCOUNT_STATUS_MAPPED
+    evidence: 字典定义 1/2/3；老周确认 0 为未激活、字典漏写（MSG-05383）。其他取值隔离。
+  - rule_id: tier
+    condition: map:普通=普通|银卡=银卡|金卡=金卡|1=普通|2=银卡|3=金卡
+    action: normalize
+    reason_code: TIER_MAPPED
+    evidence: 导出直接存中文名称，老周确认后来改了存法（MSG-05383）；同时兼容字典的代码写法。
+  - rule_id: order_status
+    condition: map:已完成=paid|已支付=paid|部分退款=paid|全额退款=paid|已取消=cancelled
+    action: normalize
+    reason_code: ORDER_STATUS_MAPPED
+    evidence: 小林书面口径“净消费是实付减退款，取消订单不算”（客户材料 04）；229 笔已支付全部在 2026-08-25～31。老周、小林未逐状态确认（MSG-05397、MSG-05424），为待核的建模选择。未列出的状态隔离。
+  - rule_id: card_alias
+    condition: map:悦享卡（年）=悦享年卡
+    action: normalize
+    reason_code: CARD_TYPE_RENAMED
+    evidence: 陈姐确认悦享卡（年）是悦享年卡以前的叫法，2023 年 11 月中旬改名，权益价格不变（MSG-05432、MSG-05442）。
+  # ---- 去重与隔离 ----
+  - rule_id: exact_duplicate
+    condition: exact_duplicate
+    action: deduplicate
+    reason_code: EXACT_DUPLICATE
+    evidence: 订单 336 条逐字段完全相同，位于每 1,000 条分页边界；老周确认分页导出有少量重复、保留一条（MSG-05387）。
+  - rule_id: duplicate_key
+    condition: conflicting_primary_key
+    action: quarantine
+    reason_code: DUPLICATE_PRIMARY_KEY
+    evidence: 主键相同但内容不同时无法判断哪条为准，同一主键的各条都隔离（本次数据 0 条）。
+  - rule_id: orphan_member
+    condition: missing_member
+    action: quarantine
+    reason_code: UNLINKED_ACCOUNT
+    evidence: 168 条订单的会员号不在会员表；老周确认是会员注销后资料按规定清理、订单保留，补不了（MSG-05387）。
+  - rule_id: orphan_store
+    condition: missing_store
+    action: quarantine
+    reason_code: UNLINKED_STORE
+    evidence: 订单门店编码规范化后仍找不到门店表时隔离（本次数据 0 条）。
+  - rule_id: refund_exceeds_paid
+    condition: refund_gt_paid
+    action: quarantine
+    reason_code: REFUND_EXCEEDS_PAID
+    evidence: 84 条部分退款订单 amt_rfd 大于 amt_pay；老周确认是历史手工补录错误，需单独核查、不能直接改数（MSG-05393）。
+  - rule_id: invalid_date
+    condition: unparseable_date
+    action: quarantine
+    reason_code: INVALID_DATE
+    evidence: 日期无法按上述格式解析为真实日期（如 2 月 30 日）时保留整条原记录，不按订单号等其他字段推算修复。
+  - rule_id: invalid_money
+    condition: unparseable_money
+    action: quarantine
+    reason_code: INVALID_MONEY
+    evidence: 金额不是有限数值或不是整分时隔离。
+  - rule_id: card_types
+    condition: allowed:悦享年卡|家庭季卡|异业联名卡|体验卡|员工卡
+    action: quarantine
+    reason_code: UNSUPPORTED_CARD_TYPE
+    evidence: 卡种以导出实际为准（老周 MSG-05391）；员工卡为员工内购卡，合法保留但不计入付费会员（陈姐 MSG-05436）。清单外卡种隔离。
+  - rule_id: account_status_unknown
+    condition: unmapped_account_status
+    action: quarantine
+    reason_code: UNSUPPORTED_ACCOUNT_STATUS
+    evidence: 会员状态不在 account_status 映射中时隔离，不猜含义。
+  - rule_id: order_status_unknown
+    condition: unmapped_order_status
+    action: quarantine
+    reason_code: UNSUPPORTED_ORDER_STATUS
+    evidence: 订单状态不在 order_status 映射中时隔离。
+  - rule_id: channels
+    condition: allowed:门店|小程序|商城
+    action: quarantine
+    reason_code: UNSUPPORTED_CHANNEL
+    evidence: 导入契约只支持门店、小程序、商城三种订单渠道；本次数据全部在内。
+  # ---- 备注识别 ----
+  - rule_id: note_new_keyword
+    condition: pattern:^[^\s,，;；/。\-]{1,6}-
+    action: keep
+    reason_code: NOTE_SEGMENT
+    evidence: 小林确认备注一般是“关键词-说明”（MSG-05406）；以此判断另起一条。通用切分规则小林未确认（MSG-05412、MSG-05426），为待核的建模选择。
+  - rule_id: note_category_1
+    condition: pattern:触达限制=勿打电话|勿发短信|勿联系|勿扰|勿推送|勿打扰|不要打电话|不要发短信|不要再联系|不再联系|拒绝(电话|短信|联系|推送)|免打扰
+    action: keep
+    reason_code: NOTE_CONTACT_RESTRICTION
+    evidence: 小林确认“勿打电话-”“勿发短信-”开头的都是必须遵守的触达限制、原因不影响，且不能只看开头（MSG-05408、MSG-05426）；按包含判断，并覆盖同义写法。
+  - rule_id: note_category_2
+    condition: pattern:卡务=卡务|续卡|卡费|元卡|办卡|会员卡|预售
+    action: keep
+    reason_code: NOTE_CARD
+    evidence: 小林以“卡务-11月办卡，门店留有登记”为卡务备注（MSG-05406、MSG-05412）。
+  - rule_id: note_category_3
+    condition: pattern:联系状态=联系状态|电话|微信|号码|打不通|没接|回复|留言|联系方式|信号|下班后再问|周末才方便|换班时再跟进|看到了再回|请店长核一下
+    action: keep
+    reason_code: NOTE_CONTACT_STATUS
+    evidence: 小林确认“联系状态-下班后再问”“电话-上次没接”“微信-等本人回复”一类是联系状态说明（MSG-05408）；不带关键词的同内容句子（如“下班后再问。”对应“联系状态-下班后再问”）按同一类处理。
+  - rule_id: note_category_4
+    condition: pattern:客户关系=客户关系|熟客|老客户|VIP|认识|介绍|经常来|附近上班|当班经理|路过|朋友|习惯到店咨询
+    action: keep
+    reason_code: NOTE_RELATIONSHIP
+    evidence: 剖析中的“客户关系-”“熟客-”“老客户-”“VIP-”类备注；非触达类别交人工审阅。
+
+raw_preservation:
+  original_files: 原始 CSV 只读，adapt 时整目录复制到输出 raw/，manifest 记录每个原始文件的 SHA-256；工作账两份 CSV 一并保留但不导入。
+  notes: member_notes.csv 每条备注保留 source_file、source_row（不含表头、从 1 起）、source_field=tag 和 raw_text（tag 字段完整原值）；note_text 按原顺序拼接可还原全部非标签文字。
+  quarantine: quarantine.csv 保留 record_type、source_file、source_row、reason_code 和 raw_json（完整原记录，json.dumps ensure_ascii=False、sort_keys=True）；每条来源记录最多隔离一次。

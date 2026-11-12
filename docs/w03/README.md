@@ -6,10 +6,10 @@
 
 ## 安装与样例闭环
 
-已在 macOS、Python 3.11 上验证；Windows、Linux 如遇问题，请反馈给课程方。保留旧目录，在新目录解压 W03 包；新建 Python 3.11 虚拟环境，安装 `requirements-w03.txt`。dbt、MetricFlow 与 DuckDB 已锁版本，不要在 W02 原环境直接升级依赖。本机没有 `python3.11` 命令时，用你安装 Python 的工具找到 3.11 解释器的完整路径，代替下面第一行的 `python3.11`（例如 uv 可用 `uv python find 3.11`），其余命令不变。
+使用 Python 3.11 或更新版本；Windows、Linux 如遇问题，请反馈给课程方。保留旧目录，在新目录解压 W03 包；新建虚拟环境，安装 `requirements-w03.txt`。dbt、MetricFlow 与 DuckDB 已锁版本，不要在 W02 原环境直接升级依赖。下面第一行的 `python3` 要指向 3.11 或更新版本；本机默认版本低于 3.11 时，换成已安装的 3.11 以上解释器的完整路径，其余命令不变。
 
 ```sh
-python3.11 -m venv .venv
+python3 -m venv .venv
 .venv/bin/python -m pip --isolated install -r requirements-w03.txt
 .venv/bin/python tools/w03.py doctor
 ```
@@ -23,7 +23,7 @@ Windows：先在 PowerShell 执行 `setx PYTHONUTF8 1`，关闭并重新打开�
 .venv/bin/python tools/product.py start --home .runtime/product
 ```
 
-打开原聊天页面 `http://127.0.0.1:8765`，问“2026 年 8 月梧桐书店扣退后收入是多少？”。正确样例为 130 元；数据里的金额为分。加载会创建数据库和 dbt 项目，已存在的项目目录不覆盖；每次修改库后用新版本路径加载，并重启 Agent。已经加载过、当时没有加 `--activate-home` 的项目，用 `tools/w03.py activate --project 项目路径 --home .runtime/product` 接入聊天，再重启 Agent。加载失败时绑定不变，输出中的 `active_project` 就是聊天仍在使用的项目。
+打开原聊天页面 `http://127.0.0.1:8765`，问“2026 年 8 月梧桐书店扣退后收入是多少？”。正确样例为 130 元；数据里的金额为分。加载会创建数据库和 dbt 项目，已存在的项目目录不覆盖；每次修改库后用新版本路径加载，并重启 Agent。
 
 样例校验实际调用同一标准问数内核（自然语言理解、原生查询、解释），不解析题目另查一遍：
 
@@ -46,14 +46,6 @@ Windows：先在 PowerShell 执行 `setx PYTHONUTF8 1`，关闭并重新打开�
 
 可以按 ID 选择 `--metrics`，但每批必须依赖闭合，完整语义模型在各批中同名同内容。`merge --inputs 路径1 路径2 --data materials/data/small --output artifacts/w03/library` 遇到同名模型内容冲突会停止；不再只合并 measures。复杂相互依赖的指标建议一次生成。
 
-定稿库固定放在 `artifacts/w03/library`，一律用 `merge` 生成；只有一个构建目录时也用 `merge` 单输入提升：
-
-```sh
-.venv/bin/python tools/w03.py merge --inputs artifacts/w03/build-v3 --data materials/data/small --output artifacts/w03/library
-```
-
-`merge` 不写入已存在的目录。更新定稿库时，先把旧的 `artifacts/w03/library` 改名留存或删除，再执行上面的命令；不要把新构建目录复制覆盖到旧目录上，旧版本留下的 SQL 文件会被一起加载。定稿库变化后，用新版本路径重新加载并重跑测试。
-
 完整库通过检查后加载小样本；路径假设数据包放在 `materials/data`：
 
 ```sh
@@ -69,7 +61,7 @@ Windows：先在 PowerShell 执行 `setx PYTHONUTF8 1`，关闭并重新打开�
 .venv/bin/python tools/w03.py test --project .runtime/qinghe-small-v1 --cases customer/w03/tests.json --output artifacts/w03/test-small-v1 --judge-command .venv/bin/python customer/w03/judge.py
 ```
 
-在规模数据上新建 `.runtime/qinghe-large-v1` 再验证；期望必须基于对应数据集独立计算，不能照抄小样本答案。最后将选定报告复制到 `artifacts/w03/metric_test_report.json`，执行 `check --workspace .`。预检检查交付结构、指标与维度目标覆盖及自报结果，并核对报告中实际执行的查询来自由当前 `artifacts/w03/library` 加载的项目（`catalog_sha256` 一致）；定稿库换过就要重新加载并重跑测试。教师另查语义与错误注入。
+在规模数据上新建 `.runtime/qinghe-large-v1` 再验证；期望必须基于对应数据集独立计算，不能照抄小样本答案。最后将选定报告复制到 `artifacts/w03/metric_test_report.json`，执行 `check --workspace .`。预检检查交付结构、指标与维度目标覆盖及自报结果，教师另查语义与错误注入。
 
 ## 接续 W02 业务模型
 
